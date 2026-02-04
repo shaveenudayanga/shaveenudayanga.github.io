@@ -610,6 +610,47 @@ body:hover .cursor-glow {
     margin-bottom: 40px;
 }
 
+.about-image-wrapper {
+    position: relative;
+    margin-bottom: 40px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.about-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: var(--transition-slow);
+}
+
+.about-image-wrapper:hover .about-image {
+    transform: scale(1.05);
+}
+
+.about-image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px 24px;
+    background: linear-gradient(to top, rgba(10, 10, 15, 0.95), transparent);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transform: translateY(100%);
+    transition: var(--transition-normal);
+}
+
+.about-image-wrapper:hover .about-image-caption {
+    transform: translateY(0);
+}
+
+.about-text {
+    margin-bottom: 40px;
+}
+
 .about-text p {
     color: var(--text-secondary);
     margin-bottom: 16px;

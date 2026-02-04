@@ -6,6 +6,8 @@
     <meta name="description" content="Shaveen Udayanga - Computer Science Student at University of Sri Jayewardenepura. Building solutions with AI, IoT, and Full-Stack Development.">
     <meta name="keywords" content="Shaveen Udayanga, Computer Science, AI, Machine Learning, IoT, Full-Stack Developer, Sri Lanka">
     <meta name="author" content="Shaveen Udayanga">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://shaveenudayanga.me/">
     
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
@@ -15,17 +17,59 @@
     <meta property="og:image" content="https://shaveenudayanga.me/images/profile-hero.webp">
     <meta name="twitter:card" content="summary_large_image">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+    <!-- Favicon & PWA -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     <title>Shaveen Udayanga | CS Student & Builder</title>
-    <link rel="stylesheet" href="./styles.css?v=2.0">
+    <link rel="stylesheet" href="./styles.css?v=3.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Shaveen Udayanga",
+        "url": "https://shaveenudayanga.me",
+        "image": "https://shaveenudayanga.me/images/profile-hero.webp",
+        "jobTitle": "Computer Science Student",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "University of Sri Jayewardenepura"
+        },
+        "sameAs": [
+            "https://github.com/shaveenudayanga",
+            "https://linkedin.com/in/shaveenudayanga",
+            "https://web.facebook.com/shaveenudayanga"
+        ],
+        "knowsAbout": ["Artificial Intelligence", "Machine Learning", "IoT", "Full-Stack Development", "Computer Vision"],
+        "email": "mailto:shaveenudayanga@gmail.com"
+    }
+    </script>
+    
+    <!-- Google Analytics (Replace G-XXXXXXXXXX with your ID) -->
+    <!-- To get your ID: https://analytics.google.com -> Create property -> Get Measurement ID -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
 </head>
 <body>
+    <!-- Skip to Content (Accessibility) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
     <!-- Animated Background -->
     <div class="bg-animation">
         <div class="stars"></div>
@@ -51,15 +95,21 @@
                 <a href="#experience" class="nav-link">Experience</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme">
+                    <i class="fas fa-sun" id="themeIcon"></i>
+                </button>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
+    <main id="main-content">
     <section id="home" class="hero">
         <div class="hero-container">
             <div class="hero-content">
@@ -76,7 +126,7 @@
                     <span class="cursor">|</span>
                 </div>
                 <p class="hero-description animate-fade-in-up">
-                    CS undergrad who loves building things that work — from <span class="text-gradient">AI-powered robots</span> to 
+                    CS undergrad who loves building things that work | from <span class="text-gradient">AI-powered robots</span> to 
                     <span class="text-gradient">backend systems</span> that handle real users. Currently exploring the sweet spot between hardware and software.
                 </p>
                 <div class="hero-cta animate-fade-in-up">
@@ -157,8 +207,8 @@
                     </div>
                     <div class="about-highlights">
                         <div class="highlight-item">
-                            <i class="fas fa-bolt"></i>
-                            <span>Currently building an AI-powered robotic lamp</span>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Built Lumina: an AI-powered robotic lamp (HCI project)</span>
                         </div>
                         <div class="highlight-item">
                             <i class="fas fa-server"></i>
@@ -170,7 +220,7 @@
                         </div>
                         <div class="highlight-item">
                             <i class="fas fa-music"></i>
-                            <span>Musician, athlete, and team player</span>
+                            <span>Musician and sports enthusiast</span>
                         </div>
                     </div>
                 </div>
@@ -207,11 +257,15 @@
                             <i class="fas fa-seedling"></i>
                         </div>
                         <h3>Currently Exploring</h3>
-                        <p>GPU Programming</p>
-                        <span class="card-detail">CUDA & Parallel Computing</span>
-                        <span class="card-badge">📚</span>
+                        <p>Research Gaps</p>
+                        <span class="card-detail">Finding & Analyzing Opportunities</span>
+                        <span class="card-badge">🔬</span>
                     </div>
                 </div>
+            </div>
+            <!-- GitHub Contribution Graph -->
+            <div class="github-stats">
+                <img src="https://ghchart.rshah.org/6366f1/shaveenudayanga" alt="GitHub Contribution Graph" class="github-chart" loading="lazy">
             </div>
         </div>
     </section>
@@ -339,8 +393,8 @@
                             </div>
                         </div>
                         <div class="interest-content">
-                            <h4>Athletic Spirit</h4>
-                            <p>Discipline from the gym, teamwork from rugby, precision from rifle shooting, and resilience from swimming. Sports taught me that consistency beats intensity.</p>
+                            <h4>Staying Active</h4>
+                            <p>I enjoy sports to stay healthy and have fun. Gym sessions keep me energized, while rugby, rifle shooting, and swimming add variety. It's about balance, not competition.</p>
                             <div class="interest-tags">
                                 <span>Gym</span>
                                 <span>Rugby</span>
@@ -361,7 +415,7 @@
                         </div>
                         <div class="interest-content">
                             <h4>Musical Soul</h4>
-                            <p>Keyboard player in Nalanda College Orchestra, violinist at university, and vocalist performing in campus concerts. Music is my creative outlet — it's where logic meets emotion.</p>
+                            <p>Keyboard player in Nalanda College Orchestra, violinist at university, and vocalist performing in campus concerts. Music is my creative outlet. It's where logic meets emotion.</p>
                             <div class="interest-tags">
                                 <span><i class="fas fa-piano"></i> Keyboard</span>
                                 <span><i class="fas fa-violin"></i> Violin</span>
@@ -372,7 +426,86 @@
                             <span></span><span></span><span></span><span></span><span></span>
                         </div>
                     </div>
-                    
+
+                    <!-- Volunteering -->
+                    <div class="interest-card" data-category="volunteer">
+                        <div class="interest-visual">
+                            <div class="interest-icon-group">
+                                <i class="fas fa-hands-helping"></i>
+                                <i class="fas fa-heart"></i>
+                                <i class="fas fa-child"></i>
+                            </div>
+                        </div>
+                        <div class="interest-content">
+                            <h4>Giving Back</h4>
+                            <p>Active volunteer with IEEE and "We for Sri Lanka" organization, bringing smiles to children. Always ready to help during disasters. Small acts can make big differences.</p>
+                            <div class="interest-tags">
+                                <span>IEEE Volunteer</span>
+                                <span>We for Sri Lanka</span>
+                                <span>Disaster Relief</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Travel & Adventure -->
+                    <div class="interest-card" data-category="travel">
+                        <div class="interest-visual">
+                            <div class="interest-icon-group">
+                                <i class="fas fa-mountain"></i>
+                                <i class="fas fa-plane"></i>
+                                <i class="fas fa-hiking"></i>
+                            </div>
+                        </div>
+                        <div class="interest-content">
+                            <h4>Wanderlust</h4>
+                            <p>Love exploring new places through trips and hikes. Memorable adventures across Sri Lanka and dreaming of traveling the world. Every journey tells a story.</p>
+                            <div class="interest-tags">
+                                <span>Hiking</span>
+                                <span>Road Trips</span>
+                                <span>Exploring</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tech & Cars -->
+                    <div class="interest-card" data-category="tech">
+                        <div class="interest-visual">
+                            <div class="interest-icon-group">
+                                <i class="fas fa-car"></i>
+                                <i class="fas fa-microchip"></i>
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                        </div>
+                        <div class="interest-content">
+                            <h4>Gearhead & Geek</h4>
+                            <p>Fascinated by cars and tech gadgets. Whether it's the latest smartphone or a classic engine, I love understanding how things work and what makes them special.</p>
+                            <div class="interest-tags">
+                                <span>Cars</span>
+                                <span>Tech Gadgets</span>
+                                <span>Innovation</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social & Gaming -->
+                    <div class="interest-card" data-category="social">
+                        <div class="interest-visual">
+                            <div class="interest-icon-group">
+                                <i class="fas fa-users"></i>
+                                <i class="fas fa-coffee"></i>
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                        </div>
+                        <div class="interest-content">
+                            <h4>People Person</h4>
+                            <p>Love hanging out with friends, coffee meetups, and networking events. Occasionally unwind with battle games like Call of Duty or racing in NFS. Life's better with good company.</p>
+                            <div class="interest-tags">
+                                <span>Coffee Meetups</span>
+                                <span>Networking</span>
+                                <span>Casual Gaming</span>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -735,6 +868,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -742,7 +876,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <span class="logo-text">&lt;SU /&gt;</span>
-                    <p>Building the future, one line of code at a time — with music in my heart and coffee in my hand ☕</p>
+                    <p>Building the future, one line of code at a time. With music in my heart and coffee in my hand ☕</p>
                 </div>
                 <div class="footer-links">
                     <a href="#home">Home</a>
@@ -771,6 +905,6 @@
         </div>
     </footer>
 
-    <script src="./script.js?v=2.0"></script>
+    <script src="./script.js?v=3.0"></script>
 </body>
 </html>

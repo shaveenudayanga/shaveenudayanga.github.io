@@ -1,0 +1,10 @@
+# robots.txt for shaveenudayanga.me
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://shaveenudayanga.me/sitemap.xml
+
+# Disallow admin/private areas (none for static site)
+# Disallow: /private/

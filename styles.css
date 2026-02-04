@@ -1363,11 +1363,12 @@ body:hover .cursor-glow {
     height: 100%;
     object-fit: cover;
     object-position: center top;
+    transform: scale(1.02);
     transition: opacity 0.3s ease, transform 0.5s ease;
 }
 
 .project-card:hover .project-image img {
-    transform: scale(1.05);
+    transform: scale(1.07);
 }
 
 .project-card.featured .project-image {

@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCursorGlow();
     initCounterAnimation();
     initSmoothScroll();
+    initProjectGallery();
 });
 
 // ============================================
@@ -369,3 +370,36 @@ document.head.appendChild(style);
 
 console.log('%c🚀 Welcome to Shaveen\'s Portfolio!', 'font-size: 20px; font-weight: bold; color: #6366f1;');
 console.log('%cBuilt with passion and lots of ☕', 'font-size: 14px; color: #06b6d4;');
+
+// ============================================
+// PROJECT GALLERY IMAGE SWAP
+// ============================================
+function initProjectGallery() {
+    const galleryThumbs = document.querySelectorAll('.gallery-thumb');
+    
+    galleryThumbs.forEach(thumb => {
+        thumb.addEventListener('click', function() {
+            // Find the main project screenshot in the same card
+            const projectCard = this.closest('.project-card');
+            const mainImage = projectCard.querySelector('.project-screenshot');
+            
+            if (mainImage && this.src !== mainImage.src) {
+                // Swap the images with a fade effect
+                mainImage.style.opacity = '0';
+                
+                setTimeout(() => {
+                    // Swap sources
+                    const tempSrc = mainImage.src;
+                    mainImage.src = this.src;
+                    this.src = tempSrc;
+                    
+                    // Fade back in
+                    mainImage.style.opacity = '1';
+                }, 200);
+            }
+        });
+        
+        // Add pointer cursor
+        thumb.style.cursor = 'pointer';
+    });
+}

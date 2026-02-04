@@ -1381,7 +1381,7 @@ body:hover .cursor-glow {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transition: var(--transition-slow);
+    transition: opacity 0.3s ease, transform 0.5s ease;
 }
 
 .project-card:hover .project-screenshot {

@@ -1387,6 +1387,32 @@ body:hover .cursor-glow {
     transform: scale(1.05);
 }
 
+.project-gallery {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    display: flex;
+    gap: 8px;
+    z-index: 2;
+}
+
+.gallery-thumb {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: var(--transition-normal);
+    opacity: 0.8;
+}
+
+.gallery-thumb:hover {
+    opacity: 1;
+    border-color: var(--primary);
+    transform: scale(1.1);
+}
+
 .project-overlay {
     position: absolute;
     inset: 0;

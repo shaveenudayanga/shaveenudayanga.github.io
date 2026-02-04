@@ -1359,8 +1359,9 @@ body:hover .cursor-glow {
 }
 
 .project-card.featured .project-image {
-    height: 100%;
-    min-height: 300px;
+    height: 350px;
+    min-height: 350px;
+    max-height: 350px;
 }
 
 .project-visual {

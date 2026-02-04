@@ -616,11 +616,15 @@ body:hover .cursor-glow {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--shadow-lg);
+    max-width: 400px;
+    height: 300px;
 }
 
 .about-image {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
     display: block;
     transition: var(--transition-slow);
 }

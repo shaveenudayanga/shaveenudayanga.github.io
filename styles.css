@@ -1774,7 +1774,8 @@ body:hover .cursor-glow {
 .timeline-item {
     position: relative;
     padding-bottom: 40px;
-    padding-left: 0;
+    padding-left: 60px;
+    margin-left: 0;
 }
 
 .timeline-item:last-child {

@@ -1846,6 +1846,8 @@ body:hover .cursor-glow {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .timeline-tags span {
@@ -2611,7 +2613,7 @@ body:hover .cursor-glow {
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-left: 0.5rem;
+    margin-left: auto;
 }
 
 .cert-badge:hover {

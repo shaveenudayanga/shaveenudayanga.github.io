@@ -951,6 +951,7 @@ body:hover .cursor-glow {
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 }
 
 .github-stats-header {

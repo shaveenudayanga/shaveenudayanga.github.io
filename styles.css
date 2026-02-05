@@ -1774,6 +1774,7 @@ body:hover .cursor-glow {
 .timeline-item {
     position: relative;
     padding-bottom: 40px;
+    padding-left: 0;
 }
 
 .timeline-item:last-child {
@@ -1782,7 +1783,7 @@ body:hover .cursor-glow {
 
 .timeline-marker {
     position: absolute;
-    left: -38px;
+    left: -44px;
     top: 0;
     width: 44px;
     height: 44px;
@@ -1794,6 +1795,7 @@ body:hover .cursor-glow {
     border-radius: 50%;
     color: var(--accent);
     font-size: 1rem;
+    z-index: 1;
 }
 
 .timeline-content {
@@ -1846,7 +1848,6 @@ body:hover .cursor-glow {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    justify-content: space-between;
     align-items: center;
 }
 
@@ -1854,7 +1855,6 @@ body:hover .cursor-glow {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    flex: 1;
 }
 
 .timeline-tags span {
@@ -2620,7 +2620,6 @@ body:hover .cursor-glow {
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-left: auto;
 }
 
 .cert-badge:hover {

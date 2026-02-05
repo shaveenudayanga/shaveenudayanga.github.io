@@ -1802,7 +1802,6 @@ body:hover .cursor-glow {
     border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 24px;
-    padding-bottom: 70px; /* Space for the certificate button */
     transition: var(--transition-normal);
 }
 
@@ -2600,9 +2599,6 @@ body:hover .cursor-glow {
    CERTIFICATE BADGE & MODAL
    ============================================ */
 .cert-badge {
-    position: absolute;
-    bottom: 1rem;
-    right: 1rem;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -2615,7 +2611,7 @@ body:hover .cursor-glow {
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
-    z-index: 10;
+    margin-left: 0.5rem;
 }
 
 .cert-badge:hover {

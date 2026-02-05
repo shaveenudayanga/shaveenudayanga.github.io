@@ -944,10 +944,13 @@ body:hover .cursor-glow {
 /* GitHub Stats */
 .github-stats {
     margin-top: 60px;
-    padding: 40px;
+    padding: 50px;
     background: var(--bg-glass);
     border: 1px solid var(--border-color);
     border-radius: 20px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .github-stats-header {
@@ -955,23 +958,23 @@ body:hover .cursor-glow {
     align-items: center;
     justify-content: center;
     gap: 12px;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 .github-stats-header i {
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: var(--text-primary);
 }
 
 .github-stats-header h3 {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     font-weight: 600;
     color: var(--text-primary);
     margin: 0;
 }
 
 .stats-subtitle {
-    font-size: 0.875rem;
+    font-size: 0.95rem;
     color: var(--text-secondary);
     margin-left: 8px;
 }

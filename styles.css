@@ -1850,6 +1850,13 @@ body:hover .cursor-glow {
     align-items: center;
 }
 
+.tags-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    flex: 1;
+}
+
 .timeline-tags span {
     padding: 4px 10px;
     background: var(--gradient-card);

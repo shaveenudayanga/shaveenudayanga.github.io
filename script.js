@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initCounterAnimation();
     initSmoothScroll();
     initProjectGallery();
+    initScrollProgress();
+    initBackToTop();
     registerServiceWorker();
 });
 
@@ -441,4 +443,84 @@ function initProjectGallery() {
         // Add pointer cursor
         thumb.style.cursor = 'pointer';
     });
+}
+
+// ============================================
+// SCROLL PROGRESS INDICATOR
+// ============================================
+function initScrollProgress() {
+    const progressBar = document.querySelector('.scroll-progress');
+    
+    if (!progressBar) return;
+    
+    window.addEventListener('scroll', () => {
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercent = (scrollTop / scrollHeight) * 100;
+        
+        progressBar.style.width = scrollPercent + '%';
+    });
+}
+
+// ============================================
+// BACK TO TOP BUTTON
+// ============================================
+function initBackToTop() {
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    if (!backToTopBtn) return;
+    
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    });
+    
+    // Scroll to top on click
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// ============================================
+// COPY EMAIL FUNCTION
+// ============================================
+function copyEmail() {
+    const email = 'shaveenudayanga@gmail.com';
+    
+    navigator.clipboard.writeText(email).then(() => {
+        showToast('Email copied to clipboard!');
+    }).catch(err => {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = email;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        showToast('Email copied to clipboard!');
+    });
+}
+
+// ============================================
+// TOAST NOTIFICATION
+// ============================================
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    const toastMessage = document.getElementById('toastMessage');
+    
+    if (!toast || !toastMessage) return;
+    
+    toastMessage.textContent = message;
+    toast.classList.add('show');
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
 }

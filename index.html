@@ -18,14 +18,15 @@
     <meta name="twitter:card" content="summary_large_image">
     
     <!-- Favicon & PWA -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+    <link rel="icon" type="image/png" href="./images/shaveen_portfolio_favicon.png">
+    <link rel="apple-touch-icon" href="./images/shaveen_portfolio_favicon.png">
     <link rel="manifest" href="./manifest.json">
     <meta name="theme-color" content="#6366f1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     <title>Shaveen Udayanga | CS Student & Builder</title>
-    <link rel="stylesheet" href="./styles.css?v=3.0">
+    <link rel="stylesheet" href="./styles.css?v=4.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -154,7 +155,7 @@
             <div class="hero-visual animate-fade-in">
                 <div class="hero-image-container">
                     <div class="hero-image-glow"></div>
-                    <img src="./images/profile-hero.webp" alt="Shaveen Udayanga" class="hero-image">
+                    <img src="./images/profile-hero.webp" alt="Shaveen Udayanga" class="hero-image" loading="lazy">
                     <div class="floating-card card-1">
                         <i class="fas fa-robot"></i>
                         <span>AI/ML</span>
@@ -530,10 +531,10 @@
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
-                        <img src="./images/lumina/lumina-main.webp" alt="Lumina Robotic Lamp" class="project-screenshot">
+                        <img src="./images/lumina/lumina-main.webp" alt="Lumina Robotic Lamp" class="project-screenshot" loading="lazy">
                         <div class="project-gallery">
-                            <img src="./images/lumina/lumina-hardware.webp" alt="Custom PCB and ESP32" class="gallery-thumb">
-                            <img src="./images/lumina/lumina-display.webp" alt="Emotional OLED Display" class="gallery-thumb">
+                            <img src="./images/lumina/lumina-hardware.webp" alt="Custom PCB and ESP32" class="gallery-thumb" loading="lazy">
+                            <img src="./images/lumina/lumina-display.webp" alt="Emotional OLED Display" class="gallery-thumb" loading="lazy">
                         </div>
                     </div>
                     <div class="project-content">
@@ -574,7 +575,7 @@
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
-                        <img src="./images/lamitie-screenshot.webp" alt="Lamitie Dashboard" class="project-screenshot">
+                        <img src="./images/lamitie-screenshot.webp" alt="Lamitie Dashboard" class="project-screenshot" loading="lazy">
                     </div>
                     <div class="project-content">
                         <div class="project-tags">
@@ -616,7 +617,7 @@
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
-                        <img src="./images/Customizable-Document-Tracking-System.webp" alt="Document Tracking System">
+                        <img src="./images/Customizable-Document-Tracking-System.webp" alt="Document Tracking System" loading="lazy">
                     </div>
                     <div class="project-content">
                         <div class="project-tags">
@@ -652,7 +653,7 @@
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
-                        <img src="./images/The_Wheels_in_Motion.webp" alt="The Wheels in Motion Dashboard">
+                        <img src="./images/The_Wheels_in_Motion.webp" alt="The Wheels in Motion Dashboard" loading="lazy">
                     </div>
                     <div class="project-content">
                         <div class="project-tags">
@@ -809,15 +810,20 @@
                         or explore opportunities. Feel free to reach out!
                     </p>
                     <div class="contact-cards">
-                        <a href="mailto:shaveenudayanga@gmail.com" class="contact-card">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-detail">
-                                <span class="contact-label">Email</span>
-                                <span class="contact-value">shaveenudayanga@gmail.com</span>
-                            </div>
-                        </a>
+                        <div class="contact-card email-card">
+                            <a href="mailto:shaveenudayanga@gmail.com" class="contact-card-link">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-detail">
+                                    <span class="contact-label">Email</span>
+                                    <span class="contact-value">shaveenudayanga@gmail.com</span>
+                                </div>
+                            </a>
+                            <button class="copy-email-btn" onclick="copyEmail()" title="Copy email">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
                         <a href="https://wa.me/94771186742" target="_blank" class="contact-card">
                             <div class="contact-icon">
                                 <i class="fab fa-whatsapp"></i>
@@ -907,6 +913,20 @@
         </div>
     </footer>
 
-    <script src="./script.js?v=3.0"></script>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Email copied to clipboard!</span>
+    </div>
+
+    <script src="./script.js?v=4.0"></script>
 </body>
 </html>

@@ -530,23 +530,28 @@ function showToast(message) {
 // ============================================
 function openCertModal(certUrl) {
     const modal = document.getElementById('certModal');
-    const iframe = document.getElementById('certFrame');
+    const embed = document.getElementById('certEmbed');
+    const download = document.getElementById('certDownload');
     
-    if (!modal || !iframe) return;
+    if (!modal || !embed) return;
     
-    iframe.src = certUrl;
+    // Add #toolbar=0 to hide PDF toolbar
+    embed.src = certUrl + '#toolbar=0&navpanes=0&scrollbar=0';
+    if (download) {
+        download.href = certUrl;
+    }
     modal.classList.add('show');
     document.body.style.overflow = 'hidden';
 }
 
 function closeCertModal() {
     const modal = document.getElementById('certModal');
-    const iframe = document.getElementById('certFrame');
+    const embed = document.getElementById('certEmbed');
     
-    if (!modal || !iframe) return;
+    if (!modal || !embed) return;
     
     modal.classList.remove('show');
-    iframe.src = '';
+    embed.src = '';
     document.body.style.overflow = '';
 }
 

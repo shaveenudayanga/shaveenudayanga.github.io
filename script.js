@@ -528,15 +528,23 @@ function showToast(message) {
 // ============================================
 // CERTIFICATE MODAL
 // ============================================
+let certZoom = 1;
+
 function openCertModal(certUrl) {
     const modal = document.getElementById('certModal');
-    const embed = document.getElementById('certEmbed');
+    const img = document.getElementById('certImage');
     const download = document.getElementById('certDownload');
     
-    if (!modal || !embed) return;
+    if (!modal || !img) return;
     
-    // Add #toolbar=0 to hide PDF toolbar
-    embed.src = certUrl + '#toolbar=0&navpanes=0&scrollbar=0';
+    // Check if it's a PDF or image
+    const isPDF = certUrl.endsWith('.pdf');
+    const displayUrl = isPDF ? certUrl : certUrl;
+    
+    img.src = displayUrl;
+    img.style.transform = 'scale(1)';
+    certZoom = 1;
+    
     if (download) {
         download.href = certUrl;
     }
@@ -546,13 +554,27 @@ function openCertModal(certUrl) {
 
 function closeCertModal() {
     const modal = document.getElementById('certModal');
-    const embed = document.getElementById('certEmbed');
+    const img = document.getElementById('certImage');
     
-    if (!modal || !embed) return;
+    if (!modal || !img) return;
     
     modal.classList.remove('show');
-    embed.src = '';
+    img.src = '';
+    certZoom = 1;
     document.body.style.overflow = '';
+}
+
+function zoomCert(direction) {
+    const img = document.getElementById('certImage');
+    if (!img) return;
+    
+    if (direction === 'in') {
+        certZoom = Math.min(certZoom + 0.2, 3);
+    } else {
+        certZoom = Math.max(certZoom - 0.2, 0.5);
+    }
+    
+    img.style.transform = `scale(${certZoom})`;
 }
 
 // Close modal when clicking outside

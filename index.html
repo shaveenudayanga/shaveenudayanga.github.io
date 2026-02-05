@@ -939,6 +939,12 @@
             <div class="cert-modal-header">
                 <h3><i class="fas fa-certificate"></i> Certificate of Appreciation</h3>
                 <div class="cert-modal-actions">
+                    <button class="cert-zoom-btn" onclick="zoomCert('in')" title="Zoom In">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+                    <button class="cert-zoom-btn" onclick="zoomCert('out')" title="Zoom Out">
+                        <i class="fas fa-search-minus"></i>
+                    </button>
                     <a id="certDownload" href="" download class="cert-download-btn" title="Download Certificate">
                         <i class="fas fa-download"></i>
                     </a>
@@ -948,7 +954,7 @@
                 </div>
             </div>
             <div class="cert-viewer">
-                <embed id="certEmbed" src="" type="application/pdf" />
+                <img id="certImage" src="" alt="Certificate" />
             </div>
         </div>
     </div>

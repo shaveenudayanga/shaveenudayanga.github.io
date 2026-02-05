@@ -524,3 +524,43 @@ function showToast(message) {
         toast.classList.remove('show');
     }, 3000);
 }
+
+// ============================================
+// CERTIFICATE MODAL
+// ============================================
+function openCertModal(certUrl) {
+    const modal = document.getElementById('certModal');
+    const iframe = document.getElementById('certFrame');
+    
+    if (!modal || !iframe) return;
+    
+    iframe.src = certUrl;
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCertModal() {
+    const modal = document.getElementById('certModal');
+    const iframe = document.getElementById('certFrame');
+    
+    if (!modal || !iframe) return;
+    
+    modal.classList.remove('show');
+    iframe.src = '';
+    document.body.style.overflow = '';
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', (e) => {
+    const modal = document.getElementById('certModal');
+    if (e.target === modal) {
+        closeCertModal();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeCertModal();
+    }
+});

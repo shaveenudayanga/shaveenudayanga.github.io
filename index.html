@@ -719,11 +719,10 @@
                             </div>
                             <span class="timeline-date">Jan 2025 - Jan 2026</span>
                             <p>Orchestrated logistics for 'Beauty of Cloud', a collaborative workshop with AWS Sri Lanka, 
-                               training 60+ undergraduates on cloud technologies. Co-Head of Logistics Committee of the BoC OC.
-                               <a href="./certificates/IEEE-CS-BOC-LC-Certificate.pdf" target="_blank" style="color: var(--color-accent); text-decoration: none; margin-left: 0.25rem;">
-                                   <i class="fas fa-certificate"></i>
-                               </a>
-                            </p>
+                               training 60+ undergraduates on cloud technologies. Co-Head of Logistics Committee of the BoC OC.</p>
+                            <button class="cert-badge" onclick="openCertModal('./certificates/IEEE-CS-BOC-LC-Certificate.pdf')">
+                                <i class="fas fa-certificate"></i> View Certificate
+                            </button>
                             <div class="timeline-tags">
                                 <span>Event Management</span>
                                 <span>AWS</span>
@@ -932,6 +931,16 @@
     <div class="toast" id="toast">
         <i class="fas fa-check-circle"></i>
         <span id="toastMessage">Email copied to clipboard!</span>
+    </div>
+
+    <!-- Certificate Modal -->
+    <div id="certModal" class="cert-modal">
+        <div class="cert-modal-content">
+            <button class="cert-modal-close" onclick="closeCertModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <iframe id="certFrame" src="" frameborder="0"></iframe>
+        </div>
     </div>
 
     <script src="./script.js?v=4.0"></script>

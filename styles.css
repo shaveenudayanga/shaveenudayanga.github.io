@@ -686,9 +686,14 @@ body:hover .cursor-glow {
 /* About Section */
 .about-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 60px;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
     align-items: start;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
 }
 
 .about-text {
@@ -938,8 +943,37 @@ body:hover .cursor-glow {
 
 /* GitHub Stats */
 .github-stats {
-    margin-top: 50px;
-    text-align: center;
+    margin-top: 60px;
+    padding: 40px;
+    background: var(--bg-glass);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+}
+
+.github-stats-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.github-stats-header i {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+}
+
+.github-stats-header h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.stats-subtitle {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-left: 8px;
 }
 
 .github-chart {
@@ -951,7 +985,7 @@ body:hover .cursor-glow {
 
 .github-chart:hover {
     filter: grayscale(0%);
-    transform: scale(1.02);
+    transform: scale(1.01);
 }
 
 [data-theme="light"] .github-chart {
@@ -1244,6 +1278,22 @@ body:hover .cursor-glow {
 
 .interest-card[data-category="music"] .interest-icon-group {
     color: #a855f7;
+}
+
+.interest-card[data-category="volunteer"] .interest-icon-group {
+    color: #ef4444;
+}
+
+.interest-card[data-category="travel"] .interest-icon-group {
+    color: #f97316;
+}
+
+.interest-card[data-category="tech"] .interest-icon-group {
+    color: var(--accent);
+}
+
+.interest-card[data-category="social"] .interest-icon-group {
+    color: #f59e0b;
 }
 
 .interest-card[data-category="adventure"] .interest-icon-group {

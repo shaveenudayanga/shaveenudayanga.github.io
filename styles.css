@@ -1849,6 +1849,7 @@ body:hover .cursor-glow {
     flex-wrap: wrap;
     gap: 8px;
     align-items: center;
+    width: 100%;
 }
 
 .tags-wrapper {
@@ -2620,6 +2621,7 @@ body:hover .cursor-glow {
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
+    margin-left: auto;
 }
 
 .cert-badge:hover {

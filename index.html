@@ -1,41 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Shaveen Udayanga - Computer Science Student at University of Sri Jayewardenepura. Building solutions with AI, IoT, and Full-Stack Development.">
-    <meta name="keywords" content="Shaveen Udayanga, Computer Science, AI, Machine Learning, IoT, Full-Stack Developer, Sri Lanka">
+    <meta name="description" content="Shaveen Udayanga — Software engineer building intelligent systems with AI, IoT, and full-stack development.">
+    <meta name="keywords" content="Shaveen Udayanga, Software Engineer, AI, Machine Learning, IoT, Full-Stack Developer, Sri Lanka">
     <meta name="author" content="Shaveen Udayanga">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://shaveenudayanga.me/">
-    
-    <!-- Open Graph / Social Media -->
+
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://shaveenudayanga.me/">
-    <meta property="og:title" content="Shaveen Udayanga | CS Student & Builder">
-    <meta property="og:description" content="Computer Science student building innovative solutions with AI, IoT, and Full-Stack Development.">
+    <meta property="og:title" content="Shaveen Udayanga | Software Engineer &amp; AI Builder">
+    <meta property="og:description" content="Building intelligent systems with AI, IoT, and full-stack development.">
     <meta property="og:image" content="https://shaveenudayanga.me/images/profile-hero.webp">
     <meta name="twitter:card" content="summary_large_image">
-    
-    <!-- Favicon & PWA -->
-    <link rel="icon" type="image/png" sizes="192x192" href="/images/shaveen_portfolio_favicon.png?v=4.0">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/shaveen_portfolio_favicon.png?v=4.0">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/shaveen_portfolio_favicon.png?v=4.0">
-    <link rel="shortcut icon" href="/favicon.png?v=4.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/shaveen_portfolio_favicon.png?v=4.0">
-    <link rel="manifest" href="/manifest.json">
+
+    <link rel="icon" type="image/png" sizes="192x192" href="public/images/shaveen_portfolio_favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="public/images/shaveen_portfolio_favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="public/images/shaveen_portfolio_favicon.png">
+    <link rel="manifest" href="public/manifest.json">
     <meta name="theme-color" content="#6366f1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    
-    <title>Shaveen Udayanga | CS Student & Builder</title>
-    <link rel="stylesheet" href="./styles.css?v=4.0">
+
+    <title>Shaveen Udayanga | Software Engineer &amp; AI Builder</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- Structured Data (JSON-LD) -->
+    <link rel="stylesheet" href="styles.css">
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -43,22 +39,17 @@
         "name": "Shaveen Udayanga",
         "url": "https://shaveenudayanga.me",
         "image": "https://shaveenudayanga.me/images/profile-hero.webp",
-        "jobTitle": "Computer Science Student",
-        "worksFor": {
-            "@type": "Organization",
-            "name": "University of Sri Jayewardenepura"
-        },
+        "jobTitle": "Software Engineer",
         "sameAs": [
             "https://github.com/shaveenudayanga",
             "https://linkedin.com/in/shaveenudayanga",
             "https://web.facebook.com/shaveenudayanga"
         ],
-        "knowsAbout": ["Artificial Intelligence", "Machine Learning", "IoT", "Full-Stack Development", "Computer Vision"],
+        "knowsAbout": ["Artificial Intelligence","Machine Learning","IoT","Full-Stack Development","Computer Vision"],
         "email": "mailto:shaveenudayanga@gmail.com"
     }
     </script>
-    
-    <!-- Google tag (gtag.js) -->
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4RPX4H13W5"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -68,899 +59,713 @@
     </script>
 </head>
 <body>
-    <!-- Skip to Content (Accessibility) -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <!-- Animated Background -->
-    <div class="bg-animation">
-        <div class="stars"></div>
-        <div class="stars2"></div>
-        <div class="stars3"></div>
-    </div>
 
-    <!-- Cursor Glow Effect -->
-    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
 
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#" class="nav-logo">
-                <span class="logo-text">&lt;SU /&gt;</span>
-            </a>
-            <div class="nav-menu" id="navMenu">
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#beyond" class="nav-link">Life</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#contact" class="nav-link">Contact</a>
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="#hero" class="nav__logo">&lt;SU /&gt;</a>
+            <div class="nav__links" id="navLinks">
+                <a href="#hero" class="nav__link active" data-section="hero">Home</a>
+                <a href="#about" class="nav__link" data-section="about">About</a>
+                <a href="#skills" class="nav__link" data-section="skills">Skills</a>
+                <a href="#projects" class="nav__link" data-section="projects">Projects</a>
+                <a href="#experience" class="nav__link" data-section="experience">Experience</a>
+                <a href="#beyond" class="nav__link" data-section="beyond">Life</a>
+                <a href="#contact" class="nav__link" data-section="contact">Contact</a>
             </div>
-            <div class="nav-actions">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme">
-                    <i class="fas fa-sun" id="themeIcon"></i>
+            <div class="nav__actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon" id="themeIcon"></i>
                 </button>
-                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span></span><span></span><span></span>
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <main id="main-content">
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-badge animate-fade-in">
-                    <span class="badge-dot"></span>
-                    <span>Available for Opportunities</span>
-                </div>
-                <h1 class="hero-title animate-fade-in-up">
-                    <span class="greeting">Hi, I'm</span>
-                    <span class="name">Shaveen <span class="highlight">Udayanga</span></span>
-                </h1>
-                <div class="hero-subtitle animate-fade-in-up">
-                    <span class="typewriter" id="typewriter"></span>
-                    <span class="cursor">|</span>
-                </div>
-                <p class="hero-description animate-fade-in-up">
-                    CS undergrad who loves building things that work | from <span class="text-gradient">AI-powered robots</span> to 
-                    <span class="text-gradient">backend systems</span> that handle real users. Currently exploring the sweet spot between hardware and software.
-                </p>
-                <div class="hero-cta animate-fade-in-up">
-                    <a href="#projects" class="btn btn-primary">
-                        <span>View My Work</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="./Resume_Shaveen_Udayanga.pdf" download class="btn btn-secondary">
-                        <i class="fas fa-download"></i>
-                        <span>Resume</span>
-                    </a>
-                </div>
-                <div class="hero-social animate-fade-in-up">
-                    <a href="https://github.com/shaveenudayanga" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/shaveenudayanga" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="mailto:shaveenudayanga@gmail.com" class="social-link" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://linktr.ee/shaveenudayanga" target="_blank" rel="noopener" class="social-link" aria-label="Linktree">
-                        <i class="fas fa-link"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="hero-visual animate-fade-in">
-                <div class="hero-image-container">
-                    <div class="hero-image-glow"></div>
-                    <img src="./images/profile-hero.webp" alt="Shaveen Udayanga" class="hero-image" loading="lazy">
-                    <div class="floating-card card-1">
-                        <i class="fas fa-robot"></i>
-                        <span>AI/ML</span>
-                    </div>
-                    <div class="floating-card card-2">
-                        <i class="fas fa-microchip"></i>
-                        <span>IoT</span>
-                    </div>
-                    <div class="floating-card card-3">
-                        <i class="fas fa-code"></i>
-                        <span>Full-Stack</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
-            <span>Scroll Down</span>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about" class="about section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Get To Know</span>
-                <h2 class="section-title">About <span class="highlight">Me</span></h2>
-            </div>
-            <div class="about-grid">
-                <div class="about-content">
-                    <div class="about-text">
-                        <p class="lead">
-                            I'm a Computer Science student at the University of Sri Jayewardenepura, currently in my third year. 
-                            I love exploring how technology can solve real problems and make people's lives easier.
-                        </p>
-                        <p>
-                            Whether it's building IoT devices, experimenting with AI models, or creating backend systems, 
-                            I enjoy the process of turning ideas into working solutions. I'm still learning and discovering new things every day.
-                        </p>
-                        <p>
-                            Outside of tech, I'm into music, sports, and meeting new people. I believe that good work happens 
-                            when people genuinely enjoy what they do and who they do it with. Always open to learning from others 
-                            and collaborating on interesting projects.
-                        </p>
+        <!-- ==================== HERO ==================== -->
+        <section id="hero" class="stage stage--hero">
+            <div class="hero">
+                <div class="hero__content">
+                    <div class="hero__badge">
+                        <span class="pulse-dot"></span>
+                        <span>Available for Opportunities</span>
                     </div>
-                    <div class="about-highlights">
-                        <div class="highlight-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Built Lumina: an AI-powered robotic lamp (HCI project)</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-server"></i>
-                            <span>Deployed production systems handling real users</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-users-cog"></i>
-                            <span>Led tech initiatives at IEEE & Startup Hub</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-music"></i>
-                            <span>Musician and sports enthusiast</span>
-                        </div>
+                    <h1 class="hero__title">
+                        <span class="hero__greeting">Hi, I'm</span>
+                        <span class="hero__name">Shaveen <span class="accent">Udayanga</span></span>
+                    </h1>
+                    <div class="hero__subtitle">
+                        <span class="typewriter" id="typewriter"></span>
+                        <span class="typewriter-cursor">|</span>
                     </div>
-                </div>
-                <div class="about-cards">
-                    <div class="info-card">
-                        <div class="card-icon">
-                            <i class="fas fa-university"></i>
-                        </div>
-                        <h3>Education</h3>
-                        <p>BSc (Hons) Computer Science</p>
-                        <span class="card-detail">University of Sri Jayewardenepura</span>
-                        <span class="card-badge">2023 - 2027</span>
-                    </div>
-                    <div class="info-card">
-                        <div class="card-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <h3>Location</h3>
-                        <p>Sri Lanka</p>
-                        <span class="card-detail">Open to Remote Work</span>
-                        <span class="card-badge">🌏</span>
-                    </div>
-                    <div class="info-card">
-                        <div class="card-icon">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <h3>Focus Areas</h3>
-                        <p>AI/ML & IoT</p>
-                        <span class="card-detail">Full-Stack Development</span>
-                        <span class="card-badge">🚀</span>
-                    </div>
-                    <div class="info-card learning-card">
-                        <div class="card-icon">
-                            <i class="fas fa-seedling"></i>
-                        </div>
-                        <h3>Currently Exploring</h3>
-                        <p>Research Gaps</p>
-                        <span class="card-detail">Finding & Analyzing Opportunities</span>
-                        <span class="card-badge">🔬</span>
-                    </div>
-                </div>
-            </div>
-            <!-- GitHub Contribution Graph -->
-            <div class="github-stats">
-                <div class="github-stats-header">
-                    <i class="fab fa-github"></i>
-                    <h3>GitHub Activity</h3>
-                    <span class="stats-subtitle">Contribution timeline over the past year</span>
-                </div>
-                <img src="https://ghchart.rshah.org/6366f1/shaveenudayanga" alt="GitHub Contribution Graph" class="github-chart" loading="lazy">
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">What I Know</span>
-                <h2 class="section-title">Technical <span class="highlight">Skills</span></h2>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <div class="category-header">
-                        <div class="category-icon">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                        <h3>Languages</h3>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
-                        <span class="skill-tag"><i class="fab fa-java"></i> Java</span>
-                        <span class="skill-tag">C</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag"><i class="fas fa-database"></i> MySQL</span>
-                        <span class="skill-tag">R</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="category-header">
-                        <div class="category-icon">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <h3>AI/ML Frameworks</h3>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">TensorFlow</span>
-                        <span class="skill-tag">Keras</span>
-                        <span class="skill-tag">Scikit-learn</span>
-                        <span class="skill-tag">🤗 Hugging Face</span>
-                        <span class="skill-tag">MediaPipe</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="category-header">
-                        <div class="category-icon">
-                            <i class="fas fa-cloud"></i>
-                        </div>
-                        <h3>Cloud & DevOps</h3>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag"><i class="fab fa-docker"></i> Docker</span>
-                        <span class="skill-tag">CI/CD</span>
-                        <span class="skill-tag"><i class="fab fa-github"></i> GitHub Actions</span>
-                        <span class="skill-tag"><i class="fab fa-microsoft"></i> Azure VPS</span>
-                        <span class="skill-tag"><i class="fab fa-linux"></i> Linux</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="category-header">
-                        <div class="category-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <h3>Web & Tools</h3>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">FastAPI</span>
-                        <span class="skill-tag">Spring Boot</span>
-                        <span class="skill-tag"><i class="fab fa-react"></i> React</span>
-                        <span class="skill-tag">Plotly Dash</span>
-                        <span class="skill-tag"><i class="fab fa-git-alt"></i> Git</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="category-header">
-                        <div class="category-icon">
-                            <i class="fas fa-microchip"></i>
-                        </div>
-                        <h3>Hardware & IoT</h3>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">ESP32</span>
-                        <span class="skill-tag">Circuit Design</span>
-                        <span class="skill-tag">Soldering</span>
-                        <span class="skill-tag">UDP Protocol</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="category-header">
-                        <div class="category-icon">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <h3>Core Competencies</h3>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Problem-Solving</span>
-                        <span class="skill-tag">Rapid Prototyping</span>
-                        <span class="skill-tag">System Design</span>
-                        <span class="skill-tag">API Architecture</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Beyond The Code Section -->
-    <section id="beyond" class="beyond section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">More Than Code</span>
-                <h2 class="section-title">Beyond <span class="highlight">The Terminal</span></h2>
-            </div>
-
-            <!-- Life Interests Grid -->
-            <div class="life-interests">
-                <div class="interests-grid">
-                    <!-- Sports -->
-                    <div class="interest-card" data-category="sports">
-                        <div class="interest-visual">
-                            <div class="interest-icon-group">
-                                <i class="fas fa-dumbbell"></i>
-                                <i class="fas fa-football-ball"></i>
-                                <i class="fas fa-crosshairs"></i>
-                                <i class="fas fa-swimmer"></i>
-                            </div>
-                        </div>
-                        <div class="interest-content">
-                            <h4>Staying Active</h4>
-                            <p>I enjoy sports to stay healthy and have fun. Gym sessions keep me energized, while rugby, rifle shooting, and swimming add variety. It's about balance, not competition.</p>
-                            <div class="interest-tags">
-                                <span>Gym</span>
-                                <span>Rugby</span>
-                                <span>Rifle Shooting</span>
-                                <span>Swimming</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Music -->
-                    <div class="interest-card" data-category="music">
-                        <div class="interest-visual">
-                            <div class="interest-icon-group">
-                                <i class="fas fa-music"></i>
-                                <i class="fas fa-guitar"></i>
-                                <i class="fas fa-microphone-alt"></i>
-                            </div>
-                        </div>
-                        <div class="interest-content">
-                            <h4>Musical Soul</h4>
-                            <p>Keyboard player in Nalanda College Orchestra, violinist at university, and vocalist performing in campus concerts. Music is my creative outlet. It's where logic meets emotion.</p>
-                            <div class="interest-tags">
-                                <span><i class="fas fa-piano"></i> Keyboard</span>
-                                <span><i class="fas fa-violin"></i> Violin</span>
-                                <span><i class="fas fa-microphone"></i> Vocals</span>
-                            </div>
-                        </div>
-                        <div class="music-wave">
-                            <span></span><span></span><span></span><span></span><span></span>
-                        </div>
-                    </div>
-
-                    <!-- Volunteering -->
-                    <div class="interest-card" data-category="volunteer">
-                        <div class="interest-visual">
-                            <div class="interest-icon-group">
-                                <i class="fas fa-hands-helping"></i>
-                                <i class="fas fa-heart"></i>
-                                <i class="fas fa-child"></i>
-                            </div>
-                        </div>
-                        <div class="interest-content">
-                            <h4>Giving Back</h4>
-                            <p>Active volunteer with IEEE and "We for Sri Lanka" organization, bringing smiles to children. Always ready to help during disasters. Small acts can make big differences.</p>
-                            <div class="interest-tags">
-                                <span>IEEE Volunteer</span>
-                                <span>We for Sri Lanka</span>
-                                <span>Disaster Relief</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Travel & Adventure -->
-                    <div class="interest-card" data-category="travel">
-                        <div class="interest-visual">
-                            <div class="interest-icon-group">
-                                <i class="fas fa-mountain"></i>
-                                <i class="fas fa-plane"></i>
-                                <i class="fas fa-hiking"></i>
-                            </div>
-                        </div>
-                        <div class="interest-content">
-                            <h4>Wanderlust</h4>
-                            <p>Love exploring new places through trips and hikes. Memorable adventures across Sri Lanka and dreaming of traveling the world. Every journey tells a story.</p>
-                            <div class="interest-tags">
-                                <span>Hiking</span>
-                                <span>Road Trips</span>
-                                <span>Exploring</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tech & Cars -->
-                    <div class="interest-card" data-category="tech">
-                        <div class="interest-visual">
-                            <div class="interest-icon-group">
-                                <i class="fas fa-car"></i>
-                                <i class="fas fa-microchip"></i>
-                                <i class="fas fa-mobile-alt"></i>
-                            </div>
-                        </div>
-                        <div class="interest-content">
-                            <h4>Gearhead & Geek</h4>
-                            <p>Fascinated by cars and tech gadgets. Whether it's the latest smartphone or a classic engine, I love understanding how things work and what makes them special.</p>
-                            <div class="interest-tags">
-                                <span>Cars</span>
-                                <span>Tech Gadgets</span>
-                                <span>Innovation</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Social & Gaming -->
-                    <div class="interest-card" data-category="social">
-                        <div class="interest-visual">
-                            <div class="interest-icon-group">
-                                <i class="fas fa-users"></i>
-                                <i class="fas fa-coffee"></i>
-                                <i class="fas fa-gamepad"></i>
-                            </div>
-                        </div>
-                        <div class="interest-content">
-                            <h4>People Person</h4>
-                            <p>Love hanging out with friends, coffee meetups, and networking events. Occasionally unwind with battle games like Call of Duty or racing in NFS. Life's better with good company.</p>
-                            <div class="interest-tags">
-                                <span>Coffee Meetups</span>
-                                <span>Networking</span>
-                                <span>Casual Gaming</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">My Portfolio</span>
-                <h2 class="section-title">Featured <span class="highlight">Projects</span></h2>
-            </div>
-            <div class="projects-grid">
-                <!-- Project 1: Lumina -->
-                <article class="project-card featured">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <a href="https://github.com/shaveenudayanga/lumina" target="_blank" class="project-link" aria-label="View Lumina on GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                        <img src="./images/portfolio/lumina/lumina-main.webp" alt="Lumina Robotic Lamp" class="project-screenshot" loading="lazy">
-                        <div class="project-gallery">
-                            <img src="./images/portfolio/lumina/lumina-hardware.webp" alt="Custom PCB and ESP32" class="gallery-thumb" loading="lazy">
-                            <img src="./images/portfolio/lumina/lumina-display.webp" alt="Emotional OLED Display" class="gallery-thumb" loading="lazy">
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag tag-hci">HCI</span>
-                            <span class="tag tag-iot">IoT</span>
-                            <span class="tag tag-ai">GenAI</span>
-                            <span class="tag tag-cv">Computer Vision</span>
-                        </div>
-                        <h3 class="project-title">Lumina: Intent-Aware Robotic Lamp</h3>
-                        <p class="project-description">
-                            Custom-built robotic lamp for <strong>Human-Computer Interaction course</strong> featuring AI-powered voice conversation (Gemini 2.5) 
-                            and real-time hand tracking. Includes <strong>custom PCB design</strong>, ESP32 microcontroller, and expressive OLED display. 
-                            Built from scratch including woodworking, circuit design, and soldering.
-                        </p>
-                        <div class="project-tech">
-                            <span>ESP32</span>
-                            <span>Python</span>
-                            <span>MediaPipe</span>
-                            <span>UDP</span>
-                        </div>
-                        <div class="project-footer">
-                            <span class="project-date">
-                                <i class="far fa-calendar"></i> Dec 2025 - Jan 2026
-                            </span>
-                            <a href="https://github.com/shaveenudayanga/lumina" target="_blank" class="project-btn">
-                                View Project <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 2: Lamitie -->
-                <article class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <a href="https://github.com/shaveenudayanga/lamitie-25" target="_blank" class="project-link" aria-label="View Lamitie on GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                        <img src="./images/portfolio/lamitie-screenshot.webp" alt="Lamitie Dashboard" class="project-screenshot" loading="lazy">
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag tag-backend">Backend</span>
-                            <span class="tag tag-cloud">Cloud</span>
-                        </div>
-                        <h3 class="project-title">Lamitie 2025: Event Management System</h3>
-                        <p class="project-description">
-                            Production-ready event management system that successfully handled <strong>336 student registrations</strong> 
-                            with automated email workflows, QR code generation, and real-time attendance tracking. Deployed on Azure VPS.
-                        </p>
-                        <div class="project-tech">
-                            <span>FastAPI</span>
-                            <span>MySQL</span>
-                            <span>Azure</span>
-                            <span>GitHub Actions</span>
-                        </div>
-                        <div class="project-footer">
-                            <span class="project-date">
-                                <i class="far fa-calendar"></i> Jan 2026
-                            </span>
-                            <div class="project-links">
-                                <a href="https://youtu.be/Tm1Y9o_PY4k" target="_blank" class="project-btn project-btn-demo">
-                                    <i class="fas fa-play-circle"></i> Watch Demo
-                                </a>
-                                <a href="https://github.com/shaveenudayanga/lamitie-25" target="_blank" class="project-btn">
-                                    <i class="fab fa-github"></i> Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 3: Document Tracking -->
-                <article class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <a href="https://github.com/shaveenudayanga/Customizable-Document-Tracking-System" target="_blank" class="project-link" aria-label="View on GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                        <img src="./images/portfolio/Customizable-Document-Tracking-System.webp" alt="Document Tracking System" loading="lazy">
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag tag-backend">Microservices</span>
-                            <span class="tag tag-enterprise">Enterprise</span>
-                        </div>
-                        <h3 class="project-title">Document Tracking System</h3>
-                        <p class="project-description">
-                            Dynamic workflow engine to digitize bureaucratic processes with custom route mapping, 
-                            end-to-end encryption, RBAC, and comprehensive audit trails.
-                        </p>
-                        <div class="project-tech">
-                            <span>Spring Boot</span>
-                            <span>PostgreSQL</span>
-                            <span>Docker</span>
-                        </div>
-                        <div class="project-footer">
-                            <span class="project-date">
-                                <i class="far fa-calendar"></i> Aug - Nov 2025
-                            </span>
-                            <a href="https://github.com/shaveenudayanga/Customizable-Document-Tracking-System" target="_blank" class="project-btn">
-                                View Project <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 4: Wheels in Motion -->
-                <article class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <a href="https://github.com/shaveenudayanga/the-wheels-in-motion" target="_blank" class="project-link" aria-label="View on GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                        <img src="./images/portfolio/The_Wheels_in_Motion.webp" alt="The Wheels in Motion Dashboard" loading="lazy">
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag tag-ml">NLP</span>
-                            <span class="tag tag-data">Data Analysis</span>
-                        </div>
-                        <h3 class="project-title">The Wheels in Motion</h3>
-                        <p class="project-description">
-                            Data analysis pipeline with Zero-Shot Classification on customer reviews using 
-                            Hugging Face models. Features responsive Plotly Dash dashboard with sentiment visualization.
-                        </p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>Hugging Face</span>
-                            <span>Plotly Dash</span>
-                            <span>Pandas</span>
-                        </div>
-                        <div class="project-footer">
-                            <span class="project-date">
-                                <i class="far fa-calendar"></i> Dec 2024
-                            </span>
-                            <div class="project-links">
-                                <a href="./videos/Dashboard-The_Wheels_in_Motion.mp4" target="_blank" class="project-btn project-btn-demo">
-                                    <i class="fas fa-play-circle"></i> Watch Demo
-                                </a>
-                                <a href="https://github.com/shaveenudayanga/the-wheels-in-motion" target="_blank" class="project-btn">
-                                    <i class="fab fa-github"></i> Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            <div class="projects-cta">
-                <a href="https://github.com/shaveenudayanga" target="_blank" class="btn btn-outline">
-                    <i class="fab fa-github"></i>
-                    <span>View All Projects on GitHub</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="experience section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">My Journey</span>
-                <h2 class="section-title">Leadership & <span class="highlight">Experience</span></h2>
-            </div>
-            <div class="experience-grid">
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-marker">
-                            <i class="fas fa-users-cog"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3>Head of Logistics Committee</h3>
-                                <span class="timeline-org">IEEE CS Student Branch Chapter, USJ</span>
-                            </div>
-                            <span class="timeline-date">Jan 2025 - Jan 2026</span>
-                            <p>Orchestrated logistics for 'Beauty of Cloud', a collaborative workshop with AWS Sri Lanka, 
-                               training 60+ undergraduates on cloud technologies. Co-Head of Logistics Committee of the BoC OC.</p>
-                            <div class="timeline-tags">
-                                <div class="tags-wrapper">
-                                    <span>Event Management</span>
-                                    <span>AWS</span>
-                                    <span>Leadership</span>
-                                </div>
-                                <button class="cert-badge" onclick="openCertModal('images/certificates/IEEE_CS_BOC_LC_Certificate.png')">
-                                    <i class="fas fa-certificate"></i> View Certificate
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-marker">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3>Vice President of Tech & Innovation</h3>
-                                <span class="timeline-org">Startup Hub, USJ</span>
-                            </div>
-                            <span class="timeline-date">Oct 2024 - Oct 2025</span>
-                            <p>Spearheaded the strategic planning and execution of a major university innovation competition, 
-                               fostering entrepreneurial spirit among students.</p>
-                            <div class="timeline-tags">
-                                <span>Strategy</span>
-                                <span>Innovation</span>
-                                <span>Entrepreneurship</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-marker">
-                            <i class="fas fa-space-shuttle"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3>Rocketry Divisional Manager</h3>
-                                <span class="timeline-org">SEDS J'pura</span>
-                            </div>
-                            <span class="timeline-date">Sep 2023 - Sep 2024</span>
-                            <p>Developed the technical framework for the annual rocket modeling competition and 
-                               organized practical workshops for aspiring aerospace enthusiasts.</p>
-                            <div class="timeline-tags">
-                                <span>Aerospace</span>
-                                <span>Rocketry</span>
-                                <span>Technical Leadership</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="certifications">
-                    <h3 class="subsection-title">
-                        <i class="fas fa-award"></i> Certifications
-                    </h3>
-                    <div class="cert-cards">
-                        <a href="https://www.coursera.org/account/accomplishments/specialization/GI5K7MDNT03O" target="_blank" class="cert-card">
-                            <div class="cert-logo">
-                                <i class="fas fa-brain"></i>
-                            </div>
-                            <div class="cert-info">
-                                <h4>Machine Learning Specialization</h4>
-                                <span class="cert-issuer">Coursera - DeepLearning.AI & Stanford</span>
-                                <span class="cert-author">by Andrew Ng</span>
-                            </div>
-                            <i class="fas fa-external-link-alt cert-link"></i>
-                        </a>
-                        <a href="https://courses.edx.org/certificates/74b4f126593f4b6eb808580da0acc0a5" target="_blank" class="cert-card">
-                            <div class="cert-logo">
-                                <i class="fas fa-satellite"></i>
-                            </div>
-                            <div class="cert-info">
-                                <h4>Introduction to Aerospace Engineering</h4>
-                                <span class="cert-issuer">edX - MITx</span>
-                                <span class="cert-author">Astronautics & Human Spaceflight</span>
-                            </div>
-                            <i class="fas fa-external-link-alt cert-link"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Get In Touch</span>
-                <h2 class="section-title">Let's <span class="highlight">Connect</span></h2>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <p class="contact-text">
-                        I'm always excited to collaborate on innovative projects, discuss new technologies, 
-                        or explore opportunities. Feel free to reach out!
+                    <p class="hero__desc">
+                        CS undergrad who loves building things that work — from
+                        <span class="text-gradient">AI-powered robots</span> to
+                        <span class="text-gradient">backend systems</span> that handle real users.
+                        Currently exploring the sweet spot between hardware and software.
                     </p>
-                    <div class="contact-cards">
-                        <div class="contact-card email-card">
-                            <a href="mailto:shaveenudayanga@gmail.com" class="contact-card-link">
-                                <div class="contact-icon">
-                                    <i class="fas fa-envelope"></i>
+                    <div class="hero__cta">
+                        <a href="#projects" class="btn btn--primary">
+                            <span>View My Work</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="Resume_Shaveen_Udayanga.pdf" download class="btn btn--ghost">
+                            <i class="fas fa-download"></i>
+                            <span>Resume</span>
+                        </a>
+                    </div>
+                    <div class="hero__social">
+                        <a href="https://github.com/shaveenudayanga" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/shaveenudayanga" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:shaveenudayanga@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://linktr.ee/shaveenudayanga" target="_blank" rel="noopener" aria-label="Linktree"><i class="fas fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="hero__visual">
+                    <div class="hero__image-wrap">
+                        <div class="hero__glow"></div>
+                        <img src="public/images/profile-hero.webp" alt="Shaveen Udayanga" class="hero__image" width="420" height="420">
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-hint">
+                <div class="scroll-hint__mouse"><div class="scroll-hint__wheel"></div></div>
+                <span>Scroll to explore</span>
+            </div>
+        </section>
+
+        <!-- ==================== ABOUT ==================== -->
+        <section id="about" class="stage stage--horizontal">
+            <div class="stage__track">
+                <div class="panel">
+                    <div class="panel__inner panel__split">
+                        <div class="panel__col panel__col--text">
+                            <div class="section-label">
+                                <span class="section-label__num">01</span>
+                                <span class="section-label__line"></span>
+                                <span class="section-label__text">About</span>
+                            </div>
+                            <h2 class="section-title">About <span class="accent">Me</span></h2>
+                            <div class="about__text">
+                                <p class="lead">I'm a Computer Science student at the University of Sri Jayewardenepura, currently in my third year. I love exploring how technology can solve real problems and make people's lives easier.</p>
+                                <p>Whether it's building IoT devices, experimenting with AI models, or creating backend systems, I enjoy the process of turning ideas into working solutions. I'm still learning and discovering new things every day.</p>
+                                <p>Outside of tech, I'm into music, sports, and meeting new people. I believe that good work happens when people genuinely enjoy what they do and who they do it with. Always open to learning from others and collaborating on interesting projects.</p>
+                            </div>
+                        </div>
+                        <div class="panel__col">
+                            <div class="about__highlights">
+                                <div class="highlight-item"><i class="fas fa-check-circle"></i><span>Built Lumina: an AI-powered robotic lamp (HCI project)</span></div>
+                                <div class="highlight-item"><i class="fas fa-server"></i><span>Deployed production systems handling real users</span></div>
+                                <div class="highlight-item"><i class="fas fa-users-cog"></i><span>Led tech initiatives at IEEE &amp; Startup Hub</span></div>
+                                <div class="highlight-item"><i class="fas fa-music"></i><span>Musician and sports enthusiast</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel__inner">
+                        <div class="about__cards">
+                            <div class="info-card">
+                                <div class="info-card__icon"><i class="fas fa-university"></i></div>
+                                <h3>Education</h3>
+                                <p>BSc (Hons) Computer Science</p>
+                                <span class="info-card__detail">University of Sri Jayewardenepura</span>
+                                <span class="info-card__badge">2023 – 2027</span>
+                            </div>
+                            <div class="info-card">
+                                <div class="info-card__icon"><i class="fas fa-map-marker-alt"></i></div>
+                                <h3>Location</h3>
+                                <p>Sri Lanka</p>
+                                <span class="info-card__detail">Open to Remote Work</span>
+                                <span class="info-card__badge">🌏</span>
+                            </div>
+                            <div class="info-card">
+                                <div class="info-card__icon"><i class="fas fa-brain"></i></div>
+                                <h3>Focus Areas</h3>
+                                <p>AI/ML &amp; IoT</p>
+                                <span class="info-card__detail">Full-Stack Development</span>
+                                <span class="info-card__badge">🚀</span>
+                            </div>
+                            <div class="info-card">
+                                <div class="info-card__icon"><i class="fas fa-seedling"></i></div>
+                                <h3>Currently Exploring</h3>
+                                <p>Research Gaps</p>
+                                <span class="info-card__detail">Finding &amp; Analyzing Opportunities</span>
+                                <span class="info-card__badge">🔬</span>
+                            </div>
+                        </div>
+                        <div class="github-chart">
+                            <div class="github-chart__header">
+                                <i class="fab fa-github"></i>
+                                <h3>GitHub Activity</h3>
+                            </div>
+                            <img src="https://ghchart.rshah.org/6366f1/shaveenudayanga" alt="GitHub Contribution Graph" loading="lazy" width="800" height="120">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SKILLS ==================== -->
+        <section id="skills" class="stage stage--horizontal">
+            <div class="stage__track">
+                <div class="panel">
+                    <div class="panel__inner">
+                        <div class="section-label">
+                            <span class="section-label__num">02</span>
+                            <span class="section-label__line"></span>
+                            <span class="section-label__text">Skills</span>
+                        </div>
+                        <h2 class="section-title">Technical <span class="accent">Skills</span></h2>
+                        <div class="skills__grid">
+                            <div class="skill-category">
+                                <div class="skill-category__header">
+                                    <div class="skill-category__icon"><i class="fas fa-laptop-code"></i></div>
+                                    <h3>Languages</h3>
                                 </div>
-                                <div class="contact-detail">
-                                    <span class="contact-label">Email</span>
-                                    <span class="contact-value">shaveenudayanga@gmail.com</span>
+                                <div class="skill-tags">
+                                    <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+                                    <span class="skill-tag"><i class="fab fa-java"></i> Java</span>
+                                    <span class="skill-tag">C</span>
+                                    <span class="skill-tag">C++</span>
+                                    <span class="skill-tag"><i class="fas fa-database"></i> MySQL</span>
+                                    <span class="skill-tag">R</span>
+                                </div>
+                            </div>
+                            <div class="skill-category">
+                                <div class="skill-category__header">
+                                    <div class="skill-category__icon"><i class="fas fa-robot"></i></div>
+                                    <h3>AI/ML Frameworks</h3>
+                                </div>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">TensorFlow</span>
+                                    <span class="skill-tag">Keras</span>
+                                    <span class="skill-tag">Scikit-learn</span>
+                                    <span class="skill-tag">🤗 Hugging Face</span>
+                                    <span class="skill-tag">MediaPipe</span>
+                                </div>
+                            </div>
+                            <div class="skill-category">
+                                <div class="skill-category__header">
+                                    <div class="skill-category__icon"><i class="fas fa-cloud"></i></div>
+                                    <h3>Cloud &amp; DevOps</h3>
+                                </div>
+                                <div class="skill-tags">
+                                    <span class="skill-tag"><i class="fab fa-docker"></i> Docker</span>
+                                    <span class="skill-tag">CI/CD</span>
+                                    <span class="skill-tag"><i class="fab fa-github"></i> GitHub Actions</span>
+                                    <span class="skill-tag"><i class="fab fa-microsoft"></i> Azure VPS</span>
+                                    <span class="skill-tag"><i class="fab fa-linux"></i> Linux</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel__inner">
+                        <div class="skills__grid">
+                            <div class="skill-category">
+                                <div class="skill-category__header">
+                                    <div class="skill-category__icon"><i class="fas fa-globe"></i></div>
+                                    <h3>Web &amp; Tools</h3>
+                                </div>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">FastAPI</span>
+                                    <span class="skill-tag">Spring Boot</span>
+                                    <span class="skill-tag"><i class="fab fa-react"></i> React</span>
+                                    <span class="skill-tag">Plotly Dash</span>
+                                    <span class="skill-tag"><i class="fab fa-git-alt"></i> Git</span>
+                                </div>
+                            </div>
+                            <div class="skill-category">
+                                <div class="skill-category__header">
+                                    <div class="skill-category__icon"><i class="fas fa-microchip"></i></div>
+                                    <h3>Hardware &amp; IoT</h3>
+                                </div>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">ESP32</span>
+                                    <span class="skill-tag">Circuit Design</span>
+                                    <span class="skill-tag">Soldering</span>
+                                    <span class="skill-tag">UDP Protocol</span>
+                                </div>
+                            </div>
+                            <div class="skill-category">
+                                <div class="skill-category__header">
+                                    <div class="skill-category__icon"><i class="fas fa-lightbulb"></i></div>
+                                    <h3>Core Competencies</h3>
+                                </div>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">Problem-Solving</span>
+                                    <span class="skill-tag">Rapid Prototyping</span>
+                                    <span class="skill-tag">System Design</span>
+                                    <span class="skill-tag">API Architecture</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PROJECTS ==================== -->
+        <section id="projects" class="stage stage--horizontal">
+            <div class="stage__track">
+                <!-- Panel 1: Featured — Lumina -->
+                <div class="panel">
+                    <div class="panel__inner">
+                        <div class="section-label">
+                            <span class="section-label__num">03</span>
+                            <span class="section-label__line"></span>
+                            <span class="section-label__text">Projects</span>
+                        </div>
+                        <h2 class="section-title">Featured <span class="accent">Projects</span></h2>
+                        <article class="project-card project-card--featured">
+                            <div class="project-card__image">
+                                <img src="public/images/portfolio/lumina/lumina-main.webp" alt="Lumina Robotic Lamp" loading="lazy" width="600" height="400">
+                                <div class="project-card__gallery">
+                                    <img src="public/images/portfolio/lumina/lumina-hardware.webp" alt="Custom PCB" loading="lazy" width="120" height="80">
+                                    <img src="public/images/portfolio/lumina/lumina-display.webp" alt="OLED Display" loading="lazy" width="120" height="80">
+                                </div>
+                            </div>
+                            <div class="project-card__body">
+                                <div class="project-card__tags">
+                                    <span class="tag tag--hci">HCI</span>
+                                    <span class="tag tag--iot">IoT</span>
+                                    <span class="tag tag--ai">GenAI</span>
+                                    <span class="tag tag--cv">Computer Vision</span>
+                                </div>
+                                <h3>Lumina: Intent-Aware Robotic Lamp</h3>
+                                <p>Custom-built robotic lamp for <strong>Human-Computer Interaction course</strong> featuring AI-powered voice conversation (Gemini 2.5) and real-time hand tracking. Includes <strong>custom PCB design</strong>, ESP32 microcontroller, and expressive OLED display. Built from scratch including woodworking, circuit design, and soldering.</p>
+                                <div class="project-card__tech">
+                                    <span>ESP32</span><span>Python</span><span>MediaPipe</span><span>UDP</span>
+                                </div>
+                                <div class="project-card__footer">
+                                    <span class="project-card__date"><i class="far fa-calendar"></i> Dec 2025 – Jan 2026</span>
+                                    <a href="https://github.com/shaveenudayanga/lumina" target="_blank" rel="noopener" class="btn btn--small">View Project <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Panel 2: Lamitie + Document Tracking -->
+                <div class="panel">
+                    <div class="panel__inner">
+                        <div class="projects__duo">
+                            <article class="project-card">
+                                <div class="project-card__image">
+                                    <img src="public/images/portfolio/lamitie-screenshot.webp" alt="Lamitie Dashboard" loading="lazy" width="400" height="260">
+                                </div>
+                                <div class="project-card__body">
+                                    <div class="project-card__tags">
+                                        <span class="tag tag--backend">Backend</span>
+                                        <span class="tag tag--cloud">Cloud</span>
+                                    </div>
+                                    <h3>Lamitie 2025: Event Management System</h3>
+                                    <p>Production-ready system that handled <strong>336 student registrations</strong> with automated email workflows, QR code generation, and real-time attendance tracking. Deployed on Azure VPS.</p>
+                                    <div class="project-card__tech">
+                                        <span>FastAPI</span><span>MySQL</span><span>Azure</span><span>GitHub Actions</span>
+                                    </div>
+                                    <div class="project-card__footer">
+                                        <span class="project-card__date"><i class="far fa-calendar"></i> Jan 2026</span>
+                                        <div class="project-card__links">
+                                            <a href="https://youtu.be/Tm1Y9o_PY4k" target="_blank" rel="noopener" class="btn btn--small btn--accent"><i class="fas fa-play-circle"></i> Demo</a>
+                                            <a href="https://github.com/shaveenudayanga/lamitie-25" target="_blank" rel="noopener" class="btn btn--small"><i class="fab fa-github"></i> Code</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="project-card">
+                                <div class="project-card__image">
+                                    <img src="public/images/portfolio/Customizable-Document-Tracking-System.webp" alt="Document Tracking System" loading="lazy" width="400" height="260">
+                                </div>
+                                <div class="project-card__body">
+                                    <div class="project-card__tags">
+                                        <span class="tag tag--backend">Microservices</span>
+                                        <span class="tag tag--enterprise">Enterprise</span>
+                                    </div>
+                                    <h3>Document Tracking System</h3>
+                                    <p>Dynamic workflow engine to digitize bureaucratic processes with custom route mapping, end-to-end encryption, RBAC, and comprehensive audit trails.</p>
+                                    <div class="project-card__tech">
+                                        <span>Spring Boot</span><span>PostgreSQL</span><span>Docker</span>
+                                    </div>
+                                    <div class="project-card__footer">
+                                        <span class="project-card__date"><i class="far fa-calendar"></i> Aug – Nov 2025</span>
+                                        <a href="https://github.com/shaveenudayanga/Customizable-Document-Tracking-System" target="_blank" rel="noopener" class="btn btn--small">View Project <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 3: Wheels in Motion + GitHub CTA -->
+                <div class="panel">
+                    <div class="panel__inner">
+                        <div class="projects__final">
+                            <article class="project-card">
+                                <div class="project-card__image">
+                                    <img src="public/images/portfolio/The_Wheels_in_Motion.webp" alt="The Wheels in Motion Dashboard" loading="lazy" width="400" height="260">
+                                </div>
+                                <div class="project-card__body">
+                                    <div class="project-card__tags">
+                                        <span class="tag tag--ml">NLP</span>
+                                        <span class="tag tag--data">Data Analysis</span>
+                                    </div>
+                                    <h3>The Wheels in Motion</h3>
+                                    <p>Data analysis pipeline with Zero-Shot Classification on customer reviews using Hugging Face models. Features responsive Plotly Dash dashboard with sentiment visualization.</p>
+                                    <div class="project-card__tech">
+                                        <span>Python</span><span>Hugging Face</span><span>Plotly Dash</span><span>Pandas</span>
+                                    </div>
+                                    <div class="project-card__footer">
+                                        <span class="project-card__date"><i class="far fa-calendar"></i> Dec 2024</span>
+                                        <div class="project-card__links">
+                                            <a href="public/videos/Dashboard-The_Wheels_in_Motion.mp4" target="_blank" class="btn btn--small btn--accent"><i class="fas fa-play-circle"></i> Demo</a>
+                                            <a href="https://github.com/shaveenudayanga/the-wheels-in-motion" target="_blank" rel="noopener" class="btn btn--small"><i class="fab fa-github"></i> Code</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <div class="projects__cta">
+                                <p>More projects on GitHub</p>
+                                <a href="https://github.com/shaveenudayanga" target="_blank" rel="noopener" class="btn btn--outline-large">
+                                    <i class="fab fa-github"></i> View All Projects
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== EXPERIENCE ==================== -->
+        <section id="experience" class="stage stage--horizontal">
+            <div class="stage__track">
+                <div class="panel">
+                    <div class="panel__inner">
+                        <div class="section-label">
+                            <span class="section-label__num">04</span>
+                            <span class="section-label__line"></span>
+                            <span class="section-label__text">Experience</span>
+                        </div>
+                        <h2 class="section-title">Leadership &amp; <span class="accent">Experience</span></h2>
+                        <div class="timeline">
+                            <div class="timeline__item">
+                                <div class="timeline__marker"><i class="fas fa-users-cog"></i></div>
+                                <div class="timeline__content">
+                                    <div class="timeline__header">
+                                        <h3>Head of Logistics Committee</h3>
+                                        <span class="timeline__org">IEEE CS Student Branch Chapter, USJ</span>
+                                    </div>
+                                    <span class="timeline__date">Jan 2025 – Jan 2026</span>
+                                    <p>Orchestrated logistics for 'Beauty of Cloud', a collaborative workshop with AWS Sri Lanka, training 60+ undergraduates on cloud technologies. Co-Head of Logistics Committee of the BoC OC.</p>
+                                    <div class="timeline__tags">
+                                        <span>Event Management</span><span>AWS</span><span>Leadership</span>
+                                    </div>
+                                    <button class="cert-badge" onclick="openCertModal('public/images/certificates/IEEE_CS_BOC_LC_Certificate.png')">
+                                        <i class="fas fa-certificate"></i> View Certificate
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="timeline__item">
+                                <div class="timeline__marker"><i class="fas fa-rocket"></i></div>
+                                <div class="timeline__content">
+                                    <div class="timeline__header">
+                                        <h3>Vice President of Tech &amp; Innovation</h3>
+                                        <span class="timeline__org">Startup Hub, USJ</span>
+                                    </div>
+                                    <span class="timeline__date">Oct 2024 – Oct 2025</span>
+                                    <p>Spearheaded the strategic planning and execution of a major university innovation competition, fostering entrepreneurial spirit among students.</p>
+                                    <div class="timeline__tags">
+                                        <span>Strategy</span><span>Innovation</span><span>Entrepreneurship</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline__item">
+                                <div class="timeline__marker"><i class="fas fa-space-shuttle"></i></div>
+                                <div class="timeline__content">
+                                    <div class="timeline__header">
+                                        <h3>Rocketry Divisional Manager</h3>
+                                        <span class="timeline__org">SEDS J'pura</span>
+                                    </div>
+                                    <span class="timeline__date">Sep 2023 – Sep 2024</span>
+                                    <p>Developed the technical framework for the annual rocket modeling competition and organized practical workshops for aspiring aerospace enthusiasts.</p>
+                                    <div class="timeline__tags">
+                                        <span>Aerospace</span><span>Rocketry</span><span>Technical Leadership</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel__inner panel__inner--center">
+                        <h3 class="subsection-title"><i class="fas fa-award"></i> Certifications</h3>
+                        <div class="cert-cards">
+                            <a href="https://www.coursera.org/account/accomplishments/specialization/GI5K7MDNT03O" target="_blank" rel="noopener" class="cert-card">
+                                <div class="cert-card__icon"><i class="fas fa-brain"></i></div>
+                                <div class="cert-card__info">
+                                    <h4>Machine Learning Specialization</h4>
+                                    <span class="cert-card__issuer">Coursera – DeepLearning.AI &amp; Stanford</span>
+                                    <span class="cert-card__author">by Andrew Ng</span>
+                                </div>
+                                <i class="fas fa-external-link-alt cert-card__link"></i>
+                            </a>
+                            <a href="https://courses.edx.org/certificates/74b4f126593f4b6eb808580da0acc0a5" target="_blank" rel="noopener" class="cert-card">
+                                <div class="cert-card__icon"><i class="fas fa-satellite"></i></div>
+                                <div class="cert-card__info">
+                                    <h4>Introduction to Aerospace Engineering</h4>
+                                    <span class="cert-card__issuer">edX – MITx</span>
+                                    <span class="cert-card__author">Astronautics &amp; Human Spaceflight</span>
+                                </div>
+                                <i class="fas fa-external-link-alt cert-card__link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== BEYOND THE TERMINAL ==================== -->
+        <section id="beyond" class="stage stage--horizontal">
+            <div class="stage__track">
+                <!-- Panel 1: Video centerpiece -->
+                <div class="panel">
+                    <div class="panel__inner">
+                        <div class="section-label">
+                            <span class="section-label__num">05</span>
+                            <span class="section-label__line"></span>
+                            <span class="section-label__text">Life</span>
+                        </div>
+                        <h2 class="section-title">Beyond <span class="accent">The Terminal</span></h2>
+                        <div class="video-showcase">
+                            <div class="video-frame">
+                                <video autoplay muted loop playsinline preload="metadata">
+                                    <source src="public/videos/Dashboard-The_Wheels_in_Motion.mp4" type="video/mp4">
+                                </video>
+                                <div class="video-frame__overlay">
+                                    <span class="video-frame__label">What happens at the terminal</span>
+                                </div>
+                            </div>
+                            <a href="https://youtu.be/Tm1Y9o_PY4k" target="_blank" rel="noopener" class="video-cta">
+                                <i class="fas fa-play-circle"></i> Watch Lamitie Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 2: Interests grid -->
+                <div class="panel">
+                    <div class="panel__inner">
+                        <div class="interests-grid">
+                            <div class="interest-card" data-category="sports">
+                                <div class="interest-card__icons">
+                                    <i class="fas fa-dumbbell"></i>
+                                    <i class="fas fa-football-ball"></i>
+                                    <i class="fas fa-crosshairs"></i>
+                                    <i class="fas fa-swimmer"></i>
+                                </div>
+                                <h4>Staying Active</h4>
+                                <p>I enjoy sports to stay healthy and have fun. Gym sessions keep me energized, while rugby, rifle shooting, and swimming add variety.</p>
+                                <div class="interest-card__tags"><span>Gym</span><span>Rugby</span><span>Rifle Shooting</span><span>Swimming</span></div>
+                            </div>
+
+                            <div class="interest-card" data-category="music">
+                                <div class="interest-card__icons">
+                                    <i class="fas fa-music"></i>
+                                    <i class="fas fa-guitar"></i>
+                                    <i class="fas fa-microphone-alt"></i>
+                                </div>
+                                <h4>Musical Soul</h4>
+                                <p>Keyboard player in Nalanda College Orchestra, violinist at university, and vocalist performing in campus concerts. Where logic meets emotion.</p>
+                                <div class="interest-card__tags"><span>Keyboard</span><span>Violin</span><span>Vocals</span></div>
+                                <div class="music-wave"><span></span><span></span><span></span><span></span><span></span></div>
+                            </div>
+
+                            <div class="interest-card" data-category="volunteer">
+                                <div class="interest-card__icons">
+                                    <i class="fas fa-hands-helping"></i>
+                                    <i class="fas fa-heart"></i>
+                                    <i class="fas fa-child"></i>
+                                </div>
+                                <h4>Giving Back</h4>
+                                <p>Active volunteer with IEEE and "We for Sri Lanka" organization. Always ready to help during disasters. Small acts can make big differences.</p>
+                                <div class="interest-card__tags"><span>IEEE Volunteer</span><span>We for Sri Lanka</span><span>Disaster Relief</span></div>
+                            </div>
+
+                            <div class="interest-card" data-category="travel">
+                                <div class="interest-card__icons">
+                                    <i class="fas fa-mountain"></i>
+                                    <i class="fas fa-plane"></i>
+                                    <i class="fas fa-hiking"></i>
+                                </div>
+                                <h4>Wanderlust</h4>
+                                <p>Love exploring new places through trips and hikes. Memorable adventures across Sri Lanka and dreaming of traveling the world.</p>
+                                <div class="interest-card__tags"><span>Hiking</span><span>Road Trips</span><span>Exploring</span></div>
+                            </div>
+
+                            <div class="interest-card" data-category="tech">
+                                <div class="interest-card__icons">
+                                    <i class="fas fa-car"></i>
+                                    <i class="fas fa-microchip"></i>
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <h4>Gearhead &amp; Geek</h4>
+                                <p>Fascinated by cars and tech gadgets. Whether it's the latest smartphone or a classic engine, I love understanding how things work.</p>
+                                <div class="interest-card__tags"><span>Cars</span><span>Tech Gadgets</span><span>Innovation</span></div>
+                            </div>
+
+                            <div class="interest-card" data-category="social">
+                                <div class="interest-card__icons">
+                                    <i class="fas fa-users"></i>
+                                    <i class="fas fa-coffee"></i>
+                                    <i class="fas fa-gamepad"></i>
+                                </div>
+                                <h4>People Person</h4>
+                                <p>Love hanging out with friends, coffee meetups, and networking events. Occasionally unwind with Call of Duty or racing in NFS.</p>
+                                <div class="interest-card__tags"><span>Coffee Meetups</span><span>Networking</span><span>Casual Gaming</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CONTACT ==================== -->
+        <section id="contact" class="stage stage--final">
+            <div class="contact">
+                <div class="section-label">
+                    <span class="section-label__num">06</span>
+                    <span class="section-label__line"></span>
+                    <span class="section-label__text">Contact</span>
+                </div>
+                <h2 class="section-title">Let's <span class="accent">Connect</span></h2>
+                <p class="contact__intro">I'm always excited to collaborate on innovative projects, discuss new technologies, or explore opportunities. Feel free to reach out!</p>
+
+                <div class="contact__grid">
+                    <div class="contact__info">
+                        <div class="contact-card email-card">
+                            <a href="mailto:shaveenudayanga@gmail.com" class="contact-card__link">
+                                <div class="contact-card__icon"><i class="fas fa-envelope"></i></div>
+                                <div class="contact-card__detail">
+                                    <span class="contact-card__label">Email</span>
+                                    <span class="contact-card__value">shaveenudayanga@gmail.com</span>
                                 </div>
                             </a>
-                            <button class="copy-email-btn" onclick="copyEmail()" title="Copy email">
-                                <i class="fas fa-copy"></i>
-                            </button>
+                            <button class="copy-btn" onclick="copyEmail()" title="Copy email"><i class="fas fa-copy"></i></button>
                         </div>
-                        <a href="https://wa.me/94771186742" target="_blank" class="contact-card">
-                            <div class="contact-icon">
-                                <i class="fab fa-whatsapp"></i>
-                            </div>
-                            <div class="contact-detail">
-                                <span class="contact-label">WhatsApp</span>
-                                <span class="contact-value">+94 77 118 6742</span>
+                        <a href="https://wa.me/94771186742" target="_blank" rel="noopener" class="contact-card">
+                            <div class="contact-card__icon"><i class="fab fa-whatsapp"></i></div>
+                            <div class="contact-card__detail">
+                                <span class="contact-card__label">WhatsApp</span>
+                                <span class="contact-card__value">+94 77 118 6742</span>
                             </div>
                         </a>
-                        <a href="https://linkedin.com/in/shaveenudayanga" target="_blank" class="contact-card">
-                            <div class="contact-icon">
-                                <i class="fab fa-linkedin-in"></i>
-                            </div>
-                            <div class="contact-detail">
-                                <span class="contact-label">LinkedIn</span>
-                                <span class="contact-value">in/shaveenudayanga</span>
+                        <a href="https://linkedin.com/in/shaveenudayanga" target="_blank" rel="noopener" class="contact-card">
+                            <div class="contact-card__icon"><i class="fab fa-linkedin-in"></i></div>
+                            <div class="contact-card__detail">
+                                <span class="contact-card__label">LinkedIn</span>
+                                <span class="contact-card__value">in/shaveenudayanga</span>
                             </div>
                         </a>
-                        <a href="https://github.com/shaveenudayanga" target="_blank" class="contact-card">
-                            <div class="contact-icon">
-                                <i class="fab fa-github"></i>
-                            </div>
-                            <div class="contact-detail">
-                                <span class="contact-label">GitHub</span>
-                                <span class="contact-value">shaveenudayanga</span>
+                        <a href="https://github.com/shaveenudayanga" target="_blank" rel="noopener" class="contact-card">
+                            <div class="contact-card__icon"><i class="fab fa-github"></i></div>
+                            <div class="contact-card__detail">
+                                <span class="contact-card__label">GitHub</span>
+                                <span class="contact-card__value">shaveenudayanga</span>
                             </div>
                         </a>
                     </div>
-                </div>
-                <div class="contact-form-container">
-                    <form class="contact-form" action="https://formspree.io/f/xaqdwygp" method="POST">
+                    <form class="contact__form" action="https://formspree.io/f/xaqdwygp" method="POST">
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required placeholder="Your name">
+                            <input type="text" id="name" name="name" required placeholder="Your name" autocomplete="name">
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required placeholder="your@email.com">
+                            <input type="email" id="email" name="email" required placeholder="your@email.com" autocomplete="email">
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
                             <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project or idea..."></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-full">
+                        <button type="submit" class="btn btn--primary btn--full">
                             <span>Send Message</span>
                             <i class="fas fa-paper-plane"></i>
                         </button>
                     </form>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
     </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <span class="logo-text">&lt;SU /&gt;</span>
-                    <p>Building solutions that make a difference.</p>
-                </div>
-                <div class="footer-links">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#contact">Contact</a>
-                </div>
-                <div class="footer-social">
-                    <a href="https://github.com/shaveenudayanga" target="_blank" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/shaveenudayanga" target="_blank" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://web.facebook.com/shaveenudayanga" target="_blank" aria-label="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="mailto:shaveenudayanga@gmail.com" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <span class="nav__logo">&lt;SU /&gt;</span>
+                <p>Building solutions that make a difference.</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Shaveen Udayanga. Made with <i class="fas fa-heart"></i></p>
+            <div class="footer__links">
+                <a href="#hero">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
             </div>
+            <div class="footer__social">
+                <a href="https://github.com/shaveenudayanga" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/shaveenudayanga" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://web.facebook.com/shaveenudayanga" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="mailto:shaveenudayanga@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>&copy; 2026 Shaveen Udayanga. Made with <i class="fas fa-heart"></i></p>
         </div>
     </footer>
 
-    <!-- Scroll Progress Indicator -->
-    <div class="scroll-progress"></div>
-
-    <!-- Back to Top Button -->
+    <!-- Back to Top -->
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- Toast Notification -->
+    <!-- Toast -->
     <div class="toast" id="toast">
         <i class="fas fa-check-circle"></i>
         <span id="toastMessage">Email copied to clipboard!</span>
     </div>
 
     <!-- Certificate Modal -->
-    <div id="certModal" class="cert-modal">
-        <div class="cert-modal-content">
-            <div class="cert-modal-header">
-                <h3><i class="fas fa-certificate"></i> Certificate of Appreciation</h3>
-                <div class="cert-modal-actions">
-                    <button class="cert-zoom-btn" onclick="zoomCert('in')" title="Zoom In">
-                        <i class="fas fa-search-plus"></i>
-                    </button>
-                    <button class="cert-zoom-btn" onclick="zoomCert('out')" title="Zoom Out">
-                        <i class="fas fa-search-minus"></i>
-                    </button>
-                    <a id="certDownload" href="" download class="cert-download-btn" title="Download Certificate">
-                        <i class="fas fa-download"></i>
-                    </a>
-                    <button class="cert-modal-close" onclick="closeCertModal()">
-                        <i class="fas fa-times"></i>
-                    </button>
+    <div class="cert-modal" id="certModal">
+        <div class="cert-modal__content">
+            <div class="cert-modal__header">
+                <h3><i class="fas fa-certificate"></i> Certificate</h3>
+                <div class="cert-modal__actions">
+                    <a id="certDownload" href="" download class="cert-modal__btn" title="Download"><i class="fas fa-download"></i></a>
+                    <button class="cert-modal__btn" onclick="closeCertModal()" title="Close"><i class="fas fa-times"></i></button>
                 </div>
             </div>
-            <div class="cert-viewer">
-                <img id="certImage" src="" alt="Certificate" />
+            <div class="cert-modal__viewer">
+                <img id="certImage" src="" alt="Certificate">
             </div>
         </div>
     </div>
 
-    <script src="./script.js?v=4.0"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

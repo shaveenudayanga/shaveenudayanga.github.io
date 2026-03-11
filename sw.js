@@ -1,18 +1,18 @@
 // Service Worker for Shaveen Udayanga Portfolio
-const CACHE_NAME = 'shaveen-portfolio-v1';
+const CACHE_NAME = 'shaveen-portfolio-v2';
 const urlsToCache = [
     '/',
     '/index.html',
     '/styles.css',
     '/script.js',
-    '/manifest.json',
-    '/images/profile-hero.webp',
-    '/images/lamitie-screenshot.webp',
-    '/images/The_Wheels_in_Motion.webp',
-    '/images/Customizable-Document-Tracking-System.webp',
-    '/images/lumina/lumina-main.webp',
-    '/images/lumina/lumina-hardware.webp',
-    '/images/lumina/lumina-display.webp'
+    '/public/manifest.json',
+    '/public/images/profile-hero.webp',
+    '/public/images/portfolio/lamitie-screenshot.webp',
+    '/public/images/portfolio/The_Wheels_in_Motion.webp',
+    '/public/images/portfolio/Customizable-Document-Tracking-System.webp',
+    '/public/images/portfolio/lumina/lumina-main.webp',
+    '/public/images/portfolio/lumina/lumina-hardware.webp',
+    '/public/images/portfolio/lumina/lumina-display.webp'
 ];
 
 // Install event - cache assets

@@ -5,7 +5,7 @@ updated: "2026-02-15"
 description: "The engineering decisions behind Lumina: the ESP32 board and firmware, real-time gesture tracking with MediaPipe, and voice conversation with Gemini 2.5."
 author: "Shaveen Udayanga"
 tags: ["IoT", "AI", "HCI", "ESP32"]
-image: "/images/portfolio/lumina/lumina-main.webp"
+image: "/images/projects/lumina/lamp.webp"
 imageAlt: "Lumina AI-powered robotic lamp with OLED face display"
 faq:
   - question: "What is Lumina?"

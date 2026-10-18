@@ -84,7 +84,7 @@ export default function Opening() {
           <figure className={styles.view}>
             <div className={styles.photo}>
               <Image
-                src="/images/shaveen-headshot.webp"
+                src="/images/shaveen-udayanga.webp"
                 alt="Shaveen Udayanga in a black suit and white shirt against a plain wall"
                 width={576}
                 height={720}

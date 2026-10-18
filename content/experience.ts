@@ -84,7 +84,7 @@ export const spans: Span[] = [
     summary:
       "Handled logistics for the chapter's events, including Beauty of Cloud, an AWS Sri Lanka workshop for more than 60 undergraduates.",
     certificate: {
-      src: "/images/certificates/IEEE_CS_BOC_LC_Certificate.png",
+      src: "/images/certificates/ieee-cs-beauty-of-cloud.png",
       alt: "Certificate for the Beauty of Cloud logistics committee, IEEE CS USJ",
       width: 2340,
       height: 1655,
@@ -184,9 +184,10 @@ export const certifications: Certification[] = [
     title: "Product Management",
     issuer: "Great Learning Academy",
     date: "September 2026",
+    url: "https://www.mygreatlearning.com/certificate/VNHCQWUN",
   },
   {
-    title: "Introduction to Aerospace Engineering",
+    title: "Introduction to Aerospace Engineering (16.00x)",
     issuer: "MITx on edX",
     url: "https://courses.edx.org/certificates/74b4f126593f4b6eb808580da0acc0a5",
   },
@@ -209,7 +210,7 @@ export const offTheClock: OffClockNote[] = [
     title: "Music",
     body: "I played keyboard in the Nalanda College orchestra. At university it is violin, and singing at campus concerts.",
     image: {
-      src: "/images/off-clock-violin.webp",
+      src: "/images/off-clock/violin.webp",
       alt: "Shaveen playing violin on stage at a university concert",
       width: 450,
       height: 600,
@@ -220,7 +221,7 @@ export const offTheClock: OffClockNote[] = [
     title: "Sport",
     body: "The gym most weeks. Rugby, rifle shooting and swimming when there is time.",
     image: {
-      src: "/images/off-clock-gym.webp",
+      src: "/images/off-clock/gym.webp",
       alt: "Mirror photo of Shaveen at the gym in a green T-shirt",
       width: 600,
       height: 800,
@@ -231,7 +232,7 @@ export const offTheClock: OffClockNote[] = [
     title: "Volunteering",
     body: "IEEE events, and We for Sri Lanka, where most of the work is with children. I help with relief work after floods and other disasters.",
     image: {
-      src: "/images/off-clock-charity.webp",
+      src: "/images/off-clock/charity.webp",
       alt: "Shaveen with the We for Sri Lanka team at Apeksha Hospital, Maharagama",
       width: 391,
       height: 341,

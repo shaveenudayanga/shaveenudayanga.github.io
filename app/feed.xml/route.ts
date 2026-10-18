@@ -40,7 +40,7 @@ export async function GET() {
     <managingEditor>${SITE_CONFIG.email} (Shaveen Udayanga)</managingEditor>
     <webMaster>${SITE_CONFIG.email} (Shaveen Udayanga)</webMaster>
     <image>
-      <url>${SITE_CONFIG.url}/images/shaveen_portfolio_favicon.png</url>
+      <url>${SITE_CONFIG.url}/favicon.png</url>
       <title>Shaveen Udayanga, writing</title>
       <link>${SITE_CONFIG.url}/blog</link>
     </image>${items}

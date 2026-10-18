@@ -181,7 +181,7 @@ export const aiTools = {
           email: "shaveenudayanga@gmail.com",
           phone: "+94 77 118 6742",
           linkedin: "linkedin.com/in/shaveenudayanga",
-          resume: "https://shaveenudayanga.me/Shaveen_Udayanga_Resume.pdf",
+          resume: "https://shaveenudayanga.me/shaveen-udayanga-resume.pdf",
         },
         responseTime: "Usually within two days",
       };

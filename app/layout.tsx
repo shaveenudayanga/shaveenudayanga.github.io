@@ -65,8 +65,8 @@ export const metadata: Metadata = {
     images: [SITE_CONFIG.image],
   },
   icons: {
-    icon: [{ url: "/images/shaveen_portfolio_favicon.png", sizes: "192x192" }],
-    apple: "/images/shaveen_portfolio_favicon.png",
+    icon: [{ url: "/favicon.png", sizes: "202x202" }],
+    apple: "/favicon.png",
   },
   manifest: "/manifest.json",
   robots: {

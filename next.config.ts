@@ -3,10 +3,15 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   async redirects() {
     return [
-      // The resume used to live at this path; old links should still work
+      // The resume has lived at both of these paths; old links should still work
       {
         source: "/Resume_Shaveen_Udayanga.pdf",
-        destination: "/Shaveen_Udayanga_Resume.pdf",
+        destination: "/shaveen-udayanga-resume.pdf",
+        permanent: true,
+      },
+      {
+        source: "/Shaveen_Udayanga_Resume.pdf",
+        destination: "/shaveen-udayanga-resume.pdf",
         permanent: true,
       },
     ];

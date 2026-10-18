@@ -65,7 +65,7 @@ export const projects: Project[] = [
     tech: ["Python", "FastAPI", "PostgreSQL", "Next.js", "TypeScript", "AWS EC2", "Modal", "GitHub Actions"],
     links: [{ label: "lecturevoice.s39labs.com", href: "https://lecturevoice.s39labs.com" }],
     image: {
-      src: "/images/portfolio/lecturevoice-ui.webp",
+      src: "/images/projects/lecturevoice.webp",
       alt: "LectureVoice player showing slide 4 of 11, a line of narration and a waveform",
       width: 1032,
       height: 692,
@@ -102,7 +102,7 @@ export const projects: Project[] = [
     tech: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "LLM API"],
     links: [{ label: "cvaura.s39labs.com", href: "https://cvaura.s39labs.com" }],
     image: {
-      src: "/images/portfolio/cvaura-ui.webp",
+      src: "/images/projects/cvaura.webp",
       alt: "CVAura landing page with a resume upload area",
       width: 1600,
       height: 775,
@@ -161,20 +161,20 @@ export const projects: Project[] = [
       { label: "Build notes", href: "/blog/building-lumina" },
     ],
     image: {
-      src: "/images/portfolio/lumina/lumina-main.webp",
+      src: "/images/projects/lumina/lamp.webp",
       alt: "Lumina, a small wooden robotic lamp, standing on a table",
       width: 3024,
       height: 4032,
     },
     gallery: [
       {
-        src: "/images/portfolio/lumina/lumina-hardware.webp",
+        src: "/images/projects/lumina/board.webp",
         alt: "The ESP32 board and wiring inside Lumina's base",
         width: 3120,
         height: 4160,
       },
       {
-        src: "/images/portfolio/lumina/lumina-display.webp",
+        src: "/images/projects/lumina/face.webp",
         alt: "Lumina's OLED face display",
         width: 2160,
         height: 3840,
@@ -199,7 +199,7 @@ export const projects: Project[] = [
     tech: ["Java", "Spring Boot", "PostgreSQL", "RabbitMQ", "Docker"],
     links: [{ label: "GitHub", href: "https://github.com/shaveenudayanga/Customizable-Document-Tracking-System" }],
     image: {
-      src: "/images/portfolio/Customizable-Document-Tracking-System.webp",
+      src: "/images/projects/document-tracking.webp",
       alt: "DocuTrace landing page",
       width: 1916,
       height: 869,
@@ -225,7 +225,7 @@ export const projects: Project[] = [
       { label: "Demo video", href: "https://youtu.be/Tm1Y9o_PY4k" },
     ],
     image: {
-      src: "/images/portfolio/lamitie-screenshot.webp",
+      src: "/images/projects/lamitie.webp",
       alt: "Lamitie registration admin screen",
       width: 1918,
       height: 878,
@@ -245,12 +245,12 @@ export const projects: Project[] = [
     tech: ["Python", "Hugging Face", "Plotly Dash", "pandas"],
     links: [{ label: "GitHub", href: "https://github.com/shaveenudayanga/the-wheels-in-motion" }],
     image: {
-      src: "/images/portfolio/The_Wheels_in_Motion.webp",
+      src: "/images/projects/wheels-in-motion.webp",
       alt: "The Wheels in Motion dashboard",
       width: 1919,
       height: 867,
     },
-    video: "/videos/Dashboard-The_Wheels_in_Motion.mp4",
+    video: "/videos/wheels-in-motion-demo.mp4",
   },
 ];
 

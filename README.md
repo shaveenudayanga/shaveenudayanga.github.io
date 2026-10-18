@@ -31,4 +31,4 @@ Environment variables for the chat are listed in `.env.example`.
 
 No em dashes anywhere in the site's text. No buzzwords. If something is basic or unfinished, say so.
 
-The resume is at `public/Shaveen_Udayanga_Resume.pdf`; the old path `/Resume_Shaveen_Udayanga.pdf` redirects to it.
+The resume is at `public/shaveen-udayanga-resume.pdf`; the older paths `/Resume_Shaveen_Udayanga.pdf` and `/Shaveen_Udayanga_Resume.pdf` redirect to it.

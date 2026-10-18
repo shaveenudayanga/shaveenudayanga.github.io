@@ -21,7 +21,9 @@ import { createClient } from "@supabase/supabase-js";
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const GOOGLE_API_KEY = process.env.GOOGLE_GENERATIVE_AI_API_KEY;
-const EMBED_MODEL = "text-embedding-004";
+// text-embedding-004 was shut down on 2026-01-14. Keep this in step with
+// lib/ai/tools.ts: same model, same 768 dimensions.
+const EMBED_MODEL = "gemini-embedding-001";
 const EMBED_DIM = 768;
 const CHUNK_SIZE = 800; // tokens (rough estimate: 1 token ~ 4 chars)
 const CHUNK_OVERLAP = 100;
@@ -40,14 +42,16 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 // -------------------------------------------------------
 
 async function embed(text) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${EMBED_MODEL}:embedContent?key=${GOOGLE_API_KEY}`;
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${EMBED_MODEL}:embedContent`;
 
   const res = await fetch(url, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json", "x-goog-api-key": GOOGLE_API_KEY },
     body: JSON.stringify({
       model: `models/${EMBED_MODEL}`,
       content: { parts: [{ text }] },
+      taskType: "RETRIEVAL_DOCUMENT",
+      outputDimensionality: EMBED_DIM,
     }),
   });
 

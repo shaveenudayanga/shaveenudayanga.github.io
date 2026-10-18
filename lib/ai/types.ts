@@ -25,16 +25,3 @@ export interface ChatState {
   messages: ChatMessage[];
   conversationSummary: ConversationSummary | null;
 }
-
-/**
- * Provider cascade configuration.
- * Each provider is tried in order. If a provider returns a rate-limit error,
- * the next one is used automatically.
- */
-export type ProviderName = "groq" | "google";
-
-export interface ProviderConfig {
-  name: ProviderName;
-  model: string;
-  maxTokens: number;
-}

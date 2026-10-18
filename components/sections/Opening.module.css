@@ -21,6 +21,40 @@
   margin-top: clamp(32px, 5vw, 64px);
 }
 
+/* On phones the portrait sits straight under the name, before the text:
+   .main dissolves so its children and the figure share one column order. */
+@media (max-width: 959px) {
+  .grid {
+    gap: 0;
+  }
+
+  .main {
+    display: contents;
+  }
+
+  .dim {
+    order: 1;
+  }
+
+  .grid .view {
+    order: 2;
+    margin-top: 36px;
+    max-width: 300px;
+  }
+
+  .copy {
+    order: 3;
+  }
+
+  .revision {
+    order: 4;
+  }
+
+  .actions {
+    order: 5;
+  }
+}
+
 @media (min-width: 960px) {
   .grid {
     grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);

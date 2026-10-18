@@ -58,9 +58,9 @@ export const projects: Project[] = [
     longDescription: "LectureVoice turns a lecturer's slide deck into a narrated video in their own cloned voice. I built it for a professor at the University of Sri Jayewardenepura and own it end to end: product decisions, architecture, build and running it. It is free, with optional donations. A Python (FastAPI) REST API runs on an Ubuntu server on AWS EC2 with a managed PostgreSQL database, the frontend is Next.js and TypeScript, and the heavy voice and video work runs as serverless GPU jobs. Each voice gets its own small fine-tuned adapter on one shared speech model, trained on cloud GPUs only when needed, so the service can stay free without paying for idle GPUs. Cloning a voice needs explicit consent, users only see their own work, and deleting an account removes every recording. Claude Code wrote the code, around 250 automated tests and 20 decision records; I made the product and design decisions and tested every feature by hand. Next, it opens to lecturers, with sign-up limited to university email addresses.",
     points: [
       "Built for a professor at my university. It is free to use, with optional donations.",
-      "Cloning a voice needs explicit consent. People only ever see their own work, and deleting an account removes every recording.",
-      "Claude Code wrote the code, around 250 automated tests and 20 decision records. I made the product and design calls and tested every feature by hand.",
-      "Next step: opening it to lecturers, with sign-up limited to university email addresses.",
+      "Your voice stays yours. It is used only for your own lectures, never shared or used to make anyone else's voice, and you can delete it at any time.",
+      "You stay in control. Read and edit every script before it is spoken, and regenerate any single slide you are not happy with.",
+      "Every clip carries an inaudible mark that identifies it as AI-generated.",
     ],
     tech: ["Python", "FastAPI", "PostgreSQL", "Next.js", "TypeScript", "AWS EC2", "Modal", "GitHub Actions"],
     links: [{ label: "lecturevoice.s39labs.com", href: "https://lecturevoice.s39labs.com" }],

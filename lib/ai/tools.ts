@@ -8,9 +8,14 @@ import { searchKnowledge, getKnowledgeByType } from "@/lib/supabase/knowledge";
 import { projects } from "@/content/projects";
 import { getRecentGitHubActivity } from "./github-activity";
 
+// text-embedding-004 was shut down on 2026-01-14. gemini-embedding-001 cut to
+// 768 dimensions matches the vector(768) column, so the schema stays as is.
+// The sync script must use the same model and size, with RETRIEVAL_DOCUMENT.
+const EMBED_MODEL = "gemini-embedding-001";
+const EMBED_DIM = 768;
+
 /**
- * Generates an embedding for a text query using Google AI.
- * Used at query time to embed the user's question before similarity search.
+ * Embeds the visitor's question for the similarity search.
  */
 async function embedQuery(text: string): Promise<number[]> {
   const apiKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY;
@@ -19,13 +24,15 @@ async function embedQuery(text: string): Promise<number[]> {
   }
 
   const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent?key=${apiKey}`,
+    `https://generativelanguage.googleapis.com/v1beta/models/${EMBED_MODEL}:embedContent`,
     {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", "x-goog-api-key": apiKey },
       body: JSON.stringify({
-        model: "models/text-embedding-004",
+        model: `models/${EMBED_MODEL}`,
         content: { parts: [{ text }] },
+        taskType: "RETRIEVAL_QUERY",
+        outputDimensionality: EMBED_DIM,
       }),
     }
   );

@@ -1,45 +1,31 @@
 // components/ai/ToolIndicator.tsx
+// Prints a tool call as a line of command output, so the visitor can see
+// what the assistant looked up before it answered.
 "use client";
 
 import type { ToolInvocation } from "ai";
+import styles from "./Chat.module.css";
 
-const TOOL_LABELS: Record<string, { label: string; icon: string }> = {
-  searchKnowledge: {
-    label: "Searching knowledge base",
-    icon: "fas fa-search",
-  },
-  getProjectDetails: {
-    label: "Looking up project details",
-    icon: "fas fa-folder-open",
-  },
-  getCurrentAvailability: {
-    label: "Checking availability",
-    icon: "fas fa-calendar-check",
-  },
-  getRecentActivity: {
-    label: "Fetching GitHub activity",
-    icon: "fab fa-github",
-  },
+const TOOL_LABELS: Record<string, string> = {
+  searchKnowledge: "search notes",
+  getProjectDetails: "open project",
+  getCurrentAvailability: "check availability",
+  getRecentActivity: "read GitHub activity",
 };
 
-interface ToolIndicatorProps {
-  toolInvocation: ToolInvocation;
-}
-
-export default function ToolIndicator({ toolInvocation }: ToolIndicatorProps) {
-  const toolInfo = TOOL_LABELS[toolInvocation.toolName] || {
-    label: `Using ${toolInvocation.toolName}`,
-    icon: "fas fa-cog",
-  };
-
-  const isLoading = toolInvocation.state !== "result";
+export default function ToolIndicator({ toolInvocation }: { toolInvocation: ToolInvocation }) {
+  const label = TOOL_LABELS[toolInvocation.toolName] ?? toolInvocation.toolName;
+  const done = toolInvocation.state === "result";
+  const arg =
+    toolInvocation.args && typeof toolInvocation.args === "object"
+      ? Object.values(toolInvocation.args as Record<string, unknown>).find((v) => typeof v === "string")
+      : undefined;
 
   return (
-    <div className={`tool-indicator ${isLoading ? "loading" : "complete"}`}>
-      <i className={toolInfo.icon}></i>
-      <span>{toolInfo.label}</span>
-      {isLoading && <div className="tool-spinner"></div>}
-      {!isLoading && <i className="fas fa-check tool-done"></i>}
-    </div>
+    <p className={`${styles.tool} mono-plain`}>
+      <span className={styles.toolName}>{label}</span>
+      {typeof arg === "string" && <span className={styles.toolArg}> &quot;{arg}&quot;</span>}
+      <span className={done ? styles.toolDone : styles.toolBusy}>{done ? " ok" : " ..."}</span>
+    </p>
   );
 }

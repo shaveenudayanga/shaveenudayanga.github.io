@@ -1,42 +1,30 @@
 // app/page.tsx
-import Navbar from "@/components/ui/Navbar";
-import ScrollProgress from "@/components/ui/ScrollProgress";
-import CursorGlow from "@/components/ui/CursorGlow";
-import BackToTop from "@/components/ui/BackToTop";
-import Toast from "@/components/ui/Toast";
-import CertificateModal from "@/components/ui/CertificateModal";
-import ScrollAnimations from "@/components/ui/ScrollAnimations";
-import Hero from "@/components/sections/Hero";
-import About from "@/components/sections/About";
-import Skills from "@/components/sections/Skills";
-import BeyondTerminal from "@/components/sections/BeyondTerminal";
-import Projects from "@/components/sections/Projects";
-import Experience from "@/components/sections/Experience";
+import SheetIndex from "@/components/sheet/SheetIndex";
+import TitleBlock from "@/components/sheet/TitleBlock";
+import Reveal from "@/components/sheet/Reveal";
+import Opening from "@/components/sections/Opening";
+import Studio from "@/components/sections/Studio";
+import Work from "@/components/sections/Work";
+import Record from "@/components/sections/Record";
+import Spec from "@/components/sections/Spec";
 import Contact from "@/components/sections/Contact";
-import Footer from "@/components/sections/Footer";
 import ChatWrapper from "@/components/ai/ChatWrapper";
 
 export default function Home() {
   return (
-    <>
-      <CursorGlow />
-      <Navbar />
-      <ScrollProgress />
+    <div className="page">
+      <SheetIndex />
       <main id="main-content">
-        <Hero />
-        <About />
-        <Skills />
-        <BeyondTerminal />
-        <Projects />
-        <Experience />
+        <Opening />
+        <Studio />
+        <Work />
+        <Record />
+        <Spec />
         <Contact />
       </main>
-      <Footer />
-      <BackToTop />
-      <Toast />
-      <CertificateModal />
-      <ScrollAnimations />
+      <TitleBlock />
+      <Reveal />
       <ChatWrapper />
-    </>
+    </div>
   );
 }

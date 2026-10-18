@@ -91,7 +91,7 @@ export const aiTools = {
       projectName: z
         .string()
         .describe(
-          "The name or slug of the project (e.g., 'lumina', 'lamitie', 'document-tracking', 'wheels-in-motion')"
+          "The name or slug of the project (e.g., 'lecturevoice', 'cvaura', 'sandy-edge', 'momfa-lstm', 'lumina', 'document-tracking', 'lamitie', 'wheels-in-motion')"
         ),
     }),
     execute: async ({ projectName }) => {
@@ -147,39 +147,43 @@ export const aiTools = {
         found: true,
         source: "static",
         title: project.title,
+        kind: project.kind,
+        status: project.status,
+        context: project.context,
+        date: project.date,
         description: project.longDescription,
         tech: project.tech,
-        tags: project.tags.map((t) => t.label),
-        date: project.date,
-        githubUrl: project.githubUrl,
-        demoUrl: project.demoUrl ?? null,
-        videoUrl: project.videoUrl ?? null,
-        featured: project.featured,
+        parts: project.parts ?? null,
+        links: project.links,
       };
     },
   }),
 
   getCurrentAvailability: tool({
     description:
-      "Get my current availability for freelance work, collaboration, or employment. Use this when someone asks if I am available, how to hire me, or what kind of work I am looking for.",
+      "Get what I am currently looking for (internships, client work) and how to contact me. Use this when someone asks if I am available, how to hire me, or what kind of work I am looking for.",
     parameters: z.object({}),
     execute: async () => {
       return {
         available: true,
-        status: "Available for freelance projects and collaboration",
-        preferredWork: [
-          "AI/ML system development",
-          "Full-stack web applications",
-          "IoT and embedded systems projects",
-          "Backend architecture and API design",
+        status:
+          "Looking for a six-month internship in software engineering, business analysis or product work. Also open to client projects through S39 Labs.",
+        lookingFor: [
+          "Six-month internship: software engineering",
+          "Six-month internship: business analysis",
+          "Six-month internship: product work",
+          "Client projects through S39 Labs (websites, web apps, backend systems)",
         ],
+        studies: "Final year, BSc (Hons) Computer Science, University of Sri Jayewardenepura, research and thesis due around April to June 2027, graduation expected around October 2027",
+        location: "Colombo, Sri Lanka",
         timezone: "Asia/Colombo (UTC+5:30)",
         contact: {
           email: "shaveenudayanga@gmail.com",
-          whatsapp: "+94 77 118 6742",
+          phone: "+94 77 118 6742",
           linkedin: "linkedin.com/in/shaveenudayanga",
+          resume: "https://shaveenudayanga.me/Shaveen_Udayanga_Resume.pdf",
         },
-        responseTime: "Usually within 24 hours",
+        responseTime: "Usually within two days",
       };
     },
   }),

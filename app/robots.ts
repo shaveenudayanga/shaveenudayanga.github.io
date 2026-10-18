@@ -10,7 +10,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: ["/api/"],
       },
-      // AI crawlers — explicitly allow for AIO/AEO discoverability
+      // AI crawlers: allowed, so assistants can cite this site
       {
         userAgent: "GPTBot",
         allow: ["/", "/blog/"],

@@ -31,9 +31,9 @@ export async function GET() {
   const feed = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
-    <title>Shaveen Udayanga — Blog</title>
+    <title>Shaveen Udayanga, writing</title>
     <link>${SITE_CONFIG.url}/blog</link>
-    <description>Articles on AI, machine learning, IoT, systems engineering, and software development by Shaveen Udayanga.</description>
+    <description>Notes on what I build and what I am reading about, by Shaveen Udayanga.</description>
     <language>en-us</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${SITE_CONFIG.url}/feed.xml" rel="self" type="application/rss+xml"/>
@@ -41,7 +41,7 @@ export async function GET() {
     <webMaster>${SITE_CONFIG.email} (Shaveen Udayanga)</webMaster>
     <image>
       <url>${SITE_CONFIG.url}/images/shaveen_portfolio_favicon.png</url>
-      <title>Shaveen Udayanga — Blog</title>
+      <title>Shaveen Udayanga, writing</title>
       <link>${SITE_CONFIG.url}/blog</link>
     </image>${items}
   </channel>

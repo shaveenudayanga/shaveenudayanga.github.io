@@ -1,19 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  images: {
-    remotePatterns: [
+  async redirects() {
+    return [
+      // The resume used to live at this path; old links should still work
       {
-        protocol: "https",
-        hostname: "ghchart.rshah.org",
+        source: "/Resume_Shaveen_Udayanga.pdf",
+        destination: "/Shaveen_Udayanga_Resume.pdf",
+        permanent: true,
       },
-    ],
-  },
-  // Enable edge runtime for AI routes
-  experimental: {
-    serverActions: {
-      bodySizeLimit: "2mb",
-    },
+    ];
   },
 };
 

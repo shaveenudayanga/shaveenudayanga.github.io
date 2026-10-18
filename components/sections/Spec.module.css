@@ -1,0 +1,296 @@
+.spec {
+  padding: clamp(64px, 9vw, 128px) 0;
+  border-top: 1px solid var(--line);
+}
+
+.grid {
+  display: grid;
+  gap: 56px;
+}
+
+@media (min-width: 960px) {
+  .grid {
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+    gap: clamp(40px, 5vw, 80px);
+  }
+}
+
+/* ── Skills table ─────────────────────────────────────────────── */
+
+.table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-top: 1.5px solid var(--ink);
+}
+
+.table tr {
+  border-bottom: 1px solid var(--line);
+}
+
+.table th,
+.table td {
+  padding: 14px 0;
+  text-align: left;
+  vertical-align: baseline;
+}
+
+.table th {
+  width: 190px;
+  padding-right: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.ref {
+  display: inline-block;
+  width: 26px;
+  font-family: var(--font-mono);
+  font-stretch: 75%;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--red-ink);
+}
+
+.table td {
+  font-size: 16px;
+  color: var(--ink-2);
+  line-height: 1.7;
+}
+
+.item {
+  white-space: nowrap;
+}
+
+.sep {
+  margin: 0 0 0 9px;
+  color: var(--line);
+}
+
+@media (max-width: 560px) {
+  .table th,
+  .table td {
+    display: block;
+    width: auto;
+  }
+
+  .table th {
+    padding-bottom: 2px;
+  }
+
+  .table td {
+    padding: 0 0 14px 26px;
+  }
+
+}
+
+/* ── Stamps ───────────────────────────────────────────────────── */
+/* Certifications are set like approval stamps: red double rule, slightly off-square. */
+
+.side h3 {
+  padding-bottom: 12px;
+}
+
+.stamps {
+  display: grid;
+  gap: 22px;
+  padding-top: 6px;
+}
+
+.stamp {
+  display: grid;
+  gap: 6px;
+  padding: 14px 16px 12px;
+  border: 1.5px solid var(--red);
+  outline: 1px solid var(--red);
+  outline-offset: 3px;
+  color: var(--red-ink);
+  transform: rotate(-0.8deg);
+  transition: transform 300ms var(--ease);
+}
+
+.stamp:nth-child(2n) {
+  transform: rotate(0.6deg);
+}
+
+.stamp:hover {
+  transform: rotate(0deg);
+}
+
+.stampIssuer {
+  font-family: var(--font-mono);
+  font-stretch: 75%;
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.stampTitle {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.stampFoot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--red);
+  font-family: var(--font-mono);
+  font-stretch: 75%;
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.verify {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.verify:hover {
+  color: var(--ink);
+}
+
+.langHead {
+  margin-top: 44px;
+}
+
+.langs {
+  border-top: 1.5px solid var(--ink);
+}
+
+.langs div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.langs dt {
+  font-weight: 700;
+}
+
+.langs dd {
+  font-size: 14.5px;
+  color: var(--ink-3);
+  text-align: right;
+}
+
+/* ── General notes ────────────────────────────────────────────── */
+
+.notesBlock {
+  margin-top: clamp(64px, 8vw, 104px);
+}
+
+.notesHead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.notesRule {
+  flex: 1;
+  height: 1px;
+  background: var(--ink);
+}
+
+.notes {
+  display: grid;
+  gap: 0;
+  margin-top: 8px;
+}
+
+@media (min-width: 700px) {
+  .notes {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 40px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .notes {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Each note uses the list's rows (subgrid), so headings, text and photos line
+   up across a row and every photo's bottom edge sits on the same line. */
+.notes li {
+  display: grid;
+  grid-row: span 3;
+  grid-template-rows: subgrid;
+  row-gap: 0;
+  grid-template-columns: 34px 1fr;
+  column-gap: 8px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.noteNo {
+  grid-row: 1;
+  font-family: var(--font-mono);
+  font-stretch: 75%;
+  font-size: 12px;
+  color: var(--red-ink);
+  padding-top: 4px;
+}
+
+.notes h4,
+.notes p {
+  grid-column: 2;
+}
+
+.notes h4 {
+  font-size: 18px;
+  letter-spacing: -0.015em;
+}
+
+/* A small detail view: greyscale so a phone snapshot sits quietly on the sheet */
+/* Pinned to the top of the shared photo row: equal heights mean equal bottoms,
+   whatever length each caption is. */
+.noteFig {
+  grid-column: 2;
+  align-self: start;
+  margin-top: 14px;
+}
+
+/* Same height for every photo; width follows each photo's own shape */
+.noteFig img {
+  height: 196px;
+  width: auto;
+  max-width: 100%;
+  object-fit: cover;
+  border: 1px solid var(--ink);
+  padding: 4px;
+  background: var(--bg);
+  filter: grayscale(1) contrast(1.08) brightness(1.05);
+  transition: filter 300ms;
+}
+
+.noteFig:hover img {
+  filter: none;
+}
+
+.noteFig figcaption {
+  max-width: 30em;
+  margin-top: 6px;
+  font-stretch: 75%;
+  font-size: 10px;
+}
+
+.notes p {
+  margin-top: 4px;
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}

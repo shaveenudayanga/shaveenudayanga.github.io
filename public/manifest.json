@@ -1,24 +1,16 @@
 {
-  "name": "Shaveen Udayanga Portfolio",
+  "name": "Shaveen Udayanga",
   "short_name": "Shaveen",
-  "description": "Portfolio of Shaveen Udayanga - CS Student & Builder",
+  "description": "Software engineer and founder of S39 Labs.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0a0a0f",
-  "theme_color": "#6366f1",
-  "orientation": "portrait-primary",
+  "background_color": "#e7eae3",
+  "theme_color": "#e7eae3",
   "icons": [
     {
       "src": "/images/shaveen_portfolio_favicon.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/images/shaveen_portfolio_favicon.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     },
     {
       "src": "/favicon.png",
@@ -26,6 +18,5 @@
       "type": "image/png"
     }
   ],
-  "categories": ["portfolio", "personal"],
   "lang": "en"
 }

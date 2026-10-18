@@ -6,6 +6,10 @@ import remarkGfm from "remark-gfm";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
 import { SITE_CONFIG } from "@/lib/utils/constants";
 import { notFound } from "next/navigation";
+import SheetIndex from "@/components/sheet/SheetIndex";
+import TitleBlock from "@/components/sheet/TitleBlock";
+import Arrow from "@/components/sheet/Arrow";
+import styles from "@/components/blog/Blog.module.css";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -151,7 +155,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     ],
   };
 
-  // FAQ structured data (AEO — featured snippets / voice answers)
+  // FAQ structured data, so search results can show the questions directly
   const faqSchema =
     post.faq.length > 0
       ? {
@@ -169,182 +173,75 @@ export default async function BlogPostPage({ params }: PageProps) {
       : null;
 
   return (
-    <>
-      {/* Structured Data for SEO / AEO / AIO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
+    <div className="page">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {faqSchema && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       )}
+      <SheetIndex onHome={false} current="blog" />
 
-      <nav className="navbar scrolled" id="navbar">
-        <div className="nav-container">
-          <Link href="/" className="nav-logo">
-            <span className="logo-text">&lt;SU /&gt;</span>
-          </Link>
-          <div className="nav-menu">
-            <Link href="/#home" className="nav-link">
-              Home
-            </Link>
-            <Link href="/blog" className="nav-link active">
-              Blog
-            </Link>
-            <Link href="/#contact" className="nav-link">
-              Contact
-            </Link>
-          </div>
-          <div className="nav-actions">
-            <Link href="/blog" aria-label="Back to blog">
-              <i className="fas fa-arrow-left"></i> All Posts
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <main id="main-content" className={styles.shell}>
+        <div className="wrap">
+          <nav aria-label="Breadcrumb">
+            <ol className={`${styles.crumbs} mono`}>
+              <li>
+                <Link href="/">Index</Link>
+              </li>
+              <li>
+                <Link href="/blog">Writing</Link>
+              </li>
+              <li aria-current="page">{post.title}</li>
+            </ol>
+          </nav>
 
-      <main id="main-content" className="blog-post-page">
-        {/* Breadcrumb navigation (GEO) */}
-        <nav
-          aria-label="Breadcrumb"
-          className="container"
-          style={{ paddingTop: "90px", maxWidth: "800px" }}
-        >
-          <ol
-            style={{
-              display: "flex",
-              gap: "0.5rem",
-              listStyle: "none",
-              padding: 0,
-              margin: 0,
-              fontSize: "0.875rem",
-              color: "var(--text-secondary)",
-            }}
-          >
-            <li>
-              <Link href="/" style={{ color: "var(--primary)" }}>
-                Home
-              </Link>
-            </li>
-            <li aria-hidden="true">/</li>
-            <li>
-              <Link href="/blog" style={{ color: "var(--primary)" }}>
-                Blog
-              </Link>
-            </li>
-            <li aria-hidden="true">/</li>
-            <li aria-current="page" style={{ color: "var(--text-secondary)" }}>
-              {post.title}
-            </li>
-          </ol>
-        </nav>
-
-        <article
-          className="blog-post"
-          itemScope
-          itemType="https://schema.org/Article"
-          style={{ paddingTop: "1rem" }}
-        >
-          <div className="container" style={{ maxWidth: "800px" }}>
-            <header className="blog-post-header">
-              <div className="blog-post-meta">
-                <span>
-                  <i className="far fa-calendar"></i>{" "}
-                  <time dateTime={isoDate} itemProp="datePublished">
-                    {formattedDate}
-                  </time>
-                </span>
+          <article className={styles.article}>
+            <header className={styles.head}>
+              <p className={`${styles.postMeta} mono muted`}>
+                <time dateTime={isoDate}>{formattedDate}</time>
                 <span>{post.readingTime} min read</span>
-                <span itemProp="author" itemScope itemType="https://schema.org/Person">
-                  <span itemProp="name">{post.author}</span>
-                </span>
-              </div>
-              <h1 className="blog-post-title" itemProp="headline">
-                {post.title}
-              </h1>
-              <p
-                itemProp="description"
-                style={{
-                  color: "var(--text-secondary)",
-                  fontSize: "1.1rem",
-                  lineHeight: 1.6,
-                  marginBottom: "1rem",
-                }}
-              >
-                {post.description}
+                {post.tags.length > 0 && <span>{post.tags.join(" / ")}</span>}
               </p>
-              {post.tags.length > 0 && (
-                <div className="blog-card-tags">
-                  {post.tags.map((tag) => (
-                    <span key={tag} className="blog-tag" itemProp="keywords">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
+              <h1 className={styles.postTitle}>{post.title}</h1>
+              <p className={styles.intro}>{post.description}</p>
             </header>
-            <div className="blog-post-content" itemProp="articleBody">
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                {post.content}
-              </ReactMarkdown>
+
+            {post.image && (
+              <figure className={styles.hero}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={post.image} alt={post.imageAlt} />
+                <figcaption className="mono muted">Fig. 1</figcaption>
+              </figure>
+            )}
+
+            <div className="prose">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
             </div>
 
-            {/* FAQ Section — AEO: helps AI assistants & featured snippets extract Q&A */}
             {post.faq.length > 0 && (
-              <section className="blog-faq" style={{ marginTop: "3rem" }}>
-                <h2
-                  style={{
-                    fontSize: "1.5rem",
-                    marginBottom: "1.5rem",
-                    color: "var(--text-primary)",
-                  }}
-                >
-                  Frequently Asked Questions
+              <section className={styles.faq} aria-labelledby="faq-title">
+                <h2 id="faq-title" className="mono">
+                  Questions
                 </h2>
-                <dl style={{ display: "grid", gap: "1.5rem" }}>
-                  {post.faq.map((faq, i) => (
-                    <div key={i}>
-                      <dt
-                        style={{
-                          fontWeight: 600,
-                          fontSize: "1.05rem",
-                          marginBottom: "0.5rem",
-                          color: "var(--text-primary)",
-                        }}
-                      >
-                        {faq.question}
-                      </dt>
-                      <dd
-                        style={{
-                          margin: 0,
-                          color: "var(--text-secondary)",
-                          lineHeight: 1.7,
-                        }}
-                      >
-                        {faq.answer}
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
+                {post.faq.map((faq, i) => (
+                  <details key={i}>
+                    <summary>{faq.question}</summary>
+                    <p>{faq.answer}</p>
+                  </details>
+                ))}
               </section>
             )}
 
-            <footer className="blog-post-footer">
-              <Link href="/blog" className="btn btn-outline">
-                <i className="fas fa-arrow-left"></i>
-                <span>Back to Blog</span>
+            <div className={styles.back}>
+              <Link href="/blog" className="act act-line">
+                All writing
+                <Arrow />
               </Link>
-            </footer>
-          </div>
-        </article>
+            </div>
+          </article>
+        </div>
       </main>
-    </>
+      <TitleBlock />
+    </div>
   );
 }

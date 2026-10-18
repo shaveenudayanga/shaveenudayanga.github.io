@@ -1,0 +1,345 @@
+/* The trigger sits in the bottom-right corner of the sheet like a CAD prompt */
+.trigger {
+  position: fixed;
+  right: calc(var(--frame) + 14px);
+  bottom: calc(var(--frame) + var(--ruler) + 14px);
+  z-index: 45;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 44px;
+  padding: 0 14px;
+  border: 1.5px solid var(--ink);
+  background: var(--bg);
+  font-family: var(--font-mono);
+  font-stretch: 87.5%;
+  font-size: 12.5px;
+  transition: background-color 150ms, color 150ms, opacity 200ms, transform 250ms var(--ease);
+}
+
+.trigger:hover {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.triggerHidden {
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+}
+
+.prompt {
+  color: var(--red);
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+.caret {
+  width: 7px;
+  height: 14px;
+  background: currentColor;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .caret {
+    animation: caret 1.1s steps(1) infinite;
+  }
+}
+
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .triggerText {
+    display: none;
+  }
+
+  .trigger::after {
+    content: "Ask";
+  }
+
+  .caret {
+    display: none;
+  }
+}
+
+/* ── Panel ────────────────────────────────────────────────────── */
+
+.panel {
+  position: fixed;
+  z-index: 50;
+  right: calc(var(--frame) + 14px);
+  bottom: calc(var(--frame) + var(--ruler) + 14px);
+  width: min(460px, calc(100vw - 28px - var(--frame) * 2));
+  height: min(620px, calc(100dvh - 120px));
+  display: flex;
+  flex-direction: column;
+  border: 1.5px solid var(--ink);
+  background: var(--bg);
+  box-shadow: 10px 10px 0 -1px var(--bg-sunk), 10px 10px 0 0 var(--line);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 200ms, transform 300ms var(--ease), visibility 0s 300ms;
+}
+
+.panelOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity 200ms, transform 300ms var(--ease), visibility 0s;
+}
+
+@media (max-width: 520px) {
+  .panel {
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: min(86dvh, 640px);
+    border-width: 1.5px 0 0;
+    box-shadow: none;
+  }
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.headTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.state {
+  padding: 1px 6px;
+  border: 1px solid currentColor;
+  opacity: 0.75;
+}
+
+.state[data-busy] {
+  color: var(--red);
+  opacity: 1;
+}
+
+.headActions {
+  display: flex;
+  gap: 16px;
+}
+
+.headActions button:hover {
+  color: var(--red);
+}
+
+.log {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overscroll-behavior: contain;
+  background:
+    linear-gradient(var(--line-soft) 1px, transparent 1px) 0 0 / 100% 28px,
+    var(--bg);
+  background-attachment: local;
+}
+
+.empty p:not(:global(.mono)) {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  background: var(--bg);
+}
+
+.emptyLabel {
+  margin-top: 18px;
+  background: var(--bg);
+}
+
+.suggestions {
+  margin-top: 6px;
+  border-top: 1px solid var(--line);
+}
+
+.suggestion {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 0;
+  text-align: left;
+  font-size: 15px;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+  transition: color 150ms, padding-left 200ms var(--ease);
+}
+
+.suggestion:hover {
+  color: var(--red-ink);
+  padding-left: 6px;
+}
+
+.userLine {
+  display: flex;
+  gap: 10px;
+  align-self: stretch;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  background: var(--bg-raised);
+  font-family: var(--font-mono);
+  font-stretch: 87.5%;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.answer {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tool {
+  color: var(--ink-3);
+  font-size: 11.5px;
+}
+
+.toolName::before {
+  content: "· ";
+  color: var(--red);
+}
+
+.toolArg {
+  color: var(--ink-2);
+}
+
+.toolDone {
+  color: var(--ink-2);
+}
+
+.toolBusy {
+  color: var(--red-ink);
+}
+
+.answerText {
+  font-size: 15.5px;
+  line-height: 1.6;
+  background: var(--bg);
+}
+
+.answerText > * + * {
+  margin-top: 0.7em;
+}
+
+.answerText ul,
+.answerText ol {
+  padding-left: 1.2em;
+}
+
+.answerText ul {
+  list-style: square;
+}
+
+.answerText ol {
+  list-style: decimal;
+}
+
+.answerText li::marker {
+  color: var(--red);
+}
+
+.answerText a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-color: var(--line);
+}
+
+.answerText a:hover {
+  color: var(--red-ink);
+}
+
+.answerText code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--bg-sunk);
+  padding: 0.1em 0.3em;
+}
+
+.thinking {
+  color: var(--ink-3);
+}
+
+.thinking::after {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 11px;
+  margin-left: 6px;
+  background: var(--red);
+  vertical-align: -1px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .thinking::after {
+    animation: caret 0.9s steps(1) infinite;
+  }
+}
+
+.err {
+  color: var(--red-ink);
+}
+
+.inputRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border-top: 1.5px solid var(--ink);
+}
+
+.inputRow .prompt {
+  padding-top: 3px;
+}
+
+.input {
+  flex: 1;
+  min-height: 24px;
+  max-height: 120px;
+  resize: none;
+  border: 0;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-mono);
+  font-stretch: 87.5%;
+  font-size: 13.5px;
+  line-height: 1.6;
+  field-sizing: content;
+}
+
+.input::placeholder {
+  color: var(--ink-3);
+}
+
+.send {
+  padding: 4px 8px;
+  border: 1px solid var(--ink);
+}
+
+.send:hover:not(:disabled) {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.send:disabled {
+  opacity: 0.4;
+  cursor: default;
+}

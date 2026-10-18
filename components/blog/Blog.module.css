@@ -1,0 +1,180 @@
+.shell {
+  padding: 28px 0 clamp(64px, 8vw, 112px);
+}
+
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--ink);
+}
+
+.crumbs a:hover {
+  color: var(--red-ink);
+}
+
+.crumbs li + li::before {
+  content: "/";
+  margin-right: 8px;
+  color: var(--line);
+}
+
+.head {
+  margin: clamp(32px, 5vw, 64px) 0 clamp(36px, 5vw, 56px);
+  display: grid;
+  gap: 18px;
+}
+
+.title {
+  font-size: clamp(44px, 7vw, 96px);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+}
+
+.intro {
+  max-width: 36em;
+  color: var(--ink-2);
+  font-size: 18px;
+}
+
+/* ── Post list ────────────────────────────────────────────────── */
+
+.list {
+  border-top: 1.5px solid var(--ink);
+}
+
+.entry {
+  display: grid;
+  gap: 6px 24px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+  transition: background-color 150ms;
+}
+
+.entry:hover {
+  background: linear-gradient(to right, var(--red-wash), transparent 70%);
+}
+
+.entry:hover .entryTitle {
+  color: var(--red-ink);
+}
+
+@media (min-width: 860px) {
+  .entry {
+    grid-template-columns: 150px minmax(0, 1fr) 110px;
+    align-items: baseline;
+  }
+}
+
+.entryTitle {
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  transition: color 150ms;
+}
+
+.entryDesc {
+  margin-top: 6px;
+  color: var(--ink-2);
+  font-size: 16px;
+  max-width: 44em;
+}
+
+.tags {
+  margin-top: 10px;
+  color: var(--ink-3);
+}
+
+.readTime {
+  text-align: left;
+}
+
+@media (min-width: 860px) {
+  .readTime {
+    text-align: right;
+  }
+}
+
+/* ── Single post ──────────────────────────────────────────────── */
+
+.article {
+  max-width: 760px;
+}
+
+.postMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+}
+
+.postTitle {
+  font-size: clamp(36px, 5.4vw, 64px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.hero {
+  margin: 0 0 40px;
+}
+
+.hero img {
+  width: 100%;
+  max-height: 520px;
+  object-fit: cover;
+  border: 1px solid var(--ink);
+}
+
+.hero figcaption {
+  margin-top: 8px;
+}
+
+.faq {
+  margin-top: 64px;
+  border-top: 1.5px solid var(--ink);
+}
+
+.faq h2 {
+  padding: 14px 0 6px;
+}
+
+.faq details {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq summary {
+  cursor: pointer;
+  padding: 14px 0;
+  font-weight: 700;
+  font-size: 17px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: "+";
+  font-family: var(--font-mono);
+  color: var(--red-ink);
+}
+
+.faq details[open] summary::after {
+  content: "\2212";
+}
+
+.faq p {
+  padding-bottom: 16px;
+  color: var(--ink-2);
+}
+
+.back {
+  margin-top: 56px;
+}

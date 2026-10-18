@@ -1,0 +1,279 @@
+.opening {
+  padding: 28px 0 clamp(48px, 6vw, 80px);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--ink);
+}
+
+.where {
+  font-stretch: 75%;
+}
+
+.grid {
+  display: grid;
+  gap: 48px;
+  margin-top: clamp(32px, 5vw, 64px);
+}
+
+@media (min-width: 960px) {
+  .grid {
+    grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+    gap: clamp(40px, 5vw, 80px);
+    align-items: start;
+  }
+}
+
+/* ── Name and its dimension line ──────────────────────────────── */
+
+.dim {
+  position: relative;
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: clamp(46px, 14vw, 92px);
+  font-weight: 800;
+  line-height: 0.86;
+  letter-spacing: -0.055em;
+  margin-left: -0.04em;
+}
+
+@media (min-width: 960px) {
+  .name {
+    font-size: clamp(56px, 8.4vw, 124px);
+  }
+}
+
+.name span:last-child {
+  color: var(--ink-2);
+}
+
+.dimLine {
+  position: relative;
+  height: 1px;
+  margin-top: 22px;
+  width: 100%;
+  background: var(--red);
+}
+
+/* End ticks */
+.dimLine::before,
+.dimLine::after {
+  content: "";
+  position: absolute;
+  top: -7px;
+  width: 1px;
+  height: 15px;
+  background: var(--red);
+}
+
+.dimLine::before {
+  left: 0;
+}
+
+.dimLine::after {
+  right: 0;
+}
+
+.dimValue {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0 8px;
+  background: var(--bg);
+  color: var(--red-ink);
+  font-family: var(--font-mono);
+  font-stretch: 75%;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+/* ── Copy ─────────────────────────────────────────────────────── */
+
+.copy {
+  margin-top: clamp(36px, 4vw, 52px);
+  display: grid;
+  gap: 18px;
+}
+
+.second {
+  max-width: 36em;
+  color: var(--ink-3);
+}
+
+/* The "Now" note is a revision mark: red frame, triangle tag breaking the border */
+.revision {
+  position: relative;
+  margin-top: 36px;
+  max-width: 34em;
+  padding: 20px 20px 18px;
+  border: 1px solid var(--red);
+  background: var(--red-wash);
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.revision strong {
+  font-weight: 700;
+}
+
+.revTag {
+  position: absolute;
+  top: -11px;
+  left: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 8px;
+  background: var(--bg);
+  color: var(--red-ink);
+}
+
+.tri {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 10px solid var(--red);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 16px;
+  margin-top: 32px;
+}
+
+.next {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 6px;
+  min-height: 46px;
+  color: var(--ink-2);
+}
+
+.next:hover {
+  color: var(--red-ink);
+}
+
+/* ── View A (portrait) ────────────────────────────────────────── */
+
+.view {
+  max-width: 420px;
+}
+
+@media (min-width: 960px) {
+  .view {
+    margin-top: 10px;
+  }
+}
+
+.photo {
+  position: relative;
+  padding: 12px;
+  border: 1px solid var(--line);
+}
+
+.photo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 20%;
+  filter: var(--photo-filter);
+  transition: filter 400ms;
+}
+
+.photo:hover img {
+  filter: none;
+}
+
+/* Crop marks just outside each corner */
+.crop {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--ink);
+  border-style: solid;
+  border-width: 0;
+}
+
+.tl {
+  top: -8px;
+  left: -8px;
+  border-top-width: 1px;
+  border-left-width: 1px;
+}
+
+.tr {
+  top: -8px;
+  right: -8px;
+  border-top-width: 1px;
+  border-right-width: 1px;
+}
+
+.bl {
+  bottom: -8px;
+  left: -8px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+}
+
+.br {
+  bottom: -8px;
+  right: -8px;
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+}
+
+.caption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 12px;
+  margin-top: 14px;
+  font-size: 12px;
+}
+
+/* ── Facts, set as a title block row ──────────────────────────── */
+
+.facts {
+  display: grid;
+  margin-top: clamp(56px, 7vw, 96px);
+  border-top: 1px solid var(--ink);
+  border-left: 1px solid var(--line);
+}
+
+.fact {
+  padding: 14px 16px 18px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.fact dd {
+  margin-top: 8px;
+  font-size: 15.5px;
+  line-height: 1.45;
+}
+
+@media (min-width: 640px) {
+  .facts {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1100px) {
+  .facts {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

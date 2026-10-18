@@ -1,208 +1,249 @@
 // content/experience.ts
-// Structured data for experience, certifications, and skills
+// Roles, education, skills, certifications and the things I do off the clock.
+// The knowledge sync script reads this file as raw text, so plain sentences
+// here also become what the AI assistant knows.
 
-export interface ExperienceEntry {
+export type Lane = "Studio" | "Study" | "Leadership" | "Projects";
+
+export interface Span {
+  id: string;
+  lane: Lane;
   title: string;
-  organization: string;
-  date: string;
-  description: string;
-  tags: string[];
-  icon: string;
-  certificateImage?: string;
+  /** Short label for the timeline row */
+  short: string;
+  org: string;
+  /** "YYYY-MM". An empty `end` means it is still going. */
+  start: string;
+  end?: string;
+  /** The end date is an estimate, not fixed */
+  approx?: boolean;
+  /** A single dated event on the row, drawn as a diamond */
+  milestone?: { at: string; label: string };
+  /** Drawn as part of the row above it (e.g. research inside the degree) */
+  sub?: boolean;
+  summary: string;
+  certificate?: { src: string; alt: string; width: number; height: number };
 }
 
-export const experience: ExperienceEntry[] = [
+export const spans: Span[] = [
   {
-    title: "Head of Logistics Committee",
-    organization: "IEEE CS Student Branch Chapter, USJ",
-    date: "Jan 2025 - Jan 2026",
-    description:
-      "Orchestrated logistics for 'Beauty of Cloud', a collaborative workshop with AWS Sri Lanka, training 60+ undergraduates on cloud technologies. Co-Head of Logistics Committee of the BoC OC.",
-    tags: ["Event Management", "AWS", "Leadership"],
-    icon: "fas fa-users-cog",
-    certificateImage: "/images/certificates/IEEE_CS_BOC_LC_Certificate.png",
+    id: "bsc",
+    short: "BSc Computer Science",
+    lane: "Study",
+    title: "BSc (Hons) in Computer Science",
+    org: "University of Sri Jayewardenepura",
+    start: "2023-06",
+    end: "2027-06",
+    approx: true,
+    milestone: { at: "2027-10", label: "Graduation" },
+    summary:
+      "Minors in Mathematics and Physics. Selected into the Computer Science honours cohort, one of 18 students from a cohort of 120. Coursework and the final-year research wrap up around April to June 2027, and graduation is expected around October 2027.",
   },
   {
-    title: "Vice President of Tech & Innovation",
-    organization: "Startup Hub, USJ",
-    date: "Oct 2024 - Oct 2025",
-    description:
-      "Spearheaded the strategic planning and execution of a major university innovation competition, fostering entrepreneurial spirit among students.",
-    tags: ["Strategy", "Innovation", "Entrepreneurship"],
-    icon: "fas fa-rocket",
+    id: "momfa",
+    short: "Final-year research",
+    lane: "Study",
+    title: "MOMFA-LSTM",
+    org: "BSc final-year research, supervised by Prof. T.G.I. Fernando",
+    start: "2026-06",
+    end: "2027-06",
+    approx: true,
+    sub: true,
+    summary:
+      "The research part of my degree: choosing an LSTM's inputs and settings together. The data pipeline is done and experiments are in progress. The research and thesis are due around April to June 2027.",
   },
   {
+    id: "seds",
+    short: "SEDS rocketry",
+    lane: "Leadership",
     title: "Rocketry Divisional Manager",
-    organization: "SEDS J'pura",
-    date: "Sep 2023 - Sep 2024",
-    description:
-      "Developed the technical framework for the annual rocket modeling competition and organized practical workshops for aspiring aerospace enthusiasts.",
-    tags: ["Aerospace", "Rocketry", "Technical Leadership"],
-    icon: "fas fa-space-shuttle",
+    org: "SEDS J'pura",
+    start: "2023-09",
+    end: "2024-09",
+    summary:
+      "Set the technical rules for the annual rocket-modelling competition and taught them in workshops.",
   },
+  {
+    id: "startup-hub",
+    short: "Startup Hub",
+    lane: "Leadership",
+    title: "Vice President of Technology and Innovation",
+    org: "Startup Hub, USJ",
+    start: "2024-10",
+    end: "2025-10",
+    summary: "Led the team that planned and ran a university-wide innovation competition.",
+  },
+  {
+    id: "ieee",
+    short: "IEEE CS logistics",
+    lane: "Leadership",
+    title: "Head of Logistics",
+    org: "IEEE Computer Society Student Branch Chapter, USJ",
+    start: "2025-01",
+    end: "2026-01",
+    summary:
+      "Handled logistics for the chapter's events, including Beauty of Cloud, an AWS Sri Lanka workshop for more than 60 undergraduates.",
+    certificate: {
+      src: "/images/certificates/IEEE_CS_BOC_LC_Certificate.png",
+      alt: "Certificate for the Beauty of Cloud logistics committee, IEEE CS USJ",
+      width: 2340,
+      height: 1655,
+    },
+  },
+  {
+    id: "doc-tracking",
+    short: "Document tracking",
+    lane: "Projects",
+    title: "Customizable Document Tracking System",
+    org: "Service Oriented Computing module",
+    start: "2025-08",
+    end: "2025-11",
+    summary: "Java and Spring Boot services, team of three, grade A.",
+  },
+  {
+    id: "lumina",
+    short: "Lumina",
+    lane: "Projects",
+    title: "Lumina",
+    org: "Human-Computer Interaction module",
+    start: "2025-12",
+    end: "2026-01",
+    summary: "A gesture-controlled robotic lamp. Software and hardware.",
+  },
+  {
+    id: "s39",
+    short: "S39 Labs",
+    lane: "Studio",
+    title: "Founder and Lead Engineer",
+    org: "S39 Labs",
+    start: "2026-01",
+    summary: "A software studio that builds its own products and takes on client work.",
+  },
+  {
+    id: "lecturevoice",
+    short: "LectureVoice",
+    lane: "Studio",
+    title: "LectureVoice",
+    org: "S39 Labs",
+    start: "2026-06",
+    summary: "Live. Slides in, a narrated video in the lecturer's own voice out.",
+  },
+];
+
+export const school = {
+  title: "GCE Advanced Level, Physical Science stream",
+  org: "Nalanda College, Colombo 10",
+  years: "2012 to 2020",
+};
+
+export const coursework = [
+  "Data Structures and Algorithms",
+  "Software Engineering",
+  "Database Management Systems",
+  "Service Oriented Computing",
+  "Computer Security",
+  "Machine Learning",
+];
+
+export interface SkillGroup {
+  name: string;
+  items: string[];
+}
+
+export const skills: SkillGroup[] = [
+  { name: "Languages", items: ["Python", "Java", "SQL", "JavaScript", "TypeScript (basic)"] },
+  { name: "Backend", items: ["FastAPI", "REST APIs", "PostgreSQL", "SQLAlchemy", "Spring Boot"] },
+  { name: "Frontend", items: ["React", "Next.js", "HTML", "CSS"] },
+  { name: "AI tools", items: ["Claude Code (daily, agent-first)", "Google Gemini API"] },
+  { name: "Testing", items: ["Manual and exploratory testing", "Bug reporting", "JUnit", "Mockito"] },
+  {
+    name: "Product",
+    items: ["Turning user needs into features", "Writing requirements", "Deciding what to build next"],
+  },
+  {
+    name: "Tools and cloud",
+    items: ["Git", "GitHub Actions", "Ubuntu on AWS EC2", "Docker", "Cloudflare", "Oracle Cloud"],
+  },
+  { name: "Hardware", items: ["ESP32", "Soldering", "Sensors and servos"] },
 ];
 
 export interface Certification {
   title: string;
   issuer: string;
-  author: string;
-  url: string;
-  icon: string;
+  date?: string;
+  url?: string;
 }
 
 export const certifications: Certification[] = [
   {
     title: "Machine Learning Specialization",
-    issuer: "Coursera - DeepLearning.AI & Stanford",
-    author: "by Andrew Ng",
+    issuer: "DeepLearning.AI and Stanford University, Coursera",
     url: "https://www.coursera.org/account/accomplishments/specialization/GI5K7MDNT03O",
-    icon: "fas fa-brain",
+  },
+  {
+    title: "Product Management",
+    issuer: "Great Learning Academy",
+    date: "September 2026",
   },
   {
     title: "Introduction to Aerospace Engineering",
-    issuer: "edX - MITx",
-    author: "Astronautics & Human Spaceflight",
+    issuer: "MITx on edX",
     url: "https://courses.edx.org/certificates/74b4f126593f4b6eb808580da0acc0a5",
-    icon: "fas fa-satellite",
   },
 ];
 
-export interface SkillCategory {
-  name: string;
-  icon: string;
-  skills: { name: string; icon?: string }[];
-}
-
-export const skillCategories: SkillCategory[] = [
-  {
-    name: "Languages",
-    icon: "fas fa-laptop-code",
-    skills: [
-      { name: "Python", icon: "fab fa-python" },
-      { name: "Java", icon: "fab fa-java" },
-      { name: "C" },
-      { name: "C++" },
-      { name: "MySQL", icon: "fas fa-database" },
-      { name: "R" },
-    ],
-  },
-  {
-    name: "AI/ML Frameworks",
-    icon: "fas fa-robot",
-    skills: [
-      { name: "TensorFlow" },
-      { name: "Keras" },
-      { name: "Scikit-learn" },
-      { name: "Hugging Face" },
-      { name: "MediaPipe" },
-    ],
-  },
-  {
-    name: "Cloud & DevOps",
-    icon: "fas fa-cloud",
-    skills: [
-      { name: "Docker", icon: "fab fa-docker" },
-      { name: "CI/CD" },
-      { name: "GitHub Actions", icon: "fab fa-github" },
-      { name: "Azure VPS", icon: "fab fa-microsoft" },
-      { name: "Linux", icon: "fab fa-linux" },
-    ],
-  },
-  {
-    name: "Web & Tools",
-    icon: "fas fa-globe",
-    skills: [
-      { name: "FastAPI" },
-      { name: "Spring Boot" },
-      { name: "React", icon: "fab fa-react" },
-      { name: "Plotly Dash" },
-      { name: "Git", icon: "fab fa-git-alt" },
-    ],
-  },
-  {
-    name: "Hardware & IoT",
-    icon: "fas fa-microchip",
-    skills: [
-      { name: "ESP32" },
-      { name: "Circuit Design" },
-      { name: "Soldering" },
-      { name: "UDP Protocol" },
-    ],
-  },
-  {
-    name: "Core Competencies",
-    icon: "fas fa-lightbulb",
-    skills: [
-      { name: "Problem-Solving" },
-      { name: "Rapid Prototyping" },
-      { name: "System Design" },
-      { name: "API Architecture" },
-    ],
-  },
+export const languages = [
+  { name: "Sinhala", level: "Native" },
+  { name: "English", level: "Professional working proficiency" },
+  { name: "German", level: "Elementary, still learning" },
 ];
 
-export interface Interest {
-  category: string;
+export interface OffClockNote {
   title: string;
-  description: string;
-  icons: string[];
-  tags: string[];
-  hasMusicWave?: boolean;
+  body: string;
+  image?: { src: string; alt: string; width: number; height: number; caption: string };
 }
 
-export const interests: Interest[] = [
+export const offTheClock: OffClockNote[] = [
   {
-    category: "sports",
-    title: "Staying Active",
-    description:
-      "I enjoy sports to stay healthy and have fun. Gym sessions keep me energized, while rugby, rifle shooting, and swimming add variety. It's about balance, not competition.",
-    icons: [
-      "fas fa-dumbbell",
-      "fas fa-football-ball",
-      "fas fa-crosshairs",
-      "fas fa-swimmer",
-    ],
-    tags: ["Gym", "Rugby", "Rifle Shooting", "Swimming"],
+    title: "Music",
+    body: "I played keyboard in the Nalanda College orchestra. At university it is violin, and singing at campus concerts.",
+    image: {
+      src: "/images/off-clock-violin.webp",
+      alt: "Shaveen playing violin on stage at a university concert",
+      width: 450,
+      height: 600,
+      caption: "Detail B. On stage at USJ. Photo: J'pura Flames.",
+    },
   },
   {
-    category: "music",
-    title: "Musical Soul",
-    description:
-      "Keyboard player in Nalanda College Orchestra, violinist at university, and vocalist performing in campus concerts. Music is my creative outlet. It's where logic meets emotion.",
-    icons: ["fas fa-music", "fas fa-guitar", "fas fa-microphone-alt"],
-    tags: ["Keyboard", "Violin", "Vocals"],
-    hasMusicWave: true,
+    title: "Sport",
+    body: "The gym most weeks. Rugby, rifle shooting and swimming when there is time.",
+    image: {
+      src: "/images/off-clock-gym.webp",
+      alt: "Mirror photo of Shaveen at the gym in a green T-shirt",
+      width: 600,
+      height: 800,
+      caption: "Detail C. The gym.",
+    },
   },
   {
-    category: "volunteer",
-    title: "Giving Back",
-    description:
-      'Active volunteer with IEEE and "We for Sri Lanka" organization, bringing smiles to children. Always ready to help during disasters. Small acts can make big differences.',
-    icons: ["fas fa-hands-helping", "fas fa-heart", "fas fa-child"],
-    tags: ["IEEE Volunteer", "We for Sri Lanka", "Disaster Relief"],
+    title: "Volunteering",
+    body: "IEEE events, and We for Sri Lanka, where most of the work is with children. I help with relief work after floods and other disasters.",
+    image: {
+      src: "/images/off-clock-charity.webp",
+      alt: "Shaveen with the We for Sri Lanka team at Apeksha Hospital, Maharagama",
+      width: 391,
+      height: 341,
+      caption: "Detail D. We for Sri Lanka, donating to children at Apeksha Hospital, Maharagama.",
+    },
   },
   {
-    category: "travel",
-    title: "Wanderlust",
-    description:
-      "Love exploring new places through trips and hikes. Memorable adventures across Sri Lanka and dreaming of traveling the world. Every journey tells a story.",
-    icons: ["fas fa-mountain", "fas fa-plane", "fas fa-hiking"],
-    tags: ["Hiking", "Road Trips", "Exploring"],
+    title: "Getting out",
+    body: "Hikes and road trips around Sri Lanka. Plenty of the country still left to see.",
   },
   {
-    category: "tech",
-    title: "Gearhead & Geek",
-    description:
-      "Fascinated by cars and tech gadgets. Whether it's the latest smartphone or a classic engine, I love understanding how things work and what makes them special.",
-    icons: ["fas fa-car", "fas fa-microchip", "fas fa-mobile-alt"],
-    tags: ["Cars", "Tech Gadgets", "Innovation"],
-  },
-  {
-    category: "social",
-    title: "People Person",
-    description:
-      "Love hanging out with friends, coffee meetups, and networking events. Occasionally unwind with battle games like Call of Duty or racing in NFS. Life's better with good company.",
-    icons: ["fas fa-users", "fas fa-coffee", "fas fa-gamepad"],
-    tags: ["Coffee Meetups", "Networking", "Casual Gaming"],
+    title: "Machines",
+    body: "Cars, gadgets, rockets. I like knowing how a thing works before I trust it.",
   },
 ];

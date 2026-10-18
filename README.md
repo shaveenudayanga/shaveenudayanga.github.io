@@ -1,35 +1,34 @@
-# Personal Profile Website
+# shaveenudayanga.me
 
-Welcome to my personal profile website! 👋
+Personal site of Shaveen Udayanga: final-year Computer Science student at the University of Sri Jayewardenepura and founder of [S39 Labs](https://www.s39labs.com), the studio behind [LectureVoice](https://lecturevoice.s39labs.com).
 
-## Overview
-This project is a simple, responsive website built with HTML, CSS, and JavaScript. It showcases my portfolio, certificates, and videos, and provides a brief introduction about who I am and what I do.
+The site is laid out like a drawing set. Each section is a sheet: a framed page with rulers and zones, a title block as the footer, a parts list for how LectureVoice is put together, a drawing register for projects, and a Gantt chart for the timeline. Red marks anything current or still open.
 
-## Features
-- Responsive design for desktop and mobile
-- Portfolio section with project images
-- Certificates gallery
-- Video showcase
-- Progressive Web App (PWA) support (manifest.json, sw.js)
-- Sitemap and robots.txt for SEO
+## Running it
 
-## Project Structure
-- `index.html` — Main landing page
-- `styles.css` — Custom styles
-- `script.js` — JavaScript functionality
-- `images/` — Contains certificates and portfolio images
-- `videos/` — Video files
-- `manifest.json` — PWA configuration
-- `sw.js` — Service worker for offline support
-- `sitemap.xml` — Sitemap for search engines
-- `robots.txt` — Robots exclusion protocol
+```bash
+npm install
+npm run dev        # http://localhost:3000
+npm run build
+```
 
-## How to Use
-Just open `index.html` in your browser. All resources are included locally.
+## Where things live
 
-## Feedback
-Feel free to check it out and let me know what you think!
+| Path | What it holds |
+| --- | --- |
+| `content/projects.ts` | Every product and project. The home page, the chat tools and the knowledge sync all read it. |
+| `content/experience.ts` | Roles, education, skills, certifications, languages and the off-the-clock notes. |
+| `content/blog/*.md` | Posts under `/blog`, with front matter for title, date, tags and FAQ. |
+| `components/sheet/` | The frame, navigation, section heads and title block. |
+| `components/sections/` | One component per sheet on the home page. |
+| `components/ai/` | The "Ask about my work" command line. |
+| `app/api/chat/route.ts` | Chat endpoint: Groq first, Google as fallback, with tools over project data, a Supabase vector store and GitHub activity. |
+| `scripts/sync-knowledge.mjs` | Re-indexes posts and content into Supabase (nightly via GitHub Actions). |
 
----
+Environment variables for the chat are listed in `.env.example`.
 
-© 2026 Shaveen Udayanga
+## Writing rules
+
+No em dashes anywhere in the site's text. No buzzwords. If something is basic or unfinished, say so.
+
+The resume is at `public/Shaveen_Udayanga_Resume.pdf`; the old path `/Resume_Shaveen_Udayanga.pdf` redirects to it.

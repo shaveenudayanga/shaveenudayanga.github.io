@@ -2,10 +2,10 @@
 title: "Building Lumina: What I Learned Creating an AI-Powered Robotic Lamp"
 date: "2026-02-15"
 updated: "2026-02-15"
-description: "A deep dive into the engineering decisions behind Lumina — from custom PCB design and ESP32 firmware to real-time gesture tracking with MediaPipe and voice conversation with Gemini 2.5."
+description: "The engineering decisions behind Lumina: the ESP32 board and firmware, real-time gesture tracking with MediaPipe, and voice conversation with Gemini 2.5."
 author: "Shaveen Udayanga"
 tags: ["IoT", "AI", "HCI", "ESP32"]
-image: "/images/portfolio/lumina/lumina-hero.webp"
+image: "/images/portfolio/lumina/lumina-main.webp"
 imageAlt: "Lumina AI-powered robotic lamp with OLED face display"
 faq:
   - question: "What is Lumina?"

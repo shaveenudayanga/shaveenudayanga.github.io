@@ -1,79 +1,71 @@
 // app/layout.tsx
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Manrope, Martian_Mono, Newsreader, Schibsted_Grotesk } from "next/font/google";
 import { SITE_CONFIG } from "@/lib/utils/constants";
+import SheetFrame from "@/components/sheet/SheetFrame";
 import "@/styles/globals.css";
 
-const inter = Inter({
+const schibsted = Schibsted_Grotesk({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-inter",
+  variable: "--font-schibsted",
   display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const martian = Martian_Mono({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-mono",
+  axes: ["wdth"],
+  variable: "--font-martian",
+  display: "swap",
+});
+
+// Product wordmarks are set in the same faces their own sites use
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  weight: ["600"],
+  variable: "--font-newsreader",
+  display: "swap",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["700"],
+  variable: "--font-manrope",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Shaveen Udayanga | Software Engineer & AI Builder",
+    default: SITE_CONFIG.title,
     template: "%s | Shaveen Udayanga",
   },
-  description:
-    "Shaveen Udayanga — Software engineer specializing in AI, machine learning, IoT, and full-stack development. Computer Science student at the University of Sri Jayewardenepura, Sri Lanka.",
-  keywords: [
-    "Shaveen Udayanga",
-    "Software Engineer",
-    "AI Engineer",
-    "Machine Learning",
-    "IoT Developer",
-    "Full-Stack Developer",
-    "Computer Science",
-    "Sri Lanka",
-    "Next.js Portfolio",
-    "AI Portfolio",
-    "ESP32",
-    "Deep Learning",
-    "Computer Vision",
-    "React Developer",
-  ],
-  authors: [{ name: "Shaveen Udayanga", url: "https://shaveenudayanga.me" }],
-  creator: "Shaveen Udayanga",
-  publisher: "Shaveen Udayanga",
-  metadataBase: new URL("https://shaveenudayanga.me"),
+  description: SITE_CONFIG.description,
+  authors: [{ name: SITE_CONFIG.name, url: SITE_CONFIG.url }],
+  creator: SITE_CONFIG.name,
+  metadataBase: new URL(SITE_CONFIG.url),
   openGraph: {
-    type: "website",
+    type: "profile",
     locale: "en_US",
-    url: "https://shaveenudayanga.me/",
-    siteName: "Shaveen Udayanga",
-    title: "Shaveen Udayanga | Software Engineer & AI Builder",
-    description:
-      "Software engineer building intelligent systems with AI, machine learning, IoT, and full-stack development.",
+    url: `${SITE_CONFIG.url}/`,
+    siteName: SITE_CONFIG.name,
+    title: SITE_CONFIG.title,
+    description: SITE_CONFIG.description,
     images: [
       {
-        url: "https://shaveenudayanga.me/images/profile-hero.webp",
-        width: 1200,
-        height: 630,
-        alt: "Shaveen Udayanga — Software Engineer & AI Builder",
+        url: SITE_CONFIG.image,
+        width: 576,
+        height: 720,
+        alt: "Shaveen Udayanga",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shaveen Udayanga | Software Engineer & AI Builder",
-    description:
-      "Software engineer building intelligent systems with AI, ML, IoT, and full-stack development.",
-    images: ["https://shaveenudayanga.me/images/profile-hero.webp"],
+    title: SITE_CONFIG.title,
+    description: SITE_CONFIG.description,
+    images: [SITE_CONFIG.image],
   },
   icons: {
-    icon: [
-      { url: "/images/shaveen_portfolio_favicon.png", sizes: "32x32" },
-      { url: "/images/shaveen_portfolio_favicon.png", sizes: "192x192" },
-    ],
+    icon: [{ url: "/images/shaveen_portfolio_favicon.png", sizes: "192x192" }],
     apple: "/images/shaveen_portfolio_favicon.png",
   },
   manifest: "/manifest.json",
@@ -83,107 +75,65 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
     },
   },
   alternates: {
-    canonical: "https://shaveenudayanga.me/",
+    canonical: `${SITE_CONFIG.url}/`,
     types: {
-      "application/rss+xml": "https://shaveenudayanga.me/feed.xml",
+      "application/rss+xml": `${SITE_CONFIG.url}/feed.xml`,
     },
-  },
-  category: "technology",
-  other: {
-    "google-site-verification": "",
-    "geo.region": "LK",
-    "geo.placename": "Sri Lanka",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#6366f1",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#e7eae3" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f1211" },
+  ],
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: SITE_CONFIG.name,
+  url: SITE_CONFIG.url,
+  image: SITE_CONFIG.image,
+  email: `mailto:${SITE_CONFIG.email}`,
+  jobTitle: "Founder and Lead Engineer",
+  worksFor: { "@type": "Organization", name: "S39 Labs", url: SITE_CONFIG.s39Url },
+  alumniOf: { "@type": "CollegeOrUniversity", name: "University of Sri Jayewardenepura" },
+  address: { "@type": "PostalAddress", addressLocality: "Colombo", addressCountry: "LK" },
+  sameAs: [SITE_CONFIG.githubUrl, SITE_CONFIG.linkedinUrl, SITE_CONFIG.s39Url],
+  knowsAbout: ["Software engineering", "Python", "FastAPI", "Next.js", "Java", "Spring Boot", "Product development"],
+};
+
+// Runs before paint: applies a saved theme choice and marks that JS is on,
+// so scroll reveals never hide content for visitors without JavaScript.
+const bootScript = `(function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')d.setAttribute('data-theme',t);}catch(e){}})();`;
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   const gaId = SITE_CONFIG.gaId;
 
   return (
     <html
       lang="en"
-      data-theme="dark"
-      className={`${inter.variable} ${jetbrainsMono.variable}`}
+      className={`${schibsted.variable} ${martian.variable} ${newsreader.variable} ${manrope.variable}`}
       suppressHydrationWarning
     >
       <head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        />
-        {/* Structured Data */}
+        <script dangerouslySetInnerHTML={{ __html: bootScript }} />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Shaveen Udayanga",
-              url: "https://shaveenudayanga.me",
-              image: "https://shaveenudayanga.me/images/profile-hero.webp",
-              jobTitle: "Computer Science Student",
-              worksFor: {
-                "@type": "Organization",
-                name: "University of Sri Jayewardenepura",
-              },
-              sameAs: [
-                "https://github.com/shaveenudayanga",
-                "https://linkedin.com/in/shaveenudayanga",
-                "https://web.facebook.com/shaveenudayanga",
-              ],
-              knowsAbout: [
-                "Artificial Intelligence",
-                "Machine Learning",
-                "IoT",
-                "Full-Stack Development",
-                "Computer Vision",
-              ],
-              email: "mailto:shaveenudayanga@gmail.com",
-            }),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
-        {/* Inline theme script to prevent flash */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var theme = localStorage.getItem('theme') || 'dark';
-                  document.documentElement.setAttribute('data-theme', theme);
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
-        {/* Google Analytics */}
         {gaId && (
           <>
-            <script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-            />
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
             <script
               dangerouslySetInnerHTML={{
-                __html: `
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
-                  gtag('config', '${gaId}');
-                `,
+                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}');`,
               }}
             />
           </>
@@ -191,13 +141,9 @@ export default function RootLayout({
       </head>
       <body suppressHydrationWarning>
         <a href="#main-content" className="skip-link">
-          Skip to main content
+          Skip to content
         </a>
-        <div className="bg-animation">
-          <div className="stars"></div>
-          <div className="stars2"></div>
-          <div className="stars3"></div>
-        </div>
+        <SheetFrame />
         {children}
       </body>
     </html>

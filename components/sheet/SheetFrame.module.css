@@ -1,0 +1,142 @@
+.frame {
+  display: none;
+}
+
+@media (min-width: 960px) {
+  .frame {
+    display: block;
+    position: fixed;
+    inset: var(--frame);
+    z-index: 40;
+    pointer-events: none;
+    border: 1px solid var(--line);
+  }
+
+  /* Rulers: minor tick every 10px, major every 50px */
+  .top,
+  .left {
+    position: absolute;
+    display: flex;
+    background-color: var(--bg);
+    font-family: var(--font-mono);
+    font-stretch: 75%;
+    font-size: 10px;
+    color: var(--ink-3);
+  }
+
+  .top {
+    top: 0;
+    left: var(--ruler);
+    right: 0;
+    height: var(--ruler);
+    border-bottom: 1px solid var(--line);
+    background-image:
+      linear-gradient(to right, var(--line) 1px, transparent 1px),
+      linear-gradient(to right, var(--line-soft) 1px, transparent 1px);
+    background-size: 50px 7px, 10px 4px;
+    background-position: 0 100%, 0 100%;
+    background-repeat: repeat-x;
+  }
+
+  .left {
+    top: var(--ruler);
+    left: 0;
+    bottom: 0;
+    width: var(--ruler);
+    flex-direction: column;
+    border-right: 1px solid var(--line);
+    background-image:
+      linear-gradient(to bottom, var(--line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--line-soft) 1px, transparent 1px);
+    background-size: 7px 50px, 4px 10px;
+    background-position: 100% 0, 100% 0;
+    background-repeat: repeat-y;
+  }
+
+  .zone {
+    flex: 1;
+    display: grid;
+    place-items: center;
+    padding-bottom: 4px;
+  }
+
+  .top .zone + .zone {
+    border-left: 1px solid var(--line);
+  }
+
+  .left .zone {
+    padding: 0 4px 0 0;
+  }
+
+  .left .zone + .zone {
+    border-top: 1px solid var(--line);
+  }
+
+  .corner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--ruler);
+    height: var(--ruler);
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background:
+      linear-gradient(45deg, transparent calc(50% - 0.5px), var(--line) calc(50% - 0.5px), var(--line) calc(50% + 0.5px), transparent calc(50% + 0.5px)),
+      var(--bg);
+  }
+
+  /* Pointer markers. The frame is offset by --frame + --ruler, so pull the marks back. */
+  .xMark,
+  .yMark {
+    position: absolute;
+    background: var(--red);
+    opacity: 0;
+    transition: opacity 200ms;
+  }
+
+  .xMark {
+    top: 0;
+    left: calc(-1 * (var(--frame) + var(--ruler)));
+    width: 1px;
+    height: 100%;
+  }
+
+  .yMark {
+    left: 0;
+    top: calc(-1 * (var(--frame) + var(--ruler)));
+    width: 100%;
+    height: 1px;
+  }
+
+  :global(html[data-pointer="fine"]) .xMark,
+  :global(html[data-pointer="fine"]) .yMark {
+    opacity: 1;
+  }
+
+  /* Status bar along the bottom edge, like the one under a CAD viewport */
+  .status {
+    position: absolute;
+    left: var(--ruler);
+    right: 0;
+    bottom: 0;
+    height: var(--ruler);
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    padding: 0 10px;
+    border-top: 1px solid var(--line);
+    background: var(--bg);
+    font-family: var(--font-mono);
+    font-stretch: 75%;
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+
+  .readout {
+    min-width: 168px;
+    white-space: pre;
+    color: var(--ink-2);
+  }
+}

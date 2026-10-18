@@ -11,7 +11,7 @@ faq:
   - question: "What is an air defense system?"
     answer: "An air defense system is a coordinated network of sensors, command nodes, and weapons designed to detect, track, and neutralize aerial threats including aircraft, UAVs, cruise missiles, and ballistic missiles."
   - question: "How does layered air defense work?"
-    answer: "Layered defense uses concentric rings — long-range (150-400+ km), medium-range (30-150 km), and short-range (0-30 km) — each optimized for different threats. If one layer's probability of kill is 0.7, three independent layers give a cumulative probability of 0.973."
+    answer: "Layered defense uses concentric rings: long-range (150-400+ km), medium-range (30-150 km), and short-range (0-30 km), each optimized for different threats. If one layer's probability of kill is 0.7, three independent layers give a cumulative probability of 0.973."
   - question: "Can radar detect stealth aircraft?"
     answer: "Low-frequency radars (VHF, L-band) can detect stealth targets because aircraft surfaces become resonant at wavelengths comparable to their geometric features, though they lack precision for fire-control. Fusing low-frequency detection with high-frequency tracking is an active research area."
   - question: "What are the biggest challenges in modern air defense?"

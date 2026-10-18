@@ -1,11 +1,15 @@
 // components/ai/ChatPanel.tsx
+// "Ask about my work", styled as the command line at the bottom of a CAD
+// window. Questions go to /api/chat, which answers in my voice using tools
+// over my project data, notes and GitHub. Steps the model takes are printed
+// as command output so visitors can see what it looked up.
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useChat, type Message } from "ai/react";
-import ChatButton from "./ChatButton";
 import MessageBubble from "./MessageBubble";
 import type { ConversationSummary } from "@/lib/ai/types";
+import styles from "./Chat.module.css";
 
 interface StoredChatState {
   messages: Message[];
@@ -13,26 +17,21 @@ interface StoredChatState {
 }
 
 const STORAGE_KEY = "shaveen-chat-state";
-const SUMMARY_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
+const SUMMARY_TTL_MS = 24 * 60 * 60 * 1000;
 
 const SUGGESTIONS = [
-  "What projects have you built?",
-  "What tech stack do you use?",
-  "Are you available for work?",
-  "Tell me about Lumina",
+  "What is LectureVoice and how is it built?",
+  "What did you do on the document tracking project?",
+  "What kind of internship are you looking for?",
+  "What have you pushed to GitHub lately?",
 ];
 
 function loadState(): StoredChatState | null {
-  if (typeof window === "undefined") return null;
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return null;
     const state = JSON.parse(raw) as StoredChatState;
-    // Check TTL
-    if (
-      state.conversationSummary &&
-      Date.now() - state.conversationSummary.timestamp > SUMMARY_TTL_MS
-    ) {
+    if (state.conversationSummary && Date.now() - state.conversationSummary.timestamp > SUMMARY_TTL_MS) {
       localStorage.removeItem(STORAGE_KEY);
       return null;
     }
@@ -43,240 +42,204 @@ function loadState(): StoredChatState | null {
 }
 
 function saveState(state: StoredChatState) {
-  if (typeof window === "undefined") return;
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   } catch {
-    // Storage full or unavailable, silently ignore
+    // Storage full or blocked: the chat still works, it just won't be remembered
   }
 }
 
-export default function ChatPanel() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLTextAreaElement>(null);
-  const savedState = useRef<StoredChatState | null>(null);
-
-  useEffect(() => {
-    savedState.current = loadState();
-    setMounted(true);
-  }, []);
-
-  const {
-    messages,
-    input,
-    handleInputChange,
-    handleSubmit,
-    isLoading,
-    setMessages,
-  } = useChat({
-    api: "/api/chat",
-    initialMessages: savedState.current?.messages || [],
-    body: {
-      conversationSummary: savedState.current?.conversationSummary?.text,
-    },
-    onFinish: () => {
-      // Save conversation state after each assistant reply
-      const currentMessages = messagesRef.current;
-      if (currentMessages.length > 0) {
-        const summary = buildSummary(currentMessages);
-        saveState({ messages: currentMessages, conversationSummary: summary });
-      }
-    },
-  });
-
-  // Keep a ref to messages for the onFinish callback
-  const messagesRef = useRef(messages);
-  useEffect(() => {
-    messagesRef.current = messages;
-  }, [messages]);
-
-  // Auto-scroll on new messages
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
-
-  // Focus input when panel opens
-  useEffect(() => {
-    if (isOpen) {
-      setTimeout(() => inputRef.current?.focus(), 300);
-    }
-  }, [isOpen]);
-
-  const togglePanel = useCallback(() => {
-    setIsOpen((prev) => !prev);
-  }, []);
-
-  const handleSuggestionClick = (suggestion: string) => {
-    const fakeEvent = {
-      target: { value: suggestion },
-    } as React.ChangeEvent<HTMLTextAreaElement>;
-    handleInputChange(fakeEvent);
-
-    // Submit after setting input
-    setTimeout(() => {
-      const form = document.getElementById("chat-form") as HTMLFormElement;
-      if (form) {
-        form.dispatchEvent(
-          new Event("submit", { cancelable: true, bubbles: true })
-        );
-      }
-    }, 50);
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      const form = document.getElementById("chat-form") as HTMLFormElement;
-      if (form && input.trim()) {
-        form.dispatchEvent(
-          new Event("submit", { cancelable: true, bubbles: true })
-        );
-      }
-    }
-  };
-
-  const clearChat = () => {
-    setMessages([]);
-    localStorage.removeItem(STORAGE_KEY);
-  };
-
-  if (!mounted) return null;
-
-  return (
-    <>
-      <ChatButton onClick={togglePanel} isOpen={isOpen} />
-
-      <div className={`ai-chat-panel${isOpen ? " open" : ""}`}>
-        {/* Header */}
-        <div className="chat-panel-header">
-          <div className="chat-panel-title">
-            <div className="chat-avatar">
-              <i className="fas fa-robot"></i>
-            </div>
-            <div>
-              <h3>Ask Shaveen&apos;s AI</h3>
-              <span className="chat-status">
-                {isLoading ? "Thinking..." : "Online"}
-              </span>
-            </div>
-          </div>
-          <div className="chat-panel-actions">
-            <button
-              className="chat-action-btn"
-              onClick={clearChat}
-              title="Clear chat"
-              aria-label="Clear chat history"
-            >
-              <i className="fas fa-trash-alt"></i>
-            </button>
-            <button
-              className="chat-action-btn"
-              onClick={togglePanel}
-              title="Close"
-              aria-label="Close chat panel"
-            >
-              <i className="fas fa-times"></i>
-            </button>
-          </div>
-        </div>
-
-        {/* Messages */}
-        <div className="chat-messages">
-          {messages.length === 0 ? (
-            <div className="chat-welcome">
-              <div className="welcome-icon">
-                <i className="fas fa-hand-wave"></i>
-              </div>
-              <h4>Hey there!</h4>
-              <p>
-                I&apos;m Shaveen&apos;s AI assistant. Ask me anything about his
-                projects, skills, or experience. I can also show you his recent
-                GitHub activity.
-              </p>
-              <div className="chat-suggestions">
-                {SUGGESTIONS.map((s) => (
-                  <button
-                    key={s}
-                    className="suggestion-btn"
-                    onClick={() => handleSuggestionClick(s)}
-                  >
-                    {s}
-                  </button>
-                ))}
-              </div>
-            </div>
-          ) : (
-            <>
-              {messages.map((msg) => (
-                <MessageBubble key={msg.id} message={msg} />
-              ))}
-              {isLoading &&
-                messages[messages.length - 1]?.role === "user" && (
-                  <div className="chat-message assistant">
-                    <div className="message-avatar">
-                      <i className="fas fa-robot"></i>
-                    </div>
-                    <div className="message-content">
-                      <div className="typing-indicator">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                      </div>
-                    </div>
-                  </div>
-                )}
-            </>
-          )}
-          <div ref={messagesEndRef} />
-        </div>
-
-        {/* Input */}
-        <form
-          id="chat-form"
-          className="chat-input-area"
-          onSubmit={handleSubmit}
-        >
-          <textarea
-            ref={inputRef}
-            className="chat-input"
-            placeholder="Ask me anything..."
-            value={input}
-            onChange={handleInputChange}
-            onKeyDown={handleKeyDown}
-            rows={1}
-            disabled={isLoading}
-          />
-          <button
-            type="submit"
-            className="chat-send-btn"
-            disabled={isLoading || !input.trim()}
-            aria-label="Send message"
-          >
-            <i className="fas fa-paper-plane"></i>
-          </button>
-        </form>
-      </div>
-    </>
-  );
-}
-
-function buildSummary(
-  messages: Message[]
-): ConversationSummary {
-  // Build a brief summary of the conversation topics
+function buildSummary(messages: Message[]): ConversationSummary {
   const topics = messages
     .filter((m) => m.role === "user")
     .map((m) => m.content)
     .slice(-5)
     .join("; ");
-
-  const text = `Previous conversation topics: ${topics}`;
-
   return {
-    text,
+    text: `Previous conversation topics: ${topics}`,
     messageCount: messages.length,
     timestamp: Date.now(),
   };
+}
+
+export default function ChatPanel() {
+  // This component only renders on the client (see ChatWrapper), so storage is available here
+  const [saved] = useState<StoredChatState | null>(() => loadState());
+  const [open, setOpen] = useState(false);
+  const logRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+
+  const { messages, input, handleInputChange, handleSubmit, isLoading, setMessages, append, error } = useChat({
+    api: "/api/chat",
+    initialMessages: saved?.messages ?? [],
+    body: { conversationSummary: saved?.conversationSummary?.text },
+  });
+
+  // Persist after each finished reply
+  useEffect(() => {
+    if (!isLoading && messages.length > 0) {
+      saveState({ messages, conversationSummary: buildSummary(messages) });
+    }
+  }, [isLoading, messages]);
+
+  useEffect(() => {
+    const log = logRef.current;
+    if (log) log.scrollTop = log.scrollHeight;
+  }, [messages, isLoading]);
+
+  useEffect(() => {
+    if (!open) return;
+    const t = window.setTimeout(() => inputRef.current?.focus(), 120);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        triggerRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => {
+      window.clearTimeout(t);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
+  const ask = useCallback(
+    (text: string) => {
+      if (isLoading) return;
+      append({ role: "user", content: text });
+    },
+    [append, isLoading]
+  );
+
+  const onKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      if (input.trim() && !isLoading) e.currentTarget.form?.requestSubmit();
+    }
+  };
+
+  const clear = () => {
+    setMessages([]);
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+    } catch {
+      // nothing to clear
+    }
+  };
+
+  const waiting = isLoading && messages[messages.length - 1]?.role === "user";
+
+  return (
+    <>
+      <button
+        ref={triggerRef}
+        type="button"
+        className={`${styles.trigger} ${open ? styles.triggerHidden : ""}`}
+        onClick={() => setOpen(true)}
+        aria-expanded={open}
+        aria-controls="ask-panel"
+      >
+        <span className={styles.prompt} aria-hidden="true">
+          ›
+        </span>
+        <span className={styles.triggerText}>Ask about my work</span>
+        <span className={styles.caret} aria-hidden="true" />
+      </button>
+
+      <section
+        id="ask-panel"
+        className={`${styles.panel} ${open ? styles.panelOpen : ""}`}
+        aria-label="Ask about my work"
+        aria-hidden={!open}
+        inert={!open}
+      >
+        <header className={styles.head}>
+          <span className={styles.headTitle}>
+            <span className="mono">Command line</span>
+            <span className={`${styles.state} mono`} data-busy={isLoading || undefined}>
+              {isLoading ? "Working" : "Ready"}
+            </span>
+          </span>
+          <span className={styles.headActions}>
+            {messages.length > 0 && (
+              <button type="button" onClick={clear} className="mono">
+                Clear
+              </button>
+            )}
+            <button
+              type="button"
+              onClick={() => {
+                setOpen(false);
+                triggerRef.current?.focus();
+              }}
+              className="mono"
+            >
+              Close
+            </button>
+          </span>
+        </header>
+
+        <div ref={logRef} className={styles.log} aria-live="polite">
+          {messages.length === 0 ? (
+            <div className={styles.empty}>
+              <p>
+                Ask anything about my projects, the studio or what I am looking for. A language model
+                answers in my voice, using my notes, this site and my GitHub. It can get things wrong, so
+                for anything that matters, email me.
+              </p>
+              <p className={`${styles.emptyLabel} mono muted`}>Try</p>
+              <ul className={styles.suggestions}>
+                {SUGGESTIONS.map((s) => (
+                  <li key={s}>
+                    <button type="button" onClick={() => ask(s)} className={styles.suggestion}>
+                      <span className={styles.prompt} aria-hidden="true">
+                        ›
+                      </span>
+                      {s}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            <>
+              {messages.map((m) => (
+                <MessageBubble key={m.id} message={m} />
+              ))}
+              {waiting && <p className={`${styles.thinking} mono`}>Reading the question</p>}
+              {error && (
+                <p className={`${styles.err} mono`}>
+                  That did not work. Try again, or email shaveenudayanga@gmail.com.
+                </p>
+              )}
+            </>
+          )}
+        </div>
+
+        <form onSubmit={handleSubmit} className={styles.inputRow}>
+          <label htmlFor="ask-input" className="visually-hidden">
+            Your question
+          </label>
+          <span className={styles.prompt} aria-hidden="true">
+            ›
+          </span>
+          <textarea
+            id="ask-input"
+            ref={inputRef}
+            value={input}
+            onChange={handleInputChange}
+            onKeyDown={onKeyDown}
+            rows={1}
+            placeholder="Type a question"
+            disabled={isLoading}
+            className={styles.input}
+          />
+          <button type="submit" className={`${styles.send} mono`} disabled={isLoading || !input.trim()}>
+            Enter
+          </button>
+        </form>
+      </section>
+    </>
+  );
 }

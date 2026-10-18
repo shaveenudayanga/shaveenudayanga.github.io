@@ -53,13 +53,13 @@ export function getModelForProvider(config: ProviderConfig) {
  */
 export const FALLBACK_RESPONSES: Record<string, string> = {
   default:
-    "I'm experiencing high demand right now. Feel free to reach out directly at shaveenudayanga@gmail.com, or check out my projects on GitHub (github.com/shaveenudayanga). I'll be back online shortly.",
+    "The answering service is busy right now. You can email me at shaveenudayanga@gmail.com, or look through my code at github.com/shaveenudayanga.",
   availability:
-    "I'm currently available for freelance and collaboration. Best way to reach me is via email at shaveenudayanga@gmail.com or WhatsApp at +94 77 118 6742.",
+    "I'm looking for a six-month internship in software engineering, business analysis or product work. Email me at shaveenudayanga@gmail.com or message me on WhatsApp at +94 77 118 6742.",
   projects:
-    "My featured projects include Lumina (an AI-powered robotic lamp with custom PCB and gesture tracking), Lamitie (an event management system handling 336+ registrations), a Document Tracking System (Spring Boot microservices), and The Wheels in Motion (NLP sentiment analysis dashboard). Check them out on GitHub: github.com/shaveenudayanga",
+    "My main work is LectureVoice (lecturevoice.s39labs.com), which turns a lecturer's slides into a narrated video in their own voice. I run it through my studio, S39 Labs. University projects include a document tracking system in Spring Boot, Lumina (a gesture-controlled lamp) and my final-year research, MOMFA-LSTM. The code is at github.com/shaveenudayanga.",
   skills:
-    "I work primarily with Python, Java, and JavaScript/TypeScript. My focus areas are AI/ML (TensorFlow, Hugging Face, MediaPipe), IoT (ESP32, custom PCB design), cloud infrastructure (Docker, Azure, GitHub Actions), and full-stack development (FastAPI, Spring Boot, React).",
+    "Mostly Python and Java. FastAPI, PostgreSQL and SQLAlchemy on the backend, Spring Boot for Java services, React and Next.js on the frontend, and Git, GitHub Actions, Docker and AWS EC2 for running things. TypeScript is basic.",
 };
 
 /**

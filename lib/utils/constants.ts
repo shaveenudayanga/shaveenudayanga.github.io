@@ -3,39 +3,34 @@
 
 export const SITE_CONFIG = {
   name: "Shaveen Udayanga",
-  title: "Shaveen Udayanga | Software Engineer & AI Builder",
+  title: "Shaveen Udayanga | Software engineer, founder of S39 Labs",
   description:
-    "Shaveen Udayanga - Software engineer building intelligent systems with AI, IoT, and full-stack development.",
+    "Shaveen Udayanga: final-year Computer Science student at the University of Sri Jayewardenepura and founder of S39 Labs, the studio behind LectureVoice. Looking for a six-month internship in software engineering, business analysis or product work.",
   url: "https://shaveenudayanga.me",
-  image: "https://shaveenudayanga.me/images/profile-hero.webp",
+  image: "https://shaveenudayanga.me/images/shaveen-headshot.webp",
   gaId: "G-4RPX4H13W5",
   email: "shaveenudayanga@gmail.com",
   phone: "+94 77 118 6742",
   github: "shaveenudayanga",
   githubUrl: "https://github.com/shaveenudayanga",
-  linkedinUrl: "https://linkedin.com/in/shaveenudayanga",
+  linkedinUrl: "https://www.linkedin.com/in/shaveenudayanga/",
   facebookUrl: "https://web.facebook.com/shaveenudayanga",
   whatsappUrl: "https://wa.me/94771186742",
-  linktreeUrl: "https://linktr.ee/shaveenudayanga",
+  s39Url: "https://www.s39labs.com",
   formspreeEndpoint: "https://formspree.io/f/xaqdwygp",
-  resumePath: "/Resume_Shaveen_Udayanga.pdf",
+  resumePath: "/Shaveen_Udayanga_Resume.pdf",
+  location: "Colombo, Sri Lanka",
+  /** Revision label shown in the title block. Bump when the site changes. */
+  revision: "2026.10",
 } as const;
 
-export const TYPEWRITER_TEXTS = [
-  "Software Engineer",
-  "AI/ML Enthusiast",
-  "Full-Stack Developer",
-  "Musician & Performer",
-  "Team Builder",
-  "Problem Solver",
+export const SHEETS = [
+  { id: "index", no: "01", label: "Index" },
+  { id: "studio", no: "02", label: "Studio" },
+  { id: "work", no: "03", label: "Work" },
+  { id: "record", no: "04", label: "Record" },
+  { id: "spec", no: "05", label: "Spec" },
+  { id: "contact", no: "06", label: "Contact" },
 ] as const;
 
-export const NAV_LINKS = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
-  { href: "#beyond", label: "Life" },
-  { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Experience" },
-  { href: "#contact", label: "Contact" },
-] as const;
+export type SheetId = (typeof SHEETS)[number]["id"];

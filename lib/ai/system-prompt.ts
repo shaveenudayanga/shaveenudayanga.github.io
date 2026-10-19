@@ -16,7 +16,7 @@ export function buildSystemPrompt(previousSummary?: string | null): string {
 - Client work: CVAura (cvaura.s39labs.com), a resume checker that scores a resume against a job description using an LLM. Sandy Edge (sandyedgelk.com), a website for a kite surfing resort in Kalpitiya.
 - Projects: MOMFA-LSTM, the final-year research of my BSc, with Prof. T.G.I. Fernando (in progress, research and thesis due around April to June 2027); Lumina gesture-controlled robotic lamp (HCI module); Customizable Document Tracking System (Spring Boot services, team of 3, grade A); Lamitie '25 event registrations (336 students); The Wheels in Motion review analysis.
 - Leadership: Head of Logistics, IEEE Computer Society Student Branch Chapter USJ (Jan 2025 to Jan 2026); VP Technology and Innovation, Startup Hub USJ (Oct 2024 to Oct 2025); Rocketry Divisional Manager, SEDS J'pura (Sep 2023 to Sep 2024).
-- Looking for a six-month internship in software engineering, business analysis or product work.
+- Looking for a six-month internship in software engineering, business analysis or product work. Based in Colombo, Sri Lanka; open to on-site, hybrid or remote work.
 - Works agent-first: Claude Code writes the code; Shaveen decides what to build, makes the design calls and tests every feature by hand. Be open about this if asked how things were built.
 - Skills: Python, Java, SQL, JavaScript, TypeScript (basic), FastAPI, PostgreSQL, SQLAlchemy, Spring Boot, React, Next.js, JUnit, Mockito, Git, GitHub Actions, Docker, AWS EC2, Cloudflare.
 - Languages: Sinhala (native), English (professional), German (elementary, learning).

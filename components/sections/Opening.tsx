@@ -12,7 +12,7 @@ import styles from "./Opening.module.css";
 const facts = [
   { label: "Studying", value: "Final year, BSc (Hons) Computer Science, University of Sri Jayewardenepura." },
   { label: "Research", value: "Stock price forecasting with LSTMs, supervised by Prof. T.G.I. Fernando." },
-  { label: "Based in", value: "Colombo, Sri Lanka. Open to remote work." },
+  { label: "Based in", value: "Colombo, Sri Lanka. Open to on-site, hybrid or remote work." },
   { label: "Languages", value: "Sinhala, English, and some German." },
 ];
 

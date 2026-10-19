@@ -183,6 +183,7 @@ export const aiTools = {
         ],
         studies: "Final year, BSc (Hons) Computer Science, University of Sri Jayewardenepura, research and thesis due around April to June 2027, graduation expected around October 2027",
         location: "Colombo, Sri Lanka",
+        workArrangement: "Open to on-site, hybrid or remote work",
         timezone: "Asia/Colombo (UTC+5:30)",
         contact: {
           email: "shaveenudayanga@gmail.com",

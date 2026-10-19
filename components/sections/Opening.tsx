@@ -10,10 +10,10 @@ import LocalTime from "./LocalTime";
 import styles from "./Opening.module.css";
 
 const facts = [
-  { label: "Studying", value: "BSc (Hons) Computer Science, University of Sri Jayewardenepura. Final year, honours cohort." },
-  { label: "Running", value: "S39 Labs, a software studio, since January 2026." },
-  { label: "Researching", value: "MOMFA-LSTM, my final-year research, with Prof. T.G.I. Fernando." },
-  { label: "Way of working", value: "Agent-first. Claude Code writes the code; I decide, design and test." },
+  { label: "Studying", value: "Final year, BSc (Hons) Computer Science, University of Sri Jayewardenepura." },
+  { label: "Research", value: "Stock price forecasting with LSTMs, supervised by Prof. T.G.I. Fernando." },
+  { label: "Based in", value: "Colombo, Sri Lanka. Open to remote work." },
+  { label: "Languages", value: "Sinhala, English, and some German." },
 ];
 
 export default function Opening() {
@@ -39,18 +39,17 @@ export default function Opening() {
 
             <div className={styles.copy}>
               <p className="lede">
-                I&apos;m a final-year Computer Science student at the University of Sri Jayewardenepura.
-                In January 2026 I started{" "}
-                <a href={SITE_CONFIG.s39Url} className="link" target="_blank" rel="noopener">
-                  S39 Labs
-                </a>
-                , a small software studio. Its first product, LectureVoice, turns a lecturer&apos;s
-                slides into a narrated video in their own voice. It is live and in use.
+                I&apos;m in my final year of Computer Science at the University of Sri Jayewardenepura. I
+                like building things for people I can actually talk to. Who they were, and what we made
+                together, is drawn out on the sheets below.
               </p>
               <p className={styles.second}>
-                I like taking a real person&apos;s problem and turning it into something they use. I work
-                agent-first: Claude Code writes most of the code, and I decide what to build, make the
-                design calls and test every feature by hand.
+                Some evenings end with a violin. Some mornings start at the gym. Some weekends belong to
+                other people. Those are on{" "}
+                <a href="#off-the-clock" className="link">
+                  the last sheets
+                </a>
+                , if you make it that far.
               </p>
             </div>
 

@@ -81,7 +81,7 @@ export default function Spec() {
           </aside>
         </div>
 
-        <div className={styles.notesBlock}>
+        <div id="off-the-clock" className={styles.notesBlock}>
           <div className={styles.notesHead}>
             <h3 className="mono">General notes</h3>
             <span className={styles.notesRule} data-reveal="line" />

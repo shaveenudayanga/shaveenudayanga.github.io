@@ -182,7 +182,7 @@ export const aiTools = {
         contact: {
           email: "info@shaveenudayanga.me",
           linkedin: "linkedin.com/in/shaveenudayanga",
-          resume: "https://shaveenudayanga.me/shaveen-udayanga-resume.pdf",
+          resume: "https://www.shaveenudayanga.me/shaveen-udayanga-resume.pdf",
         },
         responseTime: "Usually within two days",
       };

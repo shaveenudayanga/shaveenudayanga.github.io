@@ -6,8 +6,8 @@ export const SITE_CONFIG = {
   title: "Shaveen Udayanga | Software engineer, founder of S39 Labs",
   description:
     "Shaveen Udayanga: software engineer and founder of S39 Labs, the Colombo startup behind LectureVoice and TrustedTutor. Web apps, AI products and client work.",
-  url: "https://shaveenudayanga.me",
-  image: "https://shaveenudayanga.me/images/shaveen-udayanga.webp",
+  url: "https://www.shaveenudayanga.me",
+  image: "https://www.shaveenudayanga.me/images/shaveen-udayanga.webp",
   gaId: "G-4RPX4H13W5",
   email: "info@shaveenudayanga.me",
   github: "shaveenudayanga",

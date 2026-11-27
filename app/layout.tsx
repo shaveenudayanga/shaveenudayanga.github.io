@@ -99,8 +99,8 @@ export const viewport: Viewport = {
 };
 
 const personSchema = {
-  "@context": "https://schema.org",
   "@type": "Person",
+  "@id": `${SITE_CONFIG.url}/#person`,
   name: SITE_CONFIG.name,
   url: SITE_CONFIG.url,
   image: SITE_CONFIG.image,
@@ -111,6 +111,22 @@ const personSchema = {
   address: { "@type": "PostalAddress", addressLocality: "Colombo", addressCountry: "LK" },
   sameAs: [SITE_CONFIG.githubUrl, SITE_CONFIG.linkedinUrl, SITE_CONFIG.s39Url],
   knowsAbout: ["Software engineering", "Python", "FastAPI", "Next.js", "Java", "Spring Boot", "Product development"],
+};
+
+// Google reads the site name in search results from this WebSite entry
+const websiteSchema = {
+  "@type": "WebSite",
+  "@id": `${SITE_CONFIG.url}/#website`,
+  name: SITE_CONFIG.name,
+  alternateName: ["Shaveen", "shaveenudayanga.me"],
+  url: `${SITE_CONFIG.url}/`,
+  publisher: { "@id": `${SITE_CONFIG.url}/#person` },
+  inLanguage: "en",
+};
+
+const siteSchema = {
+  "@context": "https://schema.org",
+  "@graph": [websiteSchema, personSchema],
 };
 
 // Runs before paint: applies a saved theme choice and marks that JS is on,
@@ -130,7 +146,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: bootScript }} />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }}
         />
         {gaId && (
           <>

@@ -40,13 +40,13 @@ export default function Opening() {
             <div className={styles.copy}>
               <p className="lede">
                 I&apos;m a software engineer and the founder of S39 Labs, a startup in Colombo that
-                builds web apps and AI products. LectureVoice, the first one, now narrates lectures for
-                a professor at my university, and two more lecturers have signed up. Each product starts
-                with one person who has the problem. What we built together is on the sheets below.
+                builds web apps and AI products. The first one, LectureVoice, is live and narrating
+                lectures at my university. Every product starts
+                with one real person and their problem. What came out of that is on the sheets below.
               </p>
               <p className={styles.second}>
-                Some evenings end with a violin. Some mornings start at the gym. Some weekends belong to
-                other people. Those are on{" "}
+                Some evenings end with a violin. Some mornings start at the gym. Some weekends go to
+                volunteering. Those are on{" "}
                 <a href="#off-the-clock" className="link">
                   the last sheets
                 </a>

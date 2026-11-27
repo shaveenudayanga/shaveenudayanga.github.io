@@ -140,8 +140,8 @@ export default function Studio() {
 
           <p className={styles.problem}>
             A tutoring platform for Sri Lankan families. Agencies match tutors, send reminders and
-            chase payments by hand. TrustedTutor does that over WhatsApp, so one person can look after
-            many families.
+            follow up on payments by hand. TrustedTutor handles that admin over WhatsApp, so parents and
+            tutors spend less time on messages and more on the lessons.
           </p>
 
           <ol className={styles.genNotes}>

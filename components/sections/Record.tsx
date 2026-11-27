@@ -25,9 +25,8 @@ export default function Record() {
             <h3>BSc (Hons) in Computer Science</h3>
             <p className={styles.eduOrg}>University of Sri Jayewardenepura, Nugegoda. June 2023 to around mid 2027, graduating around October 2027.</p>
             <p>
-              Minors in Mathematics and Physics. Selected into the Computer Science honours cohort: 18
-              students from a cohort of 120. Final-year research: MOMFA-LSTM, supervised by Prof. T.G.I.
-              Fernando, with the thesis due around April to June 2027.
+              Minors in Mathematics and Physics. Final-year research: MOMFA-LSTM, supervised by Prof.
+              T.G.I. Fernando, with the thesis due mid 2027.
             </p>
           </div>
           <div>

@@ -37,7 +37,7 @@ export const spans: Span[] = [
     approx: true,
     milestone: { at: "2027-10", label: "Graduation" },
     summary:
-      "Minors in Mathematics and Physics. Selected into the Computer Science honours cohort, one of 18 students from a cohort of 120. Coursework and the final-year research wrap up around April to June 2027, and graduation is expected around October 2027.",
+      "Minors in Mathematics and Physics. Coursework and the final-year research wrap up around April to June 2027, and graduation is expected around October 2027.",
   },
   {
     id: "momfa",
@@ -98,7 +98,7 @@ export const spans: Span[] = [
     org: "Service Oriented Computing module",
     start: "2025-08",
     end: "2025-11",
-    summary: "Java and Spring Boot services, team of three, grade A.",
+    summary: "Java and Spring Boot services, team of three.",
   },
   {
     id: "lumina",
@@ -168,7 +168,7 @@ export const skills: SkillGroup[] = [
   { name: "Testing", items: ["pytest", "Playwright end-to-end tests", "JUnit", "Mockito"] },
   {
     name: "Product",
-    items: ["Product plans, specs and user stories", "Small reviewed releases", "Demos and presentations"],
+    items: ["Customer research", "Product specs", "Shipping in small releases"],
   },
   {
     name: "Tools and cloud",
@@ -240,13 +240,13 @@ export const offTheClock: OffClockNote[] = [
   },
   {
     title: "Volunteering",
-    body: "IEEE events, and We for Sri Lanka, where most of the work is with children. I help with relief work after floods and other disasters.",
+    body: "IEEE events, and We for Sri Lanka, a charity that mostly supports children. I also help with relief work after floods and other disasters.",
     image: {
       src: "/images/off-clock/charity.webp",
       alt: "Shaveen with the We for Sri Lanka team at Apeksha Hospital, Maharagama",
       width: 391,
       height: 341,
-      caption: "Detail D. We for Sri Lanka, donating to children at Apeksha Hospital, Maharagama.",
+      caption: "Detail D. With the We for Sri Lanka team at Apeksha Hospital, Maharagama.",
     },
   },
   {

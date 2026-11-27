@@ -52,9 +52,15 @@ export default function SheetIndex({ onHome = true, current }: { onHome?: boolea
     <header className={`${styles.bar} ${raised ? styles.raised : ""}`}>
       <div className={styles.inner}>
         <Link href="/" className={styles.mark} onClick={() => setOpen(false)}>
-          <span className={styles.monogram} aria-hidden="true">
-            SU
-          </span>
+          <svg className={styles.monogram} viewBox="0 0 64 64" aria-hidden="true">
+            <rect className={styles.tile} width="64" height="64" rx="10" />
+            <rect className={styles.frame} x="4.5" y="4.5" width="55" height="55" rx="6" />
+            <polygon
+              className={styles.letter}
+              transform="translate(32 32) scale(0.86) translate(-32 -32)"
+              points="22,10 50,10 50,20 24,20 24,27 42,27 50,35 50,46 42,54 14,54 14,44 40,44 40,37 22,37 14,29 14,18"
+            />
+          </svg>
           <span className={styles.name}>Shaveen Udayanga</span>
           <span className={`${styles.dwg} mono`}>Rev {SITE_CONFIG.revision}</span>
         </Link>

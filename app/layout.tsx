@@ -65,8 +65,12 @@ export const metadata: Metadata = {
     images: [SITE_CONFIG.image],
   },
   icons: {
-    icon: [{ url: "/favicon.png", sizes: "202x202" }],
-    apple: "/favicon.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: { url: "/apple-touch-icon.png", sizes: "180x180" },
   },
   manifest: "/manifest.json",
   robots: {

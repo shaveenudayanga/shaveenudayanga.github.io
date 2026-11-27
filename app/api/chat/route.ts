@@ -36,6 +36,6 @@ export async function POST(req: Request) {
 
   return result.toDataStreamResponse({
     getErrorMessage: () =>
-      "I could not answer that just now. Please try again, or email shaveenudayanga@gmail.com.",
+      "I could not answer that just now. Please try again, or email info@shaveenudayanga.me.",
   });
 }

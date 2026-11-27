@@ -180,7 +180,7 @@ export const aiTools = {
         location: "Colombo, Sri Lanka",
         timezone: "Asia/Colombo (UTC+5:30)",
         contact: {
-          email: "shaveenudayanga@gmail.com",
+          email: "info@shaveenudayanga.me",
           linkedin: "linkedin.com/in/shaveenudayanga",
           resume: "https://shaveenudayanga.me/shaveen-udayanga-resume.pdf",
         },

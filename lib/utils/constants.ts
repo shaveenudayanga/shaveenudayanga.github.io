@@ -9,7 +9,7 @@ export const SITE_CONFIG = {
   url: "https://shaveenudayanga.me",
   image: "https://shaveenudayanga.me/images/shaveen-udayanga.webp",
   gaId: "G-4RPX4H13W5",
-  email: "shaveenudayanga@gmail.com",
+  email: "info@shaveenudayanga.me",
   github: "shaveenudayanga",
   githubUrl: "https://github.com/shaveenudayanga",
   linkedinUrl: "https://www.linkedin.com/in/shaveenudayanga/",

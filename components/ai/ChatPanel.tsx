@@ -210,7 +210,7 @@ export default function ChatPanel() {
               {waiting && <p className={`${styles.thinking} mono`}>Reading the question</p>}
               {error && (
                 <p className={`${styles.err} mono`}>
-                  That did not work. Try again, or email shaveenudayanga@gmail.com.
+                  That did not work. Try again, or email info@shaveenudayanga.me.
                 </p>
               )}
             </>

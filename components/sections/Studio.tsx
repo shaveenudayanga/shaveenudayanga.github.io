@@ -29,7 +29,7 @@ export default function Studio() {
             <a href="https://pethometown.com" className="link" target="_blank" rel="noopener">
               Pet Hometown
             </a>
-             in 2021, an online store that is now a blog.
+             {" "}in 2021, an online store that is now a blog.
           </p>
           <p>
             <a href={SITE_CONFIG.s39Url} className="link" target="_blank" rel="noopener">

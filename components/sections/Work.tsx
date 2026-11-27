@@ -20,8 +20,8 @@ export default function Work() {
       <div className="wrap">
         <SheetHead no="03" label="Work / Register" title="Drawing register" id="work-title">
           <p>
-            University projects, research and things I built for events. Open a row for the details,
-            what I did myself, and the code.
+            Research, tools and earlier builds, including university projects. Open a row for the
+            details, what I did myself, and the code.
           </p>
         </SheetHead>
 

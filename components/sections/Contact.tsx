@@ -11,13 +11,12 @@ import styles from "./Contact.module.css";
 
 type State = "idle" | "sending" | "sent" | "failed";
 
-const purposes = ["Internship", "A project for S39 Labs", "Something else"];
+const purposes = ["A project for S39 Labs", "Something else"];
 
 const lines = [
-  { label: "WhatsApp", value: SITE_CONFIG.phone, href: SITE_CONFIG.whatsappUrl },
   { label: "LinkedIn", value: "in/shaveenudayanga", href: SITE_CONFIG.linkedinUrl },
   { label: "GitHub", value: "shaveenudayanga", href: SITE_CONFIG.githubUrl },
-  { label: "Studio", value: "s39labs.com", href: SITE_CONFIG.s39Url },
+  { label: "S39 Labs", value: "s39labs.com", href: SITE_CONFIG.s39Url },
 ];
 
 export default function Contact() {
@@ -58,8 +57,8 @@ export default function Contact() {
       <div className="wrap">
         <SheetHead no="06" label="Contact / Transmittal" title="Write to me" id="contact-title">
           <p>
-            About an internship, a project for the studio, or anything on this page. I usually reply
-            within two days.
+            About a project for S39 Labs, or anything on this page. I usually reply within two
+            days.
           </p>
         </SheetHead>
 

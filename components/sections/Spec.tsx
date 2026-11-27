@@ -14,7 +14,7 @@ export default function Spec() {
       <div className="wrap">
         <SheetHead no="05" label="Spec / Materials" title="Specification" id="spec-title">
           <p>
-            The tools I use and how well I know them. Where something is basic, it says so.
+            The tools I use to build and run S39 Labs products.
           </p>
         </SheetHead>
 

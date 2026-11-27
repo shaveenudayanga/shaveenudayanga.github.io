@@ -3,7 +3,7 @@
 // The knowledge sync script reads this file as raw text, so plain sentences
 // here also become what the AI assistant knows.
 
-export type Lane = "Studio" | "Study" | "Leadership" | "Projects";
+export type Lane = "Startup" | "Study" | "Leadership" | "Projects";
 
 export interface Span {
   id: string;
@@ -113,16 +113,16 @@ export const spans: Span[] = [
   {
     id: "s39",
     short: "S39 Labs",
-    lane: "Studio",
+    lane: "Startup",
     title: "Founder and Lead Engineer",
     org: "S39 Labs",
     start: "2026-01",
-    summary: "A software studio that builds its own products and takes on client work.",
+    summary: "A startup that builds web apps and AI products, its own and for clients.",
   },
   {
     id: "lecturevoice",
     short: "LectureVoice",
-    lane: "Studio",
+    lane: "Startup",
     title: "LectureVoice",
     org: "S39 Labs",
     start: "2026-06",
@@ -151,18 +151,28 @@ export interface SkillGroup {
 }
 
 export const skills: SkillGroup[] = [
-  { name: "Languages", items: ["Python", "Java", "SQL", "JavaScript", "TypeScript (basic)"] },
-  { name: "Backend", items: ["FastAPI", "REST APIs", "PostgreSQL", "SQLAlchemy", "Spring Boot"] },
-  { name: "Frontend", items: ["React", "Next.js", "HTML", "CSS"] },
-  { name: "AI tools", items: ["Claude Code (daily, agent-first)", "Google Gemini API"] },
-  { name: "Testing", items: ["Manual and exploratory testing", "Bug reporting", "JUnit", "Mockito"] },
+  { name: "Languages", items: ["Python", "TypeScript", "SQL", "Java"] },
+  {
+    name: "AI",
+    items: [
+      "AI agents and tool calling",
+      "LLM APIs (Gemini, Groq)",
+      "Fallback between AI providers",
+      "PyTorch",
+      "LoRA fine-tuning of speech models",
+      "Claude Code (daily, agent-first)",
+    ],
+  },
+  { name: "Backend", items: ["FastAPI", "REST APIs", "PostgreSQL", "SQLModel", "Prisma", "Supabase", "Spring Boot"] },
+  { name: "Frontend", items: ["Next.js", "React", "Tailwind CSS"] },
+  { name: "Testing", items: ["pytest", "Playwright end-to-end tests", "JUnit", "Mockito"] },
   {
     name: "Product",
-    items: ["Turning user needs into features", "Writing requirements", "Deciding what to build next"],
+    items: ["Product plans, specs and user stories", "Small reviewed releases", "Demos and presentations"],
   },
   {
     name: "Tools and cloud",
-    items: ["Git", "GitHub Actions", "Ubuntu on AWS EC2", "Docker", "Cloudflare", "Oracle Cloud"],
+    items: ["Git", "GitHub Actions", "Docker", "AWS", "Vercel", "Cloudflare", "Modal (GPU)"],
   },
   { name: "Hardware", items: ["ESP32", "Soldering", "Sensors and servos"] },
 ];

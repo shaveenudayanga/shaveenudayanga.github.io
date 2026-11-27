@@ -1,6 +1,7 @@
 // components/sections/Studio.tsx
 // Sheet 02. S39 Labs and what it ships: LectureVoice as a full detail
-// drawing with its parts list, then the client work.
+// drawing with its parts list, TrustedTutor as the next product, then the
+// client work.
 
 import Image from "next/image";
 import { projects } from "@/content/projects";
@@ -11,6 +12,7 @@ import Callouts from "./Callouts";
 import styles from "./Studio.module.css";
 
 const lv = projects.find((p) => p.slug === "lecturevoice")!;
+const tt = projects.find((p) => p.slug === "trustedtutor")!;
 const cvaura = projects.find((p) => p.slug === "cvaura")!;
 const sandy = projects.find((p) => p.slug === "sandy-edge")!;
 
@@ -18,11 +20,16 @@ export default function Studio() {
   return (
     <section id="studio" className={styles.studio} aria-labelledby="studio-title">
       <div className="wrap">
-        <SheetHead no="02" label="Studio / S39 Labs" title="The studio" id="studio-title">
+        <SheetHead no="02" label="Startup / S39 Labs" title="The startup" id="studio-title">
           <p>
-            I started S39 Labs in January 2026. It builds its own products and takes on a small amount
-            of client work, from websites to backend systems. Every product starts with one person who
-            has the problem, and is built with them.
+            I founded S39 Labs in January 2026, a startup that builds web apps and AI products. It
+            ships its own products and also builds for clients, from websites to backend systems. Every
+            product starts with one person who has the problem, and is built with them. Before S39
+            Labs, I founded{" "}
+            <a href="https://pethometown.com" className="link" target="_blank" rel="noopener">
+              Pet Hometown
+            </a>
+             in 2021, an online store that is now a blog.
           </p>
           <p>
             <a href={SITE_CONFIG.s39Url} className="link" target="_blank" rel="noopener">
@@ -97,6 +104,48 @@ export default function Studio() {
 
           <ol className={styles.genNotes}>
             {lv.points.map((pt, i) => (
+              <li key={i}>
+                <span className={styles.genNo}>{i + 1}.</span>
+                <p>{pt}</p>
+              </li>
+            ))}
+          </ol>
+        </article>
+
+        {/* ── TrustedTutor ───────────────────────────────── */}
+        <div className={styles.clientHead}>
+          <span className="mono">Next product</span>
+          <span className={styles.clientRule} data-reveal="line" />
+        </div>
+
+        <article className={styles.next} aria-labelledby="tt-title" data-reveal="block">
+          <header className={styles.productHead}>
+            <div>
+              <p className="mono muted">
+                {tt.dwg} <span aria-hidden="true">·</span> Product <span aria-hidden="true">·</span>{" "}
+                Education
+              </p>
+              <h3 id="tt-title" className={styles.wordTt}>
+                TrustedTutor
+              </h3>
+            </div>
+            <div className={styles.headSide}>
+              <span className="mono muted">Launching soon</span>
+              <a href={tt.links[0].href} className="act act-line" target="_blank" rel="noopener">
+                Open TrustedTutor
+                <Arrow dir="up-right" />
+              </a>
+            </div>
+          </header>
+
+          <p className={styles.problem}>
+            A tutoring platform for Sri Lankan families. Agencies match tutors, send reminders and
+            chase payments by hand. TrustedTutor does that over WhatsApp, so one person can look after
+            many families.
+          </p>
+
+          <ol className={styles.genNotes}>
+            {tt.points.slice(1).map((pt, i) => (
               <li key={i}>
                 <span className={styles.genNo}>{i + 1}.</span>
                 <p>{pt}</p>

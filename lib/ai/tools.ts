@@ -168,26 +168,19 @@ export const aiTools = {
 
   getCurrentAvailability: tool({
     description:
-      "Get what I am currently looking for (internships, client work) and how to contact me. Use this when someone asks if I am available, how to hire me, or what kind of work I am looking for.",
+      "Get what I am working on now, whether S39 Labs is taking client work, and how to contact me. Use this when someone asks if I am available, how to work with me, or what I am doing now.",
     parameters: z.object({}),
     execute: async () => {
       return {
         available: true,
         status:
-          "Looking for a six-month internship in software engineering, business analysis or product work. Also open to client projects through S39 Labs.",
-        lookingFor: [
-          "Six-month internship: software engineering",
-          "Six-month internship: business analysis",
-          "Six-month internship: product work",
-          "Client projects through S39 Labs (websites, web apps, backend systems)",
-        ],
-        studies: "Final year, BSc (Hons) Computer Science, University of Sri Jayewardenepura, research and thesis due around April to June 2027, graduation expected around October 2027",
+          "Building TrustedTutor at S39 Labs, launching soon. S39 Labs also builds for clients.",
+        openTo: ["Client projects through S39 Labs (websites, web apps, AI products, backend systems)"],
+        studies: "BSc (Hons) Computer Science, University of Sri Jayewardenepura, finishing 2027",
         location: "Colombo, Sri Lanka",
-        workArrangement: "Open to on-site, hybrid or remote work",
         timezone: "Asia/Colombo (UTC+5:30)",
         contact: {
           email: "shaveenudayanga@gmail.com",
-          phone: "+94 77 118 6742",
           linkedin: "linkedin.com/in/shaveenudayanga",
           resume: "https://shaveenudayanga.me/shaveen-udayanga-resume.pdf",
         },

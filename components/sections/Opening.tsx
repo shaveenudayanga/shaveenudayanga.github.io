@@ -1,5 +1,5 @@
 // components/sections/Opening.tsx
-// Sheet 01. Name, what I do, what I am looking for, and a portrait set as
+// Sheet 01. Name, what I do, what I am building now, and a portrait set as
 // "View A". A live dimension line measures the name as it renders.
 
 import Image from "next/image";
@@ -10,10 +10,10 @@ import LocalTime from "./LocalTime";
 import styles from "./Opening.module.css";
 
 const facts = [
-  { label: "Studying", value: "Final year, BSc (Hons) Computer Science, University of Sri Jayewardenepura." },
-  { label: "Research", value: "Stock price forecasting with LSTMs, supervised by Prof. T.G.I. Fernando." },
-  { label: "Based in", value: "Colombo, Sri Lanka. Open to on-site, hybrid or remote work." },
-  { label: "Languages", value: "Sinhala, English, and some German." },
+  { label: "Building", value: "S39 Labs, since January 2026. LectureVoice, TrustedTutor and client websites." },
+  { label: "Also founded", value: "Pet Hometown in 2021. An online store first, now a blog grown through SEO." },
+  { label: "Degree", value: "BSc (Hons) Computer Science, University of Sri Jayewardenepura, finishing 2027." },
+  { label: "Based in", value: "Colombo, Sri Lanka. Sinhala, English, and some German." },
 ];
 
 export default function Opening() {
@@ -39,9 +39,10 @@ export default function Opening() {
 
             <div className={styles.copy}>
               <p className="lede">
-                I&apos;m in my final year of Computer Science at the University of Sri Jayewardenepura. I
-                like building things for people I can actually talk to. Who they were, and what we made
-                together, is drawn out on the sheets below.
+                I&apos;m a software engineer and the founder of S39 Labs, a startup in Colombo that
+                builds web apps and AI products. LectureVoice, the first one, now narrates lectures for
+                a professor at my university, and two more lecturers have signed up. Each product starts
+                with one person who has the problem. What we built together is on the sheets below.
               </p>
               <p className={styles.second}>
                 Some evenings end with a violin. Some mornings start at the gym. Some weekends belong to
@@ -59,8 +60,8 @@ export default function Opening() {
                 <span className="mono">Now</span>
               </span>
               <p>
-                Looking for a <strong>six-month internship</strong> in software engineering, business
-                analysis or product work.
+                Building <strong>TrustedTutor</strong>, a tutoring platform for Sri Lankan families,
+                launching soon. S39 Labs also builds for clients.
               </p>
             </div>
 

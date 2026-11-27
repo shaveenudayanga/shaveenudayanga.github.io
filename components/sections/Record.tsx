@@ -12,7 +12,7 @@ export default function Record() {
       <div className="wrap">
         <SheetHead no="04" label="Record / Since 2023" title="Revision history" id="record-title">
           <p>
-            Study, the studio, and the student groups I helped run. Solid bars are done, hatched is still
+            S39 Labs, my degree, and the groups I helped lead. Solid bars are done, hatched is still
             ahead, and a fading end means the date is an estimate. Select a row to read it.
           </p>
         </SheetHead>

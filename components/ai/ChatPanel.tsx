@@ -22,7 +22,7 @@ const SUMMARY_TTL_MS = 24 * 60 * 60 * 1000;
 const SUGGESTIONS = [
   "What is LectureVoice and how is it built?",
   "What did you do on the document tracking project?",
-  "What kind of internship are you looking for?",
+  "What is TrustedTutor?",
   "What have you pushed to GitHub lately?",
 ];
 
@@ -184,7 +184,7 @@ export default function ChatPanel() {
           {messages.length === 0 ? (
             <div className={styles.empty}>
               <p>
-                Ask anything about my projects, the studio or what I am looking for. A language model
+                Ask anything about my projects, S39 Labs or what I am building now. A language model
                 answers in my voice, using my notes, this site and my GitHub. It can get things wrong, so
                 for anything that matters, email me.
               </p>
